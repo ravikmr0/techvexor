@@ -1,12 +1,11 @@
 import { cn } from "@/lib/utils";
-import { Button } from "./button";
-import { ButtonProps } from "@radix-ui/react-button";
+import { Button, ButtonProps } from "./button";
 
 export function GradientButton({ className, ...props }: ButtonProps) {
   return (
     <Button
       className={cn(
-        "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 text-white font-semibold transition-all",
+        "bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 hover:from-orange-600 hover:via-orange-700 hover:to-orange-600 text-white font-semibold transition-all",
         className,
       )}
       {...props}

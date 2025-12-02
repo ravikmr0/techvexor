@@ -8,7 +8,7 @@ import { serviceIndex } from "@/data/services-catalog";
 export default function ServiceDynamic() {
   const { slug } = useParams();
   const entry = slug ? serviceIndex[slug] : undefined;
-  const pageTitle = entry ? `${entry.title} Services & Solutions` : "Service Not Found";
+  const pageTitle = entry?.metaTitle || (entry ? `${entry.title} | Tech Vexor` : "Service Not Found");
   usePageTitle(pageTitle);
 
   if (!entry) {
@@ -35,8 +35,14 @@ export default function ServiceDynamic() {
       <ServiceDetailSection
         title={entry.title}
         description={entry.description}
+        longDescription={entry.longDescription}
         features={entry.features}
         benefits={entry.benefits}
+        useCases={entry.useCases}
+        technologies={entry.technologies}
+        faqs={entry.faqs}
+        metaTitle={entry.metaTitle}
+        metaDescription={entry.metaDescription}
       />
       <Footer />
     </>
