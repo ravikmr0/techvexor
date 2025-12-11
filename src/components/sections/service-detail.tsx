@@ -8,12 +8,26 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CheckCircle, ArrowLeft, Zap, Target, Code, HelpCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 interface FAQ {
   question: string;
   answer: string;
+}
+
+interface SEOProps {
+  metaTitle?: string;
+  metaDescription?: string;
+  metaKeywords?: string;
+  ogImage?: string;
+  ogType?: string;
+  twitterCard?: "summary" | "summary_large_image";
+  canonicalUrl?: string;
+  noIndex?: boolean;
+  author?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
 }
 
 interface ServiceDetailProps {
@@ -28,9 +42,15 @@ interface ServiceDetailProps {
   subtitle?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  seo?: SEOProps;
+  // Legacy props for backward compatibility
   metaTitle?: string;
   metaDescription?: string;
 }
+
+const BASE_URL = "https://techvexor.com";
+const DEFAULT_OG_IMAGE = "https://techvexor.com/og-services.jpg";
+const SITE_NAME = "Tech Vexor";
 
 export function ServiceDetailSection({
   title,
@@ -44,25 +64,204 @@ export function ServiceDetailSection({
   subtitle,
   ctaLabel = "Get a Free Consultation",
   ctaHref = "/contact",
+  seo,
   metaTitle,
   metaDescription,
 }: ServiceDetailProps) {
-  usePageTitle(metaTitle || `${title} | Tech Vexor`);
+  const location = useLocation();
+  
+  // Merge legacy props with new SEO props
+  const finalMetaTitle = seo?.metaTitle || metaTitle || `${title} | ${SITE_NAME}`;
+  const finalMetaDescription = seo?.metaDescription || metaDescription || description;
+  const canonicalUrl = seo?.canonicalUrl || `${BASE_URL}${location.pathname}`;
+  const ogImage = seo?.ogImage || DEFAULT_OG_IMAGE;
+  const ogType = seo?.ogType || "website";
+  const twitterCard = seo?.twitterCard || "summary_large_image";
+  const metaKeywords = seo?.metaKeywords || "";
+  
+  usePageTitle(finalMetaTitle, { suffix: null });
 
-  // Set meta description for SEO
+  // Comprehensive SEO meta tags
   useEffect(() => {
-    if (metaDescription) {
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute("content", metaDescription);
+    // Helper to set or create meta tag
+    const setMetaTag = (name: string, content: string, isProperty = false) => {
+      const attr = isProperty ? "property" : "name";
+      let meta = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement;
+      if (meta) {
+        meta.setAttribute("content", content);
       } else {
-        const meta = document.createElement("meta");
-        meta.name = "description";
-        meta.content = metaDescription;
+        meta = document.createElement("meta");
+        meta.setAttribute(attr, name);
+        meta.content = content;
         document.head.appendChild(meta);
       }
+    };
+
+    // Helper to set or create link tag
+    const setLinkTag = (rel: string, href: string) => {
+      let link = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement;
+      if (link) {
+        link.href = href;
+      } else {
+        link = document.createElement("link");
+        link.rel = rel;
+        link.href = href;
+        document.head.appendChild(link);
+      }
+    };
+
+    // Basic meta tags
+    setMetaTag("description", finalMetaDescription);
+    if (metaKeywords) {
+      setMetaTag("keywords", metaKeywords);
     }
-  }, [metaDescription]);
+    if (seo?.author) {
+      setMetaTag("author", seo.author);
+    }
+    if (seo?.noIndex) {
+      setMetaTag("robots", "noindex, nofollow");
+    } else {
+      setMetaTag("robots", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+    }
+
+    // Canonical URL
+    setLinkTag("canonical", canonicalUrl);
+
+    // Open Graph tags
+    setMetaTag("og:title", finalMetaTitle, true);
+    setMetaTag("og:description", finalMetaDescription, true);
+    setMetaTag("og:type", ogType, true);
+    setMetaTag("og:url", canonicalUrl, true);
+    setMetaTag("og:image", ogImage, true);
+    setMetaTag("og:image:width", "1200", true);
+    setMetaTag("og:image:height", "630", true);
+    setMetaTag("og:site_name", SITE_NAME, true);
+    setMetaTag("og:locale", "en_US", true);
+
+    // Twitter Card tags
+    setMetaTag("twitter:card", twitterCard);
+    setMetaTag("twitter:title", finalMetaTitle);
+    setMetaTag("twitter:description", finalMetaDescription);
+    setMetaTag("twitter:image", ogImage);
+    setMetaTag("twitter:site", "@techvexor");
+    setMetaTag("twitter:creator", "@techvexor");
+
+    // Article metadata (if provided)
+    if (seo?.publishedTime) {
+      setMetaTag("article:published_time", seo.publishedTime, true);
+    }
+    if (seo?.modifiedTime) {
+      setMetaTag("article:modified_time", seo.modifiedTime, true);
+    }
+
+    // JSON-LD Structured Data for Service
+    const serviceSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": title,
+      "description": finalMetaDescription,
+      "provider": {
+        "@type": "Organization",
+        "name": SITE_NAME,
+        "url": BASE_URL,
+        "logo": `${BASE_URL}/vexor1.svg`,
+        "sameAs": [
+          "https://twitter.com/techvexor",
+          "https://linkedin.com/company/techvexor",
+          "https://github.com/techvexor"
+        ]
+      },
+      "serviceType": title,
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": `${title} Services`,
+        "itemListElement": features.slice(0, 5).map((feature, index) => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": feature
+          },
+          "position": index + 1
+        }))
+      },
+      "url": canonicalUrl
+    };
+
+    // FAQ Schema if FAQs exist
+    const faqSchema = faqs.length > 0 ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    } : null;
+
+    // BreadcrumbList Schema
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": BASE_URL
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": `${BASE_URL}/services`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": title,
+          "item": canonicalUrl
+        }
+      ]
+    };
+
+    // Remove existing JSON-LD scripts
+    document.querySelectorAll('script[type="application/ld+json"][data-service-seo]').forEach(el => el.remove());
+
+    // Add Service Schema
+    const serviceScript = document.createElement("script");
+    serviceScript.type = "application/ld+json";
+    serviceScript.setAttribute("data-service-seo", "true");
+    serviceScript.textContent = JSON.stringify(serviceSchema);
+    document.head.appendChild(serviceScript);
+
+    // Add FAQ Schema if exists
+    if (faqSchema) {
+      const faqScript = document.createElement("script");
+      faqScript.type = "application/ld+json";
+      faqScript.setAttribute("data-service-seo", "true");
+      faqScript.textContent = JSON.stringify(faqSchema);
+      document.head.appendChild(faqScript);
+    }
+
+    // Add Breadcrumb Schema
+    const breadcrumbScript = document.createElement("script");
+    breadcrumbScript.type = "application/ld+json";
+    breadcrumbScript.setAttribute("data-service-seo", "true");
+    breadcrumbScript.textContent = JSON.stringify(breadcrumbSchema);
+    document.head.appendChild(breadcrumbScript);
+
+    // Cleanup on unmount
+    return () => {
+      document.querySelectorAll('script[type="application/ld+json"][data-service-seo]').forEach(el => el.remove());
+    };
+  }, [finalMetaTitle, finalMetaDescription, canonicalUrl, ogImage, ogType, twitterCard, metaKeywords, title, features, faqs, seo]);
 
   return (
     <div className="min-h-screen bg-white">

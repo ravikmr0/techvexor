@@ -9,8 +9,15 @@ export default function ITConsulting() {
       <ServiceDetailSection 
         title="IT Consulting & Digital Strategy Services"
         subtitle="Strategic guidance to drive digital transformation"
-        metaTitle="IT Consulting Services | Digital Transformation & Technology Strategy"
-        metaDescription="Strategic IT consulting to drive digital transformation. Technology roadmaps, architecture reviews, and modernization strategies aligned with your business goals."
+        seo={{
+          metaTitle: "IT Consulting Services | Digital Transformation & Technology Strategy | Tech Vexor",
+          metaDescription: "Strategic IT consulting to drive digital transformation. Technology roadmaps, enterprise architecture reviews, and modernization strategies aligned with your business goals. Expert guidance available.",
+          metaKeywords: "IT consulting, digital transformation, technology strategy, enterprise architecture, IT roadmap, legacy modernization, technology assessment, digital strategy consulting, IT governance, change management",
+          ogImage: "https://techvexor.com/og-it-consulting.jpg",
+          ogType: "website",
+          twitterCard: "summary_large_image",
+          canonicalUrl: "https://techvexor.com/services/it-consulting",
+        }}
         description="We assess your current systems, identify gaps, and build a pragmatic plan to modernize and scale. From cloud readiness to data strategy, our consulting accelerates outcomes and reduces risk."
         longDescription="Technology decisions have lasting business impact. Our IT consultants bring decades of combined experience across industries to help you make informed decisions. We bridge the gap between business objectives and technology capabilities, ensuring your investments deliver measurable value and competitive advantage."
         features={[
