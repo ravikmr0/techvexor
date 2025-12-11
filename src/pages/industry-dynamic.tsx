@@ -8,7 +8,7 @@ import { industryIndex } from "@/data/industry-catalog";
 export default function IndustryDynamic() {
   const { slug } = useParams();
   const entry = slug ? industryIndex[slug] : undefined;
-  const pageTitle = entry ? `${entry.title} Industry Solutions & Growth Strategies` : "Industry Not Found";
+  const pageTitle = entry ? `${entry.title} Software Solutions | AI & Digital Transformation | Tech Vexor` : "Industry Not Found";
   usePageTitle(pageTitle);
 
   if (!entry) {
@@ -36,8 +36,10 @@ export default function IndustryDynamic() {
         title={entry.title}
         subtitle={undefined}
         description={entry.description}
+        longDescription={entry.longDescription}
         useCases={entry.useCases}
         outcomes={entry.outcomes}
+        keywords={entry.keywords}
       />
       <Footer />
     </>

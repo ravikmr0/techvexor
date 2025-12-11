@@ -4,7 +4,7 @@ import { IndustrySolutionsPage } from "@/components/sections/industry-solutions"
 import { usePageTitle } from "@/hooks/use-page-title";
 
 export default function Industries() {
-  usePageTitle("Industries We Serve with AI & Marketing");
+  usePageTitle("Industry Solutions | AI & Software for 100+ Industries | Tech Vexor");
 
   return (
     <>
