@@ -1,15 +1,14 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { ServiceDetailSection } from "@/components/sections/service-detail";
-import { usePageTitle } from "@/hooks/use-page-title";
 import { useParams, Link } from "react-router-dom";
 import { serviceIndex } from "@/data/services-catalog";
+
+const BASE_URL = "https://techvexor.com";
 
 export default function ServiceDynamic() {
   const { slug } = useParams();
   const entry = slug ? serviceIndex[slug] : undefined;
-  const pageTitle = entry?.metaTitle || (entry ? `${entry.title} | Tech Vexor` : "Service Not Found");
-  usePageTitle(pageTitle);
 
   if (!entry) {
     return (
@@ -29,6 +28,22 @@ export default function ServiceDynamic() {
     );
   }
 
+  // Generate SEO keywords from features and technologies
+  const generateKeywords = () => {
+    const keywords = [entry.title.toLowerCase()];
+    if (entry.technologies) {
+      keywords.push(...entry.technologies.map(t => t.toLowerCase()));
+    }
+    if (entry.features) {
+      // Extract key terms from first 3 features
+      entry.features.slice(0, 3).forEach(f => {
+        const words = f.toLowerCase().split(' ').filter(w => w.length > 4);
+        keywords.push(...words.slice(0, 2));
+      });
+    }
+    return [...new Set(keywords)].join(', ');
+  };
+
   return (
     <>
       <Header />
@@ -41,8 +56,15 @@ export default function ServiceDynamic() {
         useCases={entry.useCases}
         technologies={entry.technologies}
         faqs={entry.faqs}
-        metaTitle={entry.metaTitle}
-        metaDescription={entry.metaDescription}
+        seo={{
+          metaTitle: entry.metaTitle || `${entry.title} | Tech Vexor`,
+          metaDescription: entry.metaDescription || entry.description,
+          metaKeywords: entry.metaKeywords || generateKeywords(),
+          ogImage: entry.ogImage || `${BASE_URL}/og-services.jpg`,
+          ogType: "website",
+          twitterCard: "summary_large_image",
+          canonicalUrl: `${BASE_URL}/services/${slug}`,
+        }}
       />
       <Footer />
     </>

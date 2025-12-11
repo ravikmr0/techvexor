@@ -9,8 +9,15 @@ export default function Cybersecurity() {
       <ServiceDetailSection 
         title="Cybersecurity & Data Protection Services"
         subtitle="Comprehensive security solutions to protect your business"
-        metaTitle="Cybersecurity Services | Data Protection & Security Solutions"
-        metaDescription="Comprehensive cybersecurity services including threat assessment, penetration testing, compliance, and 24/7 security monitoring. Protect your business from cyber threats."
+        seo={{
+          metaTitle: "Cybersecurity Services | Data Protection & Security Solutions | Tech Vexor",
+          metaDescription: "Comprehensive cybersecurity services including threat assessment, penetration testing, SOC 2 & HIPAA compliance, and 24/7 security monitoring. Protect your business from cyber threats today.",
+          metaKeywords: "cybersecurity services, data protection, penetration testing, security audit, SOC 2 compliance, HIPAA compliance, GDPR, threat assessment, security monitoring, incident response, zero trust security",
+          ogImage: "https://techvexor.com/og-cybersecurity.jpg",
+          ogType: "website",
+          twitterCard: "summary_large_image",
+          canonicalUrl: "https://techvexor.com/services/cybersecurity",
+        }}
         description="We harden your systems with proactive security: threat modeling, secure architecture, and continuous defense to protect your business, customers, and reputation."
         longDescription="Cyber threats are evolving constantly, and businesses of all sizes are targets. Our cybersecurity team helps you build a robust security posture through risk assessment, security implementation, continuous monitoring, and incident response. We make enterprise-grade security accessible and practical for organizations of any size."
         features={[

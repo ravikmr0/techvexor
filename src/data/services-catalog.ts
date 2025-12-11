@@ -10,6 +10,8 @@ export type ServiceEntry = {
   faqs?: { question: string; answer: string }[];
   metaTitle?: string;
   metaDescription?: string;
+  metaKeywords?: string;
+  ogImage?: string;
 };
 
 export type ServiceGroup = {
