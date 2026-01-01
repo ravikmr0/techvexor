@@ -1,12 +1,18 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SEO } from "@/components/seo/canonical-url";
 
 export default function Shipping() {
   usePageTitle("Shipping & Returns Policy");
 
   return (
     <>
+      <SEO
+        title="Shipping & Returns Policy"
+        description="Tech Vexor's shipping and returns policy. Learn about delivery times, shipping costs, and return procedures for products and goods."
+        noindex={false}
+      />
       <Header />
       <main className="min-h-screen bg-white">
         <section className="py-20 bg-slate-900 text-white">

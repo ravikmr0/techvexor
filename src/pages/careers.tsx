@@ -14,6 +14,7 @@ import {
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SEO, generateBreadcrumbSchema } from "@/components/seo/canonical-url";
 
 const jobOpenings = [
   {
@@ -185,8 +186,19 @@ const values = [
 export default function Careers() {
   usePageTitle("Careers & Open Roles in AI and Marketing");
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.techvexor.com" },
+    { name: "Careers", url: "https://www.techvexor.com/careers" }
+  ]);
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Careers & Open Roles in AI and Marketing"
+        description="Join Tech Vexor's team of passionate innovators. Explore exciting career opportunities in AI/ML, software development, cloud computing, and digital marketing. Build the future of technology with us."
+        keywords="tech careers, AI jobs, ML engineer jobs, software developer jobs Noida, IT jobs India, digital marketing careers, cloud computing jobs"
+        schema={breadcrumbSchema}
+      />
       <Header />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20">

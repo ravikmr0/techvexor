@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SEO, generateBreadcrumbSchema } from "@/components/seo/canonical-url";
 import {
   Brain,
   Bot,
@@ -146,8 +147,19 @@ const benefits = [
 export default function AISolutions() {
   usePageTitle("AI Solutions for Growth & Automation");
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.techvexor.com" },
+    { name: "AI Solutions", url: "https://www.techvexor.com/ai-solutions" }
+  ]);
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="AI Solutions for Growth & Automation"
+        description="Transform your business with Tech Vexor's cutting-edge AI solutions. Custom ML models, AI chatbots, computer vision, NLP, predictive analytics, and more. Enterprise-ready AI development services."
+        keywords="AI solutions, machine learning development, AI chatbots, computer vision, NLP services, predictive analytics, enterprise AI, custom ML models"
+        schema={breadcrumbSchema}
+      />
       <Header />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-purple-50 to-indigo-50 py-20">

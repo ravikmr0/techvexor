@@ -1,12 +1,18 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SEO } from "@/components/seo/canonical-url";
 
 export default function DataSecurity() {
   usePageTitle("Data Security & Compliance Practices");
 
   return (
     <>
+      <SEO
+        title="Data Security & Compliance Practices"
+        description="Learn about Tech Vexor's security-first approach. Defense-in-depth, encryption, secure SDLC, and compliance with ISO 27001, SOC 2, GDPR, and HIPAA standards."
+        keywords="data security, cybersecurity compliance, ISO 27001, SOC 2, GDPR compliance, secure software development, encryption, IT security"
+      />
       <Header />
       <main className="min-h-screen bg-white">
         <section className="py-20 bg-slate-900 text-white">
