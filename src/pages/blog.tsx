@@ -6,6 +6,7 @@ import { Calendar, Clock, User, ArrowRight, Search } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SEO, generateBreadcrumbSchema } from "@/components/seo/canonical-url";
 
 const featuredPost = {
   id: 1,
@@ -111,8 +112,20 @@ const categories = [
 export default function Blog() {
   usePageTitle("Insights & Resources Blog");
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.techvexor.com" },
+    { name: "Blog", url: "https://www.techvexor.com/blog" }
+  ]);
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="AI Insights & Tech Innovation Blog"
+        description="Stay updated with the latest trends, insights, and best practices in AI, machine learning, cloud computing, cybersecurity, and digital transformation. Expert articles from Tech Vexor."
+        keywords="AI blog, machine learning articles, tech insights, digital transformation blog, IT solutions blog, software development articles"
+        type="website"
+        schema={breadcrumbSchema}
+      />
       <Header />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-slate-600 to-slate-700 py-20">

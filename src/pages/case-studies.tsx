@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SEO, generateBreadcrumbSchema } from "@/components/seo/canonical-url";
 import {
   ArrowRight,
   TrendingUp,
@@ -234,8 +235,19 @@ export default function CaseStudies() {
     });
   }, [query, industry, tag]);
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.techvexor.com" },
+    { name: "Case Studies", url: "https://www.techvexor.com/case-studies" }
+  ]);
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Case Studies & Client Success Stories"
+        description="Discover how Tech Vexor transformed businesses with AI-powered solutions. Explore real case studies showing 60% cost reduction, 85% faster response times, and significant ROI improvements across industries."
+        keywords="AI case studies, digital transformation success stories, software development case studies, ML implementation results, IT solutions portfolio"
+        schema={breadcrumbSchema}
+      />
       <Header />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-indigo-500 py-24 overflow-hidden">

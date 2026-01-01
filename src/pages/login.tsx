@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SEO } from "@/components/seo/canonical-url";
 import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 import { Chrome, Github, Mail } from "lucide-react";
 import { useState } from "react";
@@ -39,6 +40,11 @@ export default function Login() {
 
   return (
     <>
+      <SEO
+        title="Client Portal Login"
+        description="Access your Tech Vexor client portal. Sign in to manage your projects, view invoices, and collaborate with our team."
+        noindex={true}
+      />
       <Header />
       <main className="relative min-h-screen overflow-hidden">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(37,99,235,0.25),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(0,181,216,0.25),transparent_45%)] bg-[#0F172A]" />

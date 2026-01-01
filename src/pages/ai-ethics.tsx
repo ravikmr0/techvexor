@@ -1,12 +1,18 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SEO } from "@/components/seo/canonical-url";
 
 export default function AIEthics() {
   usePageTitle("AI Ethics & Responsible Innovation");
 
   return (
     <>
+      <SEO
+        title="AI Ethics & Responsible Innovation"
+        description="Tech Vexor's commitment to responsible AI. Our principles focus on fairness, privacy, transparency, safety, and human oversight in AI development."
+        keywords="AI ethics, responsible AI, ethical AI development, AI fairness, AI transparency, AI governance, trustworthy AI"
+      />
       <Header />
       <main className="min-h-screen bg-white">
         <section className="py-20 bg-slate-900 text-white">

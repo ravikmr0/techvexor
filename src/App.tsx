@@ -64,6 +64,9 @@ import IndustryDynamic from "./pages/industry-dynamic";
 import BlogPost from "./pages/blog/[slug]";
 import CaseStudyDetail from "./pages/case-studies/[slug]";
 
+// 404 Page
+import NotFound from "./pages/not-found";
+
 import routes from "tempo-routes";
 
 function ScrollToTop() {
@@ -146,6 +149,9 @@ function App() {
           {/* Case Studies Routes */}
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
+
+          {/* 404 Catch-all Route */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
         {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
       </>

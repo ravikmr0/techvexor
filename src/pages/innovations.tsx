@@ -3,6 +3,7 @@ import { Footer } from "@/components/sections/footer";
 import { Card } from "@/components/ui/card";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SEO, generateBreadcrumbSchema } from "@/components/seo/canonical-url";
 import { Brain, Shield, Cloud, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -40,8 +41,19 @@ const highlights = [
 export default function Innovations() {
   usePageTitle("Innovation Lab & Emerging Tech");
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.techvexor.com" },
+    { name: "Innovations", url: "https://www.techvexor.com/innovations" }
+  ]);
+
   return (
     <>
+      <SEO
+        title="Innovation Lab & Emerging Tech"
+        description="Explore Tech Vexor's innovation lab featuring cutting-edge AI solutions, cloud-native platforms, cybersecurity defenses, and emerging technologies. LLM agents, MLOps, and scalable data platforms."
+        keywords="innovation lab, emerging tech, AI research, MLOps, cloud native, LLM agents, data platforms, tech innovation"
+        schema={breadcrumbSchema}
+      />
       <Header />
       <main className="min-h-screen bg-white">
         <section className="py-20 bg-slate-900 text-white">

@@ -1,12 +1,18 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SEO } from "@/components/seo/canonical-url";
 
 export default function CancellationRefunds() {
   usePageTitle("Cancellation & Refund Policy Details");
 
   return (
     <>
+      <SEO
+        title="Cancellation & Refund Policy"
+        description="Tech Vexor's cancellation and refund policy. Understand our terms for project cancellations, subscription refunds, and product returns."
+        noindex={false}
+      />
       <Header />
       <main className="min-h-screen bg-white">
         <section className="py-20 bg-slate-900 text-white">

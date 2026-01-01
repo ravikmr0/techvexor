@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { ArrowRight, ExternalLink, Github, Globe } from "lucide-react";
+import { SEO, generateBreadcrumbSchema } from "@/components/seo/canonical-url";
 
 const projects = [
   {
@@ -78,8 +79,19 @@ const projects = [
 export default function Projects() {
   usePageTitle("Client Success Projects & Case Studies");
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.techvexor.com" },
+    { name: "Projects", url: "https://www.techvexor.com/projects" }
+  ]);
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Client Success Projects & Case Studies"
+        description="Explore Tech Vexor's portfolio of successful projects including AI-powered platforms, healthcare systems, financial dashboards, IoT solutions, and more. See how we've helped businesses transform with technology."
+        keywords="software development portfolio, AI projects, ML case studies, IT solutions projects, custom software examples, enterprise applications"
+        schema={breadcrumbSchema}
+      />
       <Header />
 
       {/* Hero Section */}

@@ -1,12 +1,18 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SEO } from "@/components/seo/canonical-url";
 
 export default function PrivacyPolicy() {
   usePageTitle("Privacy Policy & Data Handling");
 
   return (
     <>
+      <SEO
+        title="Privacy Policy"
+        description="Read Tech Vexor's privacy policy. Learn how we collect, use, and protect your personal information. We are committed to data privacy and transparency."
+        noindex={false}
+      />
       <Header />
       <main className="min-h-screen bg-white">
         <section className="py-20 bg-slate-900 text-white">

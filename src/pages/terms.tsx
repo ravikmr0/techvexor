@@ -1,12 +1,18 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SEO } from "@/components/seo/canonical-url";
 
 export default function Terms() {
   usePageTitle("Terms & Conditions Overview");
 
   return (
     <>
+      <SEO
+        title="Terms & Conditions"
+        description="Read Tech Vexor's terms and conditions. Understand our service terms, intellectual property rights, warranties, and legal agreements."
+        noindex={false}
+      />
       <Header />
       <main className="min-h-screen bg-white">
         <section className="py-20 bg-slate-900 text-white">

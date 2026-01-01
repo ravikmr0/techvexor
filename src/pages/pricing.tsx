@@ -6,6 +6,7 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { Button } from "@/components/ui/button";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { Check } from "lucide-react";
+import { SEO, generateBreadcrumbSchema } from "@/components/seo/canonical-url";
 
 type Plan = { name: string; price: string; tagline: string; features: string[]; popular?: boolean };
 
@@ -196,8 +197,19 @@ function Section({ title, subtitle, items, bg }: { title: string; subtitle?: str
 export default function Pricing() {
   usePageTitle("Pricing for AI, Marketing & Technology Services");
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.techvexor.com" },
+    { name: "Pricing", url: "https://www.techvexor.com/pricing" }
+  ]);
+
   return (
     <>
+      <SEO
+        title="Transparent Pricing for AI, Marketing & Technology Services"
+        description="View Tech Vexor's competitive pricing for website development, mobile apps, AI/ML solutions, cloud services, digital marketing, and more. Transparent pricing starting from ₹25,000. Get a free quote today."
+        keywords="IT services pricing India, website development cost, AI ML solutions pricing, digital marketing packages, software development rates, cloud services pricing"
+        schema={breadcrumbSchema}
+      />
       <Header />
       <main className="min-h-screen bg-white">
         <section className="py-20 bg-slate-900 text-white">
