@@ -1,5 +1,7 @@
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { Button } from "@/components/ui/button";
 import { usePageTitle } from "@/hooks/use-page-title";
 import {
   Accordion,
@@ -7,9 +9,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CheckCircle, ArrowLeft, Zap, Target, Code, HelpCircle } from "lucide-react";
+import { CheckCircle, ArrowLeft, Zap, Target, Code, HelpCircle, MessageSquareQuote } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { QuoteDialog } from "@/components/quote-dialog";
 
 interface FAQ {
   question: string;
@@ -69,6 +71,7 @@ export function ServiceDetailSection({
   metaDescription,
 }: ServiceDetailProps) {
   const location = useLocation();
+  const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
   
   // Merge legacy props with new SEO props
   const finalMetaTitle = seo?.metaTitle || metaTitle || `${title} | ${SITE_NAME}`;
@@ -265,6 +268,12 @@ export function ServiceDetailSection({
 
   return (
     <div className="min-h-screen bg-white">
+      <QuoteDialog 
+        open={quoteDialogOpen} 
+        onOpenChange={setQuoteDialogOpen}
+        serviceTitle={title}
+      />
+      
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
         <div className="container mx-auto px-4">
@@ -287,6 +296,15 @@ export function ServiceDetailSection({
               <GradientButton asChild size="lg">
                 <Link to={ctaHref}>{ctaLabel}</Link>
               </GradientButton>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => setQuoteDialogOpen(true)}
+                className="border-white text-white hover:bg-white hover:text-slate-900"
+              >
+                <MessageSquareQuote className="w-4 h-4 mr-2" />
+                Quote Now
+              </Button>
               <Link to="/services" className="text-slate-300 hover:text-white transition-colors">
                 Explore All Services →
               </Link>
@@ -442,6 +460,14 @@ export function ServiceDetailSection({
             <GradientButton asChild size="lg" className="bg-white text-orange-600 hover:bg-slate-100">
               <Link to={ctaHref}>Schedule a Free Consultation</Link>
             </GradientButton>
+            <Button
+              size="lg"
+              onClick={() => setQuoteDialogOpen(true)}
+              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-orange-600"
+            >
+              <MessageSquareQuote className="w-4 h-4 mr-2" />
+              Get a Quote
+            </Button>
             <Link
               to="/services"
               className="inline-flex items-center px-6 py-3 text-white border-2 border-white rounded-lg hover:bg-white hover:text-orange-600 transition-colors font-medium"

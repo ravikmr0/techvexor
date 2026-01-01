@@ -1,5 +1,6 @@
-import { Suspense } from "react";
-import { useRoutes, Routes, Route } from "react-router-dom";
+import { Suspense, useEffect } from "react";
+import { useRoutes, Routes, Route, useLocation } from "react-router-dom";
+import { CanonicalUrl } from "./components/seo/canonical-url";
 import Home from "./components/home";
 
 // Main Pages
@@ -65,10 +66,22 @@ import CaseStudyDetail from "./pages/case-studies/[slug]";
 
 import routes from "tempo-routes";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <>
+        <ScrollToTop />
+        <CanonicalUrl />
         <Routes>
           {/* Main Routes */}
           <Route path="/" element={<Home />} />

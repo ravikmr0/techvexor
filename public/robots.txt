@@ -15,21 +15,32 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /*.json$
 
+# Disallow URLs with query parameters to prevent duplicate content
+Disallow: /*?*
+Disallow: /*?subject=*
+Disallow: /*?message=*
+
 # Allow all major search engines
 User-agent: Googlebot
 Allow: /
+Disallow: /*?*
 
 User-agent: Bingbot
 Allow: /
+Disallow: /*?*
 
 User-agent: Slurp
 Allow: /
+Disallow: /*?*
 
 User-agent: DuckDuckBot
 Allow: /
+Disallow: /*?*
 
 User-agent: Baiduspider
 Allow: /
+Disallow: /*?*
 
 User-agent: YandexBot
 Allow: /
+Disallow: /*?*
