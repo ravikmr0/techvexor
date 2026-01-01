@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, MessageSquareQuote } from "lucide-react";
 import { serviceGroups } from "@/data/services-catalog";
+import { QuoteDialog } from "@/components/quote-dialog";
 
 const heroCTAs = [
   { label: "Talk to an Expert", href: "/contact" },
@@ -17,8 +20,24 @@ const benefits = [
 ];
 
 export function ServicesPage() {
+  const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<string>("");
+
+  const handleQuoteClick = (e: React.MouseEvent, serviceTitle: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSelectedService(serviceTitle);
+    setQuoteDialogOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      <QuoteDialog 
+        open={quoteDialogOpen} 
+        onOpenChange={setQuoteDialogOpen}
+        serviceTitle={selectedService}
+      />
+      
       {/* Hero Section */}
       <section className="py-20 bg-slate-900 text-white">
         <div className="container mx-auto px-4">
@@ -50,20 +69,27 @@ export function ServicesPage() {
               <h2 className="text-2xl font-bold mb-6">{group.name}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {group.items.map((svc, si) => (
-                  <Link key={si} to={`/services/${svc.slug}`}>
-                    <Card className="p-6 hover:shadow-lg transition-shadow h-full">
-                      <h3 className="text-lg font-semibold mb-2">{svc.title}</h3>
+                  <Card key={si} className="p-6 hover:shadow-lg transition-shadow h-full flex flex-col">
+                    <Link to={`/services/${svc.slug}`} className="flex-1">
+                      <h3 className="text-lg font-semibold mb-2 hover:text-indigo-600 transition-colors">{svc.title}</h3>
                       <p className="text-slate-600 mb-4">{svc.description}</p>
-                      <ul className="space-y-2">
+                      <ul className="space-y-2 mb-4">
                         {svc.features.slice(0, 3).map((f, fi) => (
                           <li key={fi} className="flex items-start space-x-2 text-slate-600">
-                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
-                            <span>{f}</span>
+                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">{f}</span>
                           </li>
                         ))}
                       </ul>
-                    </Card>
-                  </Link>
+                    </Link>
+                    <Button
+                      onClick={(e) => handleQuoteClick(e, svc.title)}
+                      className="w-full mt-auto bg-indigo-600 hover:bg-indigo-700 text-white"
+                    >
+                      <MessageSquareQuote className="w-4 h-4 mr-2" />
+                      Quote Now
+                    </Button>
+                  </Card>
                 ))}
               </div>
             </div>

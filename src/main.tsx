@@ -4,6 +4,7 @@ import App from "./App.tsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { ErrorBoundary } from "./components/error-boundary";
+import { HelmetProvider } from "react-helmet-async";
 
 /* import { TempoDevtools } from 'tempo-devtools'; [deprecated] */
 /* TempoDevtools.init() [deprecated] */;
@@ -18,10 +19,12 @@ if (!rootElement) {
 
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <ErrorBoundary>
-      <BrowserRouter basename={basename}>
-        <App />
-      </BrowserRouter>
-    </ErrorBoundary>
+    <HelmetProvider>
+      <ErrorBoundary>
+        <BrowserRouter basename={basename}>
+          <App />
+        </BrowserRouter>
+      </ErrorBoundary>
+    </HelmetProvider>
   </React.StrictMode>,
 );
