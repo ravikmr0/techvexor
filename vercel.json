@@ -5,7 +5,7 @@
       "has": [
         {
           "type": "host",
-          "value": "www.techvexor.com"
+          "value": "techvexor.com"
         }
       ],
       "destination": "https://www.techvexor.com/:path*",
@@ -31,6 +31,10 @@
   ],
   "functions": {
     "api/send-email.ts": {
+      "memory": 1024,
+      "maxDuration": 10
+    },
+    "api/send-contact.ts": {
       "memory": 1024,
       "maxDuration": 10
     }

@@ -75,7 +75,7 @@ const socialLinks = [
   {
     name: "Instagram",
     icon: Instagram,
-    href: "http://instagram.com/techvexor/",
+    href: "https://instagram.com/techvexor/",
   },
 ];
 
@@ -229,7 +229,7 @@ export function Footer() {
         <div className="border-t border-slate-800 pt-6 mt-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-slate-400">
             <div>© 2025 Tech Vexor. All Rights Reserved.</div>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-2">
               <Link to="/privacy-policy" className="hover:text-white">
                 Privacy Policy
               </Link>
@@ -241,6 +241,12 @@ export function Footer() {
               </Link>
               <Link to="/ai-ethics" className="hover:text-white">
                 AI Ethics
+              </Link>
+              <Link to="/shipping" className="hover:text-white">
+                Shipping & Returns
+              </Link>
+              <Link to="/cancellation-refunds" className="hover:text-white">
+                Cancellation & Refunds
               </Link>
             </div>
           </div>

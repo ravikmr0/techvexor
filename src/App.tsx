@@ -22,6 +22,8 @@ import PrivacyPolicy from "./pages/privacy-policy";
 import Terms from "./pages/terms";
 import DataSecurity from "./pages/data-security";
 import AIEthics from "./pages/ai-ethics";
+import CancellationRefunds from "./pages/cancellation-refunds";
+import Shipping from "./pages/shipping";
 
 // Service Pages
 import ServiceITConsulting from "./pages/services/it-consulting";
@@ -102,6 +104,8 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/data-security" element={<DataSecurity />} />
           <Route path="/ai-ethics" element={<AIEthics />} />
+          <Route path="/cancellation-refunds" element={<CancellationRefunds />} />
+          <Route path="/shipping" element={<Shipping />} />
 
           {/* Services Routes */}
           <Route path="/services" element={<Services />} />
