@@ -16,6 +16,7 @@ import Industries from "./pages/industries";
 import Innovations from "./pages/innovations";
 import Login from "./pages/login";
 import Pricing from "./pages/pricing";
+import SearchPage from "./pages/search";
 
 // Legal Pages
 import PrivacyPolicy from "./pages/privacy-policy";
@@ -96,6 +97,7 @@ function App() {
           <Route path="/innovations" element={<Innovations />} />
           <Route path="/login" element={<Login />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/search" element={<SearchPage />} />
 
           {/* Legal Routes */}
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

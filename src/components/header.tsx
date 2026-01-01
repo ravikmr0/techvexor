@@ -1,5 +1,4 @@
-import { Search, Menu, X } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Search, Menu, X, Command } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { serviceGroups } from "@/data/services-catalog";
 import { industryGroups } from "@/data/industry-catalog";
+import { SearchDialog, useSearchDialog } from "@/components/search-dialog";
 
 const navItems = [
   { label: "Projects", href: "/projects" },
@@ -24,6 +24,7 @@ const navItems = [
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { open: searchOpen, setOpen: setSearchOpen } = useSearchDialog();
   const location = useLocation();
   const isActive = (href: string) => location.pathname === href;
 
@@ -59,17 +60,18 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end">
-            {/* Search Bar - Desktop Only */}
-            <div className="flex items-center max-w-xs w-full relative">
-              <div className="relative w-full">
-                <Input
-                  type="search"
-                  placeholder="Search..."
-                  className="pl-10 bg-slate-800/50 border-slate-700 text-slate-300 placeholder:text-slate-500 w-full"
-                />
-                <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-500" />
+            {/* Search Button - Desktop */}
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="flex items-center gap-2 px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-400 hover:text-slate-300 hover:bg-slate-800/70 transition-colors min-w-[200px]"
+            >
+              <Search className="w-4 h-4" />
+              <span className="text-sm">Search...</span>
+              <div className="ml-auto flex items-center gap-0.5 text-xs">
+                <kbd className="px-1.5 py-0.5 bg-slate-700 rounded text-[10px] font-medium">⌘</kbd>
+                <kbd className="px-1.5 py-0.5 bg-slate-700 rounded text-[10px] font-medium">K</kbd>
               </div>
-            </div>
+            </button>
 
             {/* Navigation Items */}
             <NavigationMenu>
@@ -233,14 +235,12 @@ export function Header() {
 
           {/* Mobile Search and Menu */}
           <div className="flex items-center space-x-4 lg:hidden ml-auto">
-            <div className="relative w-full max-w-[140px]">
-              <Input
-                type="search"
-                placeholder="Search..."
-                className="pl-8 py-1 h-8 text-sm bg-slate-800/50 border-slate-700 text-slate-300 placeholder:text-slate-500"
-              />
-              <Search className="w-3 h-3 absolute left-2.5 top-1/2 transform -translate-y-1/2 text-slate-500" />
-            </div>
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="flex items-center justify-center w-8 h-8 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-400 hover:text-slate-300 transition-colors"
+            >
+              <Search className="w-4 h-4" />
+            </button>
             <button
               className="text-white p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -296,6 +296,9 @@ export function Header() {
           </div>
         </div>
       )}
+
+      {/* Search Dialog */}
+      <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
     </header>
   );
 }
