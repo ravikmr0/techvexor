@@ -8,7 +8,7 @@
           "value": "www.techvexor.com"
         }
       ],
-      "destination": "https://techvexor.com/:path*",
+      "destination": "https://www.techvexor.com/:path*",
       "permanent": true
     }
   ],

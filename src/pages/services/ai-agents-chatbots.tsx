@@ -13,10 +13,10 @@ export default function AIAgentsChatbots() {
           metaTitle: "AI Chatbot Development Services | Conversational AI Solutions | Tech Vexor",
           metaDescription: "Build intelligent AI chatbots and conversational AI solutions. Custom LLM integration, RAG systems, GPT-4 & Claude powered bots. Reduce support costs by 40-60%. Free consultation.",
           metaKeywords: "AI chatbot development, conversational AI, LLM integration, GPT-4 chatbot, Claude AI, RAG systems, customer support automation, virtual assistant, chatbot services, NLP chatbot, WhatsApp bot",
-          ogImage: "https://techvexor.com/og-ai-chatbots.jpg",
+          ogImage: "https://www.techvexor.com/og-ai-chatbots.jpg",
           ogType: "website",
           twitterCard: "summary_large_image",
-          canonicalUrl: "https://techvexor.com/services/ai-agents-chatbots",
+          canonicalUrl: "https://www.techvexor.com/services/ai-agents-chatbots",
         }}
         description="We design and implement LLM-powered agents and chatbots tailored to your workflows—grounded in your data, secure, and reliable. Transform customer interactions with AI that understands context and delivers results."
         longDescription="Our AI chatbot solutions leverage the latest in large language models and conversational AI to create intelligent assistants that truly understand your customers. From simple FAQ bots to complex multi-turn conversations with tool use, we build solutions that reduce costs while improving customer satisfaction."

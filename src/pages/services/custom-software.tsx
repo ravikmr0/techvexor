@@ -13,10 +13,10 @@ export default function CustomSoftware() {
           metaTitle: "Custom Software Development Services | Bespoke Software Solutions | Tech Vexor",
           metaDescription: "Expert custom software development services. Build scalable, secure applications tailored to your business needs. Full-stack development from MVP to enterprise solutions. Free consultation available.",
           metaKeywords: "custom software development, bespoke software, web application development, mobile app development, enterprise software, SaaS development, full-stack development, software engineering services",
-          ogImage: "https://techvexor.com/og-custom-software.jpg",
+          ogImage: "https://www.techvexor.com/og-custom-software.jpg",
           ogType: "website",
           twitterCard: "summary_large_image",
-          canonicalUrl: "https://techvexor.com/services/custom-software",
+          canonicalUrl: "https://www.techvexor.com/services/custom-software",
         }}
         description="We build secure, scalable products and platforms with modern stacks and exceptional UX. From MVPs to enterprise systems, we deliver end-to-end custom software solutions that drive business growth."
         longDescription="Our custom software development team transforms your ideas into powerful digital solutions. We combine deep technical expertise with business acumen to create software that solves real problems and delivers measurable ROI. Every project is built with scalability, security, and maintainability at its core."

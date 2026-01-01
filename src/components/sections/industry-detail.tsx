@@ -34,7 +34,7 @@ export function IndustryDetailSection({
     "provider": {
       "@type": "Organization",
       "name": "Tech Vexor",
-      "url": "https://techvexor.com"
+      "url": "https://www.techvexor.com"
     },
     "serviceType": "Software Development & AI Solutions",
     "areaServed": "Worldwide",

@@ -50,8 +50,8 @@ interface ServiceDetailProps {
   metaDescription?: string;
 }
 
-const BASE_URL = "https://techvexor.com";
-const DEFAULT_OG_IMAGE = "https://techvexor.com/og-services.jpg";
+const BASE_URL = "https://www.techvexor.com";
+const DEFAULT_OG_IMAGE = "https://www.techvexor.com/og-services.jpg";
 const SITE_NAME = "Tech Vexor";
 
 export function ServiceDetailSection({

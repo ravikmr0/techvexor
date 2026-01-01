@@ -29,7 +29,7 @@ export function IndustrySolutionsPage() {
           "@type": "Service",
           "name": `${item.title} Solutions`,
           "description": item.description,
-          "url": `https://techvexor.com/industries/${item.slug}`
+          "url": `https://www.techvexor.com/industries/${item.slug}`
         }
       }))
     )

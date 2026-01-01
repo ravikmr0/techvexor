@@ -105,7 +105,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               In the meantime, feel free to explore our services and case studies on our website.
             </p>
             <div style="text-align: center; margin: 30px 0;">
-              <a href="https://techvexor.com" style="background-color: #ea580c; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">
+              <a href="https://www.techvexor.com" style="background-color: #ea580c; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">
                 Visit Our Website
               </a>
             </div>

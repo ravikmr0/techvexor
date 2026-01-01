@@ -5,6 +5,7 @@ import { Users, Target, Award, Globe, Linkedin, Mail } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { Helmet } from "react-helmet-async";
 
 const teamMembers = [
   {
@@ -61,6 +62,19 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <title>About Tech Vexor | Our Story, Team & Mission | IT Solutions Company</title>
+        <meta name="description" content="Learn about Tech Vexor - a forward-thinking technology company specializing in AI solutions, cloud computing, and digital transformation. Meet our team and discover our mission." />
+        <meta name="keywords" content="about Tech Vexor, IT company Noida, technology team, AI solutions company, digital transformation experts, cloud computing services, software development team" />
+        <link rel="canonical" href="https://www.techvexor.com/about" />
+        <meta property="og:title" content="About Tech Vexor | Our Story, Team & Mission" />
+        <meta property="og:description" content="Learn about Tech Vexor - a forward-thinking technology company specializing in AI solutions, cloud computing, and digital transformation." />
+        <meta property="og:url" content="https://www.techvexor.com/about" />
+        <meta property="og:type" content="website" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="About Tech Vexor | Our Story, Team & Mission" />
+        <meta property="twitter:description" content="Learn about Tech Vexor - a forward-thinking technology company specializing in AI solutions, cloud computing, and digital transformation." />
+      </Helmet>
       <Header />
   {/* Hero Section */}
   <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20">
