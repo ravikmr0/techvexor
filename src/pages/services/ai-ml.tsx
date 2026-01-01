@@ -13,10 +13,10 @@ export default function AIAndML() {
           metaTitle: "AI & Machine Learning Development Services | ML Solutions Company | Tech Vexor",
           metaDescription: "Expert AI and machine learning development services. Build predictive models, recommendation systems, NLP solutions, and computer vision applications with production-ready MLOps. Get a free consultation today.",
           metaKeywords: "AI development, machine learning services, ML solutions, predictive analytics, NLP development, computer vision, MLOps, AI consulting, deep learning, neural networks, data science services",
-          ogImage: "https://techvexor.com/og-ai-ml-services.jpg",
+          ogImage: "https://www.techvexor.com/og-ai-ml-services.jpg",
           ogType: "website",
           twitterCard: "summary_large_image",
-          canonicalUrl: "https://techvexor.com/services/ai-ml",
+          canonicalUrl: "https://www.techvexor.com/services/ai-ml",
         }}
         description="We build and deploy end-to-end AI systems: data pipelines, model training, evaluation, and serving. Unlock predictions, recommendations, and automation that drive measurable business outcomes."
         longDescription="Our AI/ML team combines deep technical expertise with business acumen to deliver AI solutions that work in the real world. From initial data exploration to production deployment and monitoring, we handle the complete machine learning lifecycle with a focus on reliability, scalability, and measurable ROI."

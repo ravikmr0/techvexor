@@ -1,11 +1,11 @@
 # Robots.txt for Tech Vexor
-# https://techvexor.com
+# https://www.techvexor.com
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://techvexor.com/sitemap.xml
+Sitemap: https://www.techvexor.com/sitemap.xml
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1

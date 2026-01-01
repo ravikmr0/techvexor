@@ -4,7 +4,7 @@ import { ServiceDetailSection } from "@/components/sections/service-detail";
 import { useParams, Link } from "react-router-dom";
 import { serviceIndex } from "@/data/services-catalog";
 
-const BASE_URL = "https://techvexor.com";
+const BASE_URL = "https://www.techvexor.com";
 
 export default function ServiceDynamic() {
   const { slug } = useParams();

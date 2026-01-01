@@ -20,6 +20,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { sendContactEmail, sendAutoReply } from "@/lib/email";
 import { Loader2, CheckCircle, AlertCircle } from "lucide-react";
 
@@ -178,6 +179,17 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <title>Contact Tech Vexor | Get in Touch with IT Experts | Request a Quote</title>
+        <meta name="description" content="Contact Tech Vexor for IT solutions, software development, AI/ML services, and digital marketing. Schedule a consultation with our experts today." />
+        <meta name="keywords" content="contact Tech Vexor, IT consultation, get a quote, technology consultation, software development inquiry, digital transformation consultation" />
+        <link rel="canonical" href="https://www.techvexor.com/contact" />
+        <meta property="og:title" content="Contact Tech Vexor | Get in Touch with IT Experts" />
+        <meta property="og:description" content="Contact Tech Vexor for IT solutions, software development, AI/ML services, and digital marketing. Schedule a consultation with our experts today." />
+        <meta property="og:url" content="https://www.techvexor.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="twitter:card" content="summary_large_image" />
+      </Helmet>
       <Header />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-slate-700 to-slate-900 py-20">

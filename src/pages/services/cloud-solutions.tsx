@@ -13,10 +13,10 @@ export default function CloudSolutions() {
           metaTitle: "Cloud Services | AWS, Azure, GCP Cloud Solutions & Migration | Tech Vexor",
           metaDescription: "Expert cloud services including migration, infrastructure setup, DevOps, and cost optimization. AWS, Azure, and Google Cloud certified team. Reduce costs by 30-50%. Free cloud assessment.",
           metaKeywords: "cloud services, AWS consulting, Azure solutions, Google Cloud Platform, cloud migration, DevOps services, cloud infrastructure, Kubernetes, serverless architecture, cloud cost optimization, FinOps",
-          ogImage: "https://techvexor.com/og-cloud-solutions.jpg",
+          ogImage: "https://www.techvexor.com/og-cloud-solutions.jpg",
           ogType: "website",
           twitterCard: "summary_large_image",
-          canonicalUrl: "https://techvexor.com/services/cloud-solutions",
+          canonicalUrl: "https://www.techvexor.com/services/cloud-solutions",
         }}
         description="We design and implement secure, scalable cloud platforms across AWS, Azure, and GCP. Modernize workloads, automate delivery, and improve reliability while optimizing costs."
         longDescription="Cloud infrastructure is the foundation of modern digital businesses. Our certified cloud architects design and implement solutions that are secure, scalable, and cost-optimized. From lift-and-shift migrations to cloud-native architectures, we help you harness the full potential of cloud computing."

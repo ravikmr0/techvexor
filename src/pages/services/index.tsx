@@ -5,7 +5,7 @@ import { Footer } from "@/components/sections/footer";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const BASE_URL = "https://techvexor.com";
+const BASE_URL = "https://www.techvexor.com";
 const SITE_NAME = "Tech Vexor";
 
 export default function Services() {

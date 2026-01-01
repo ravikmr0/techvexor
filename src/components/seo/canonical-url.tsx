@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 
-const BASE_URL = "https://techvexor.com";
+const BASE_URL = "https://www.techvexor.com";
 
 /**
  * CanonicalUrl component that sets the canonical URL for the current page.
