@@ -5,7 +5,7 @@
       "has": [
         {
           "type": "host",
-          "value": "www.techvexor.com"
+          "value": "techvexor.com"
         }
       ],
       "destination": "https://www.techvexor.com/:path*",

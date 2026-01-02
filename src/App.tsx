@@ -24,8 +24,10 @@ import PrivacyPolicy from "./pages/privacy-policy";
 import Terms from "./pages/terms";
 import DataSecurity from "./pages/data-security";
 import AIEthics from "./pages/ai-ethics";
+import CancellationRefunds from "./pages/cancellation-refunds";
+import Shipping from "./pages/shipping";
 
-// Service Pages
+// Service Pages (all under /services folder)
 import ServiceITConsulting from "./pages/services/it-consulting";
 import ServiceCloudSolutions from "./pages/services/cloud-solutions";
 import ServiceAIAndML from "./pages/services/ai-ml";
@@ -34,32 +36,32 @@ import ServiceCybersecurity from "./pages/services/cybersecurity";
 import ServiceCustomSoftware from "./pages/services/custom-software";
 import ServiceDynamic from "./pages/service-dynamic";
 
-// Industry Pages
+// Industry Pages (all under /industries folder)
 import IndustryFinance from "./pages/industries/finance";
 import IndustryHealthcare from "./pages/industries/healthcare";
-import IndustryRetail from "./pages/industries-retail";
-import IndustryManufacturing from "./pages/industries-manufacturing";
-import IndustryEducation from "./pages/industries-education";
-import IndustryEcommerce from "./pages/industries-ecommerce";
-import IndustryRestaurantsCafes from "./pages/industries-restaurants-cafes";
-import IndustryRealEstate from "./pages/industries-real-estate";
-import IndustryTravelTourism from "./pages/industries-travel-tourism";
-import IndustryFitnessWellness from "./pages/industries-fitness-wellness";
-import IndustryNonProfits from "./pages/industries-non-profits";
-import IndustryEntertainmentMedia from "./pages/industries-entertainment-media";
-import IndustryConsulting from "./pages/industries-consulting";
-import IndustryMarketingAdvertising from "./pages/industries-marketing-advertising";
-import IndustryPhotography from "./pages/industries-photography";
-import IndustryLogisticsTransportation from "./pages/industries-logistics-transportation";
-import IndustryFashionApparel from "./pages/industries-fashion-apparel";
-import IndustryBeautySalonsSpas from "./pages/industries-beauty-salons-spas";
-import IndustrySports from "./pages/industries-sports";
-import IndustryPublishing from "./pages/industries-publishing";
-import IndustryLocalServices from "./pages/industries-local-services";
-import IndustryConstruction from "./pages/industries-construction";
-import IndustryWeddingPlanners from "./pages/industries-wedding-planners";
-import IndustryArtsCrafts from "./pages/industries-arts-crafts";
-import IndustryGreenEnergy from "./pages/industries-green-energy";
+import IndustryRetail from "./pages/industries/retail";
+import IndustryManufacturing from "./pages/industries/manufacturing";
+import IndustryEducation from "./pages/industries/education";
+import IndustryEcommerce from "./pages/industries/ecommerce";
+import IndustryRestaurantsCafes from "./pages/industries/restaurants-cafes";
+import IndustryRealEstate from "./pages/industries/real-estate";
+import IndustryTravelTourism from "./pages/industries/travel-tourism";
+import IndustryFitnessWellness from "./pages/industries/fitness-wellness";
+import IndustryNonProfits from "./pages/industries/non-profits";
+import IndustryEntertainmentMedia from "./pages/industries/entertainment-media";
+import IndustryConsulting from "./pages/industries/consulting";
+import IndustryMarketingAdvertising from "./pages/industries/marketing-advertising";
+import IndustryPhotography from "./pages/industries/photography";
+import IndustryLogisticsTransportation from "./pages/industries/logistics-transportation";
+import IndustryFashionApparel from "./pages/industries/fashion-apparel";
+import IndustryBeautySalonsSpas from "./pages/industries/beauty-salons-spas";
+import IndustrySports from "./pages/industries/sports";
+import IndustryPublishing from "./pages/industries/publishing";
+import IndustryLocalServices from "./pages/industries/local-services";
+import IndustryConstruction from "./pages/industries/construction";
+import IndustryWeddingPlanners from "./pages/industries/wedding-planners";
+import IndustryArtsCrafts from "./pages/industries/arts-crafts";
+import IndustryGreenEnergy from "./pages/industries/green-energy";
 import IndustryDynamic from "./pages/industry-dynamic";
 
 // Blog & Case Study Detail Pages
@@ -104,6 +106,8 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/data-security" element={<DataSecurity />} />
           <Route path="/ai-ethics" element={<AIEthics />} />
+          <Route path="/cancellation-refunds" element={<CancellationRefunds />} />
+          <Route path="/shipping" element={<Shipping />} />
 
           {/* Services Routes */}
           <Route path="/services" element={<Services />} />

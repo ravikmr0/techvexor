@@ -12,7 +12,12 @@ if (process.env.TEMPO === "true") {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === "development" ? "/" : process.env.VITE_BASE_PATH || "/",
+  base: "/",
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: false,
+  },
   optimizeDeps: {
     entries: ["src/main.tsx", "src/tempobook/**/*"],
   },
