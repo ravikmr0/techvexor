@@ -1,6 +1,6 @@
 import { usePageTitle } from "@/hooks/use-page-title";
 import { Header } from "@/components/header";
-import IndustrySolutions from "@/components/sections/industry-solutions";
+import { IndustrySolutionsPage as IndustrySolutions } from "@/components/sections/industry-solutions";
 import { Footer } from "@/components/sections/footer";
 
 export default function Industries() {
