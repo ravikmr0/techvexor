@@ -18,6 +18,7 @@ import {
   ArrowRight,
   Filter,
   X,
+  Package,
 } from "lucide-react";
 import { searchContent, SearchResult, SearchResultType } from "@/components/search/search-data";
 import { cn } from "@/lib/utils";
@@ -26,7 +27,7 @@ import { SEO } from "@/components/seo/canonical-url";
 const typeIcons: Record<SearchResultType, React.ReactNode> = {
   service: <Briefcase className="w-5 h-5" />,
   project: <FileText className="w-5 h-5" />,
-  pricing: <DollarSign className="w-5 h-5" />,
+  product: <Package className="w-5 h-5" />,
   industry: <Building2 className="w-5 h-5" />,
   page: <Globe className="w-5 h-5" />,
 };
@@ -34,7 +35,7 @@ const typeIcons: Record<SearchResultType, React.ReactNode> = {
 const typeLabels: Record<SearchResultType, string> = {
   service: "Services",
   project: "Projects",
-  pricing: "Pricing",
+  product: "Products",
   industry: "Industries",
   page: "Pages",
 };
@@ -42,7 +43,7 @@ const typeLabels: Record<SearchResultType, string> = {
 const typeColors: Record<SearchResultType, string> = {
   service: "bg-blue-100 text-blue-700 border-blue-200",
   project: "bg-purple-100 text-purple-700 border-purple-200",
-  pricing: "bg-green-100 text-green-700 border-green-200",
+  product: "bg-green-100 text-green-700 border-green-200",
   industry: "bg-orange-100 text-orange-700 border-orange-200",
   page: "bg-slate-100 text-slate-700 border-slate-200",
 };
@@ -198,7 +199,7 @@ export default function SearchPage() {
             {!query && (
               <div className="mt-6 flex flex-wrap justify-center gap-2">
                 <span className="text-slate-500 text-sm">Popular:</span>
-                {["Web Development", "AI Chatbot", "Mobile App", "SEO", "Brand Identity"].map((term) => (
+                {["Solar Panels", "AI Chatbot", "Mobile App", "Web Development", "Inverter", "EV Charger", "Healthcare"].map((term) => (
                   <button
                     key={term}
                     onClick={() => setQuery(term)}
@@ -229,15 +230,15 @@ export default function SearchPage() {
 
               {/* Filter Tabs */}
               <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as any)} className="mb-6">
-                <TabsList className="bg-white border border-slate-200 p-1">
+                <TabsList className="bg-white border border-slate-200 p-1 flex-wrap">
                   <TabsTrigger value="all" className="data-[state=active]:bg-indigo-600 data-[state=active]:text-white">
                     All ({countByType.all || 0})
                   </TabsTrigger>
                   <TabsTrigger value="service" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
                     Services ({countByType.service || 0})
                   </TabsTrigger>
-                  <TabsTrigger value="pricing" className="data-[state=active]:bg-green-600 data-[state=active]:text-white">
-                    Pricing ({countByType.pricing || 0})
+                  <TabsTrigger value="product" className="data-[state=active]:bg-green-600 data-[state=active]:text-white">
+                    Products ({countByType.product || 0})
                   </TabsTrigger>
                   <TabsTrigger value="project" className="data-[state=active]:bg-purple-600 data-[state=active]:text-white">
                     Projects ({countByType.project || 0})
@@ -284,26 +285,31 @@ export default function SearchPage() {
               </p>
 
               {/* Quick Links */}
-              <div className="grid md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-5 gap-4 max-w-5xl mx-auto">
                 <Link to="/services" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all group">
                   <Briefcase className="w-8 h-8 text-blue-500 mx-auto mb-2" />
                   <h3 className="font-medium text-slate-900 group-hover:text-blue-600">Services</h3>
                   <p className="text-sm text-slate-500">Browse all services</p>
+                </Link>
+                <Link to="/products" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-green-300 hover:shadow-md transition-all group">
+                  <Package className="w-8 h-8 text-green-500 mx-auto mb-2" />
+                  <h3 className="font-medium text-slate-900 group-hover:text-green-600">Products</h3>
+                  <p className="text-sm text-slate-500">Solar & energy products</p>
                 </Link>
                 <Link to="/projects" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-purple-300 hover:shadow-md transition-all group">
                   <FileText className="w-8 h-8 text-purple-500 mx-auto mb-2" />
                   <h3 className="font-medium text-slate-900 group-hover:text-purple-600">Projects</h3>
                   <p className="text-sm text-slate-500">View our portfolio</p>
                 </Link>
-                <Link to="/pricing" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-green-300 hover:shadow-md transition-all group">
-                  <DollarSign className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                  <h3 className="font-medium text-slate-900 group-hover:text-green-600">Pricing</h3>
-                  <p className="text-sm text-slate-500">See our rates</p>
-                </Link>
                 <Link to="/industries" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-md transition-all group">
                   <Building2 className="w-8 h-8 text-orange-500 mx-auto mb-2" />
                   <h3 className="font-medium text-slate-900 group-hover:text-orange-600">Industries</h3>
                   <p className="text-sm text-slate-500">Industry solutions</p>
+                </Link>
+                <Link to="/contact" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all group">
+                  <Globe className="w-8 h-8 text-slate-500 mx-auto mb-2" />
+                  <h3 className="font-medium text-slate-900 group-hover:text-slate-600">Contact</h3>
+                  <p className="text-sm text-slate-500">Get in touch</p>
                 </Link>
               </div>
             </div>

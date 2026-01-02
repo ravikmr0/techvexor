@@ -21,6 +21,7 @@ import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { QuoteDialog } from "@/components/quote-dialog";
 import { sendContactEmail, sendAutoReply } from "@/lib/email";
 import { Loader2, CheckCircle, AlertCircle } from "lucide-react";
 
@@ -128,6 +129,7 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [consultationDialogOpen, setConsultationDialogOpen] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -211,7 +213,15 @@ export default function Contact() {
                 <Calendar className="w-5 h-5 mr-2" />
                 Schedule Consultation
               </Button>
-              <Button size="lg" variant="outline">
+              <Button 
+                size="lg" 
+                variant="outline"
+                onClick={() => {
+                  const phoneNumber = "917895849990";
+                  const message = encodeURIComponent("Hello TechVexor! I'm interested in learning more about your AI & technology services. Please assist me.");
+                  window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+                }}
+              >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Start Live Chat
               </Button>
@@ -490,7 +500,11 @@ export default function Contact() {
               possible.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
+              <Button 
+                size="lg" 
+                className="bg-orange-600 hover:bg-orange-700"
+                onClick={() => setConsultationDialogOpen(true)}
+              >
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Free Consultation
               </Button>
@@ -502,6 +516,13 @@ export default function Contact() {
         </div>
       </section>
       <Footer />
+      
+      {/* Consultation Dialog */}
+      <QuoteDialog 
+        open={consultationDialogOpen} 
+        onOpenChange={setConsultationDialogOpen}
+        serviceTitle="Free Consultation"
+      />
     </div>
   );
 }

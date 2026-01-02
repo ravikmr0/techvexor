@@ -1,46 +1,89 @@
-# Robots.txt for Tech Vexor
-# https://www.techvexor.com
+# Robots.txt for Tech Vexor - Best IT Company in Noida
+# Website: https://www.techvexor.com
+# Contact: +91-7895849990
+# Services: Website Development, Digital Marketing, Lead Generation, AI Solutions
 
 User-agent: *
 Allow: /
+Allow: /services/
+Allow: /products/
+Allow: /industries/
+Allow: /blog/
+Allow: /case-studies/
+Allow: /contact
+Allow: /pricing
 
-# Sitemap location
+# Sitemap location for Google and other search engines
 Sitemap: https://www.techvexor.com/sitemap.xml
 
-# Crawl-delay for polite crawling
+# Crawl-delay for polite crawling (fast enough for indexing)
 Crawl-delay: 1
 
-# Disallow admin and private areas
+# Disallow admin, API and private areas
 Disallow: /api/
 Disallow: /admin/
 Disallow: /*.json$
+Disallow: /login
 
 # Disallow URLs with query parameters to prevent duplicate content
 Disallow: /*?*
 Disallow: /*?subject=*
 Disallow: /*?message=*
+Disallow: /*&*
 
-# Allow all major search engines
+# Google specific rules (priority indexing)
 User-agent: Googlebot
 Allow: /
-Disallow: /*?*
+Allow: /services/
+Allow: /products/
+Allow: /industries/
+Allow: /blog/
+Allow: /case-studies/
+Crawl-delay: 0
 
+# Googlebot for images
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Bing specific rules
 User-agent: Bingbot
 Allow: /
-Disallow: /*?*
+Crawl-delay: 1
 
+# Yahoo Slurp
 User-agent: Slurp
 Allow: /
-Disallow: /*?*
+Crawl-delay: 1
 
+# DuckDuckGo
 User-agent: DuckDuckBot
 Allow: /
-Disallow: /*?*
+Crawl-delay: 1
 
+# Baidu (for international reach)
 User-agent: Baiduspider
 Allow: /
-Disallow: /*?*
+Crawl-delay: 2
 
+# Yandex (for international reach)
 User-agent: YandexBot
 Allow: /
-Disallow: /*?*
+Crawl-delay: 2
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Host directive (primary domain)
+Host: https://www.techvexor.com

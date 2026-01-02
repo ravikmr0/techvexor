@@ -40,7 +40,7 @@ interface SEOProps {
   publishedTime?: string;
   modifiedTime?: string;
   author?: string;
-  schema?: Record<string, unknown>;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 export function SEO({ 
@@ -112,11 +112,17 @@ export function SEO({
       )}
       
       {/* JSON-LD Schema */}
-      {schema && (
+      {schema && Array.isArray(schema) ? (
+        schema.map((s, i) => (
+          <script key={i} type="application/ld+json">
+            {JSON.stringify(s)}
+          </script>
+        ))
+      ) : schema ? (
         <script type="application/ld+json">
           {JSON.stringify(schema)}
         </script>
-      )}
+      ) : null}
     </Helmet>
   );
 }
