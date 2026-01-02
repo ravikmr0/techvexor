@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from "react";
-import { useRoutes, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { CanonicalUrl } from "./components/seo/canonical-url";
 import Home from "./components/home";
 
@@ -68,8 +68,6 @@ import CaseStudyDetail from "./pages/case-studies/[slug]";
 
 // 404 Page
 import NotFound from "./pages/not-found";
-
-import routes from "tempo-routes";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -157,7 +155,7 @@ function App() {
           {/* 404 Catch-all Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
+{/* Tempo routes handled internally by Tempo platform */}
       </>
     </Suspense>
   );
