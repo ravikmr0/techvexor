@@ -2,9 +2,9 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Sun, Battery, Zap, Gauge, Factory, ShoppingCart, Filter, Search, ExternalLink } from "lucide-react";
+import { Sun, Battery, Zap, Gauge, Factory, ShoppingCart, Filter, Search, ExternalLink, Star } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,80 +12,29 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { QuoteDialog } from "@/components/quote-dialog";
+import { products as catalogProducts, categories as catalogCategories, type Product } from "@/data/products-catalog";
 
 const BASE_URL = "https://www.techvexor.com";
 const SITE_NAME = "Tech Vexor";
 
-// Category definitions
-const categories = [
-  { id: "all", name: "All Products", icon: ShoppingCart, color: "slate" },
-  { id: "solar", name: "Solar Energy", icon: Sun, color: "amber" },
-  { id: "battery", name: "Batteries", icon: Battery, color: "green" },
-  { id: "inverters", name: "Inverters", icon: Zap, color: "blue" },
-  { id: "electrical", name: "Electrical", icon: Gauge, color: "purple" },
-  { id: "industrial", name: "Industrial", icon: Factory, color: "slate" },
-];
+// Category definitions with icons
+const categoryIcons: Record<string, { icon: React.ComponentType<any>, color: string }> = {
+  all: { icon: ShoppingCart, color: "slate" },
+  solar: { icon: Sun, color: "amber" },
+  battery: { icon: Battery, color: "green" },
+  inverters: { icon: Zap, color: "blue" },
+  electrical: { icon: Gauge, color: "purple" },
+  industrial: { icon: Factory, color: "slate" },
+};
 
-// Individual product data
-const allProducts = [
-  // Solar Products
-  { id: 1, name: "Solar Panels (Mono PERC)", category: "solar", price: "₹18,500", image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80", description: "High-efficiency monocrystalline PERC solar panels", rating: 4.8, inStock: true },
-  { id: 2, name: "Solar Panels (Polycrystalline)", category: "solar", price: "₹14,500", image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80", description: "Affordable polycrystalline solar panels", rating: 4.5, inStock: true },
-  { id: 3, name: "Bifacial Solar Panels", category: "solar", price: "₹22,000", image: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=800&q=80", description: "Double-sided solar panels for maximum efficiency", rating: 4.9, inStock: true },
-  { id: 4, name: "Rooftop Solar System (5kW)", category: "solar", price: "₹2,45,000", image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80", description: "Complete residential rooftop system", rating: 4.7, inStock: true },
-  { id: 5, name: "Commercial Solar System (50kW)", category: "solar", price: "₹22,50,000", image: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=80", description: "Large-scale commercial solar installation", rating: 4.8, inStock: true },
-  { id: 6, name: "On-Grid Solar Inverter", category: "solar", price: "₹45,000", image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80", description: "Grid-tied solar inverter with monitoring", rating: 4.6, inStock: true },
-  { id: 7, name: "Off-Grid Solar Inverter", category: "solar", price: "₹55,000", image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80", description: "Standalone solar inverter for off-grid systems", rating: 4.7, inStock: true },
-  { id: 8, name: "Hybrid Solar Inverter", category: "solar", price: "₹65,000", image: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=80", description: "Versatile hybrid solar inverter", rating: 4.9, inStock: true },
-  { id: 9, name: "PWM Solar Charge Controller", category: "solar", price: "₹8,500", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Pulse width modulation charge controller", rating: 4.4, inStock: true },
-  { id: 10, name: "MPPT Solar Charge Controller", category: "solar", price: "₹15,000", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Maximum power point tracking controller", rating: 4.8, inStock: true },
-  { id: 11, name: "Solar Lithium Battery (100Ah)", category: "solar", price: "₹32,000", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", description: "Lithium-ion battery for solar systems", rating: 4.7, inStock: true },
-  { id: 12, name: "Solar Tubular Battery (150Ah)", category: "solar", price: "₹18,500", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", description: "Deep-cycle tubular battery", rating: 4.5, inStock: true },
-  { id: 13, name: "Solar Junction Box", category: "solar", price: "₹2,500", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Weather-proof solar junction box", rating: 4.3, inStock: true },
-  { id: 14, name: "Solar DC Cable (per meter)", category: "solar", price: "₹85", image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80", description: "High-quality solar DC cable", rating: 4.5, inStock: true },
-  { id: 15, name: "Solar Mounting Structure", category: "solar", price: "₹12,000", image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80", description: "Galvanized steel mounting system", rating: 4.6, inStock: true },
-  { id: 16, name: "Solar Street Light", category: "solar", price: "₹8,500", image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&q=80", description: "Autonomous solar street lighting", rating: 4.7, inStock: true },
-  { id: 17, name: "Solar Water Heater (100L)", category: "solar", price: "₹22,000", image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80", description: "Evacuated tube solar water heater", rating: 4.6, inStock: true },
-  { id: 18, name: "Solar Water Pump (1HP)", category: "solar", price: "₹28,000", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Submersible solar water pump", rating: 4.8, inStock: true },
-  
-  // Battery Products
-  { id: 19, name: "Inverter Battery 150Ah Tubular", category: "battery", price: "₹16,500", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", description: "Long-lasting tubular battery", rating: 4.6, inStock: true },
-  { id: 20, name: "Inverter Battery 200Ah Tubular", category: "battery", price: "₹21,000", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", description: "High-capacity tubular battery", rating: 4.7, inStock: true },
-  { id: 21, name: "Flat Plate Battery 150Ah", category: "battery", price: "₹12,500", image: "https://images.unsplash.com/photo-1609091837083-757a2f0e1b85?w=800&q=80", description: "Budget-friendly flat plate battery", rating: 4.3, inStock: true },
-  { id: 22, name: "Lithium Battery Pack 200Ah", category: "battery", price: "₹45,000", image: "https://images.unsplash.com/photo-1609091837083-757a2f0e1b85?w=800&q=80", description: "Lightweight lithium-ion pack", rating: 4.9, inStock: true },
-  { id: 23, name: "UPS Battery 12V 7.5Ah", category: "battery", price: "₹1,850", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", description: "Sealed lead-acid UPS battery", rating: 4.4, inStock: true },
-  { id: 24, name: "Industrial Battery 12V 100Ah", category: "battery", price: "₹15,000", image: "https://images.unsplash.com/photo-1609091837083-757a2f0e1b85?w=800&q=80", description: "Heavy-duty industrial battery", rating: 4.7, inStock: true },
-  { id: 25, name: "SMF Battery 12V 150Ah", category: "battery", price: "₹18,500", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", description: "Sealed maintenance-free battery", rating: 4.6, inStock: true },
-  { id: 26, name: "VRLA Battery 12V 200Ah", category: "battery", price: "₹24,000", image: "https://images.unsplash.com/photo-1609091837083-757a2f0e1b85?w=800&q=80", description: "Valve-regulated lead-acid battery", rating: 4.5, inStock: true },
-  { id: 27, name: "Smart Battery Charger 20A", category: "battery", price: "₹5,500", image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80", description: "Intelligent multi-stage charger", rating: 4.7, inStock: true },
-  { id: 28, name: "Battery Monitoring System", category: "battery", price: "₹12,000", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Real-time battery health monitor", rating: 4.8, inStock: true },
-  
-  // Inverter Products
-  { id: 29, name: "Home Inverter 850VA", category: "inverters", price: "₹5,500", image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80", description: "Pure sine wave home inverter", rating: 4.5, inStock: true },
-  { id: 30, name: "Home Inverter 1500VA", category: "inverters", price: "₹9,500", image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80", description: "High-capacity home inverter", rating: 4.7, inStock: true },
-  { id: 31, name: "Commercial Inverter 5kVA", category: "inverters", price: "₹32,000", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Three-phase commercial inverter", rating: 4.8, inStock: true },
-  { id: 32, name: "Industrial Inverter 10kVA", category: "inverters", price: "₹65,000", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Heavy-duty industrial inverter", rating: 4.9, inStock: true },
-  { id: 33, name: "Online UPS 1kVA", category: "inverters", price: "₹12,000", image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80", description: "Double-conversion online UPS", rating: 4.6, inStock: true },
-  { id: 34, name: "Offline UPS 600VA", category: "inverters", price: "₹3,500", image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80", description: "Standby UPS for home use", rating: 4.4, inStock: true },
-  { id: 35, name: "Servo Voltage Stabilizer 5kVA", category: "inverters", price: "₹18,500", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Automatic voltage regulator", rating: 4.7, inStock: true },
-  
-  // Electrical Products
-  { id: 36, name: "Smart Energy Meter", category: "electrical", price: "₹4,500", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "WiFi-enabled smart meter", rating: 4.6, inStock: true },
-  { id: 37, name: "Digital Energy Meter", category: "electrical", price: "₹2,800", image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80", description: "LCD display energy meter", rating: 4.5, inStock: true },
-  { id: 38, name: "Power Monitoring Device", category: "electrical", price: "₹8,500", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Multi-parameter power analyzer", rating: 4.7, inStock: true },
-  { id: 39, name: "MCB Circuit Breaker 32A", category: "electrical", price: "₹450", image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80", description: "Miniature circuit breaker", rating: 4.4, inStock: true },
-  { id: 40, name: "MCCB Circuit Breaker 100A", category: "electrical", price: "₹3,500", image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80", description: "Molded case circuit breaker", rating: 4.6, inStock: true },
-  { id: 41, name: "Surge Protection Device", category: "electrical", price: "₹5,500", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Class I+II SPD protection", rating: 4.8, inStock: true },
-  { id: 42, name: "AC Isolator Switch 63A", category: "electrical", price: "₹1,800", image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80", description: "Rotary isolator switch", rating: 4.5, inStock: true },
-  { id: 43, name: "Solar Control Panel", category: "electrical", price: "₹15,000", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Complete solar control panel", rating: 4.7, inStock: true },
-  
-  // Industrial Products
-  { id: 44, name: "AC EV Charging Station 7kW", category: "industrial", price: "₹85,000", image: "https://images.unsplash.com/photo-1593941707874-ef25b8b4a92b?w=800&q=80", description: "Level 2 AC EV charger", rating: 4.8, inStock: true },
-  { id: 45, name: "DC Fast Charger 50kW", category: "industrial", price: "₹12,50,000", image: "https://images.unsplash.com/photo-1593941707874-ef25b8b4a92b?w=800&q=80", description: "Fast charging station", rating: 4.9, inStock: true },
-  { id: 46, name: "Power Conditioning Unit", category: "industrial", price: "₹45,000", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Clean power output system", rating: 4.7, inStock: true },
-  { id: 47, name: "Load Management System", category: "industrial", price: "₹65,000", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80", description: "Intelligent load balancing", rating: 4.8, inStock: true },
-  { id: 48, name: "Energy Storage System 10kWh", category: "industrial", price: "₹4,50,000", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", description: "Commercial energy storage", rating: 4.9, inStock: true },
-];
+const categories = catalogCategories.map(cat => ({
+  ...cat,
+  icon: categoryIcons[cat.id]?.icon || ShoppingCart,
+  color: categoryIcons[cat.id]?.color || "slate"
+}));
+
+// Use products from catalog
+const allProducts = catalogProducts;
 
 export default function Products() {
   const location = useLocation();
@@ -595,28 +544,32 @@ export default function Products() {
                     whileHover={{ y: -8 }}
                   >
                     <Card className="bg-slate-800/40 border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all duration-300 overflow-hidden group h-full flex flex-col">
-                      {/* Product Image */}
-                      <div className="relative h-48 overflow-hidden bg-slate-700/30">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                        {product.inStock && (
-                          <Badge className="absolute top-3 right-3 bg-green-500/90 text-white border-0">
-                            In Stock
-                          </Badge>
-                        )}
-                        <div className={`absolute top-3 left-3 px-2 py-1 rounded-lg bg-${getCategoryColor(product.category)}-500/90 text-white text-xs font-semibold`}>
-                          {categories.find(c => c.id === product.category)?.name.split(' ')[0]}
+                      {/* Product Image - Clickable */}
+                      <Link to={`/products/${product.slug}`} className="block">
+                        <div className="relative h-48 overflow-hidden bg-slate-700/30">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                          {product.inStock && (
+                            <Badge className="absolute top-3 right-3 bg-green-500/90 text-white border-0">
+                              In Stock
+                            </Badge>
+                          )}
+                          <div className={`absolute top-3 left-3 px-2 py-1 rounded-lg bg-${getCategoryColor(product.category)}-500/90 text-white text-xs font-semibold`}>
+                            {categories.find(c => c.id === product.category)?.name.split(' ')[0]}
+                          </div>
                         </div>
-                      </div>
+                      </Link>
 
                       {/* Product Details */}
                       <CardHeader className="pb-3">
-                        <CardTitle className="text-lg text-white group-hover:text-indigo-400 transition-colors line-clamp-2">
-                          {product.name}
-                        </CardTitle>
+                        <Link to={`/products/${product.slug}`}>
+                          <CardTitle className="text-lg text-white group-hover:text-amber-400 transition-colors line-clamp-2 cursor-pointer">
+                            {product.name}
+                          </CardTitle>
+                        </Link>
                         <CardDescription className="text-slate-400 text-sm line-clamp-2">
                           {product.description}
                         </CardDescription>
@@ -631,7 +584,7 @@ export default function Products() {
                             <div className="text-xs text-slate-500">+ GST</div>
                           </div>
                           <div className="flex items-center gap-1">
-                            <span className="text-yellow-400 text-lg">★</span>
+                            <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
                             <span className="text-white font-semibold">{product.rating}</span>
                           </div>
                         </div>
@@ -640,7 +593,11 @@ export default function Products() {
                           <Button 
                             className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white"
                             size="sm"
-                            onClick={() => handleQuoteClick(product.name)}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              handleQuoteClick(product.name);
+                            }}
                           >
                             <ShoppingCart className="w-4 h-4 mr-2" />
                             Get Quote
@@ -649,8 +606,11 @@ export default function Products() {
                             variant="outline" 
                             size="sm"
                             className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:border-slate-500"
+                            asChild
                           >
-                            Details
+                            <Link to={`/products/${product.slug}`}>
+                              Details
+                            </Link>
                           </Button>
                         </div>
                       </CardContent>
