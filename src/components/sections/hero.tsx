@@ -178,7 +178,7 @@ export function Hero() {
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
                 <GradientButton asChild size="lg" className="w-full sm:w-auto text-xs sm:text-sm md:text-base shadow-2xl h-9 sm:h-11 md:h-12 px-3 sm:px-4">
-                  <Link to="/pricing">Get Pricing</Link>
+                  <Link to="/products">View Products</Link>
                 </GradientButton>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">

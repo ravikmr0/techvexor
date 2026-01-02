@@ -1,7 +1,7 @@
 import { serviceGroups, ServiceEntry } from "@/data/services-catalog";
 import { industryGroups, IndustryEntry } from "@/data/industry-catalog";
 
-export type SearchResultType = "service" | "project" | "pricing" | "industry" | "page";
+export type SearchResultType = "service" | "project" | "product" | "industry" | "page";
 
 export interface SearchResult {
   id: string;
@@ -60,38 +60,47 @@ const projects = [
   },
 ];
 
-// Pricing plans data
-const pricingPlans = [
-  // IT & Software
-  { name: "Website Development (Static/CMS)", price: "₹25,000–₹1,20,000", category: "IT & Software", description: "Corporate, portfolio, CMS websites with responsive UI" },
-  { name: "Custom/E-commerce/Marketplace", price: "₹1,20,000–₹6,00,000+", category: "IT & Software", description: "Commerce platforms with catalog, payments, and shipping" },
-  { name: "Web Application Development", price: "₹2,00,000–₹12,00,000+", category: "IT & Software", description: "SPA/SSR applications with APIs and data integration" },
-  { name: "Mobile App Development", price: "₹3,00,000–₹15,00,000+", category: "IT & Software", description: "Android/iOS/Hybrid apps with auth and push notifications" },
-  { name: "ERP/CRM Solutions", price: "₹4,00,000–₹25,00,000+", category: "IT & Software", description: "Enterprise resource planning and CRM implementation" },
-  { name: "SaaS Development", price: "₹6,00,000–₹30,00,000+", category: "IT & Software", description: "Multi-tenant MVP to scale with billing and subscriptions" },
-  { name: "API Development & Integrations", price: "₹1,00,000–₹6,00,000+", category: "IT & Software", description: "OpenAPI, SDKs, webhooks, and documentation" },
-  { name: "Cloud Services (AWS/Azure/GCP)", price: "₹25,000–₹2,50,000+", category: "IT & Software", description: "Setup, IaC, monitoring, and disaster recovery" },
-  { name: "Cybersecurity & Data Protection", price: "₹1,50,000–₹10,00,000+", category: "IT & Software", description: "Threat modeling, IAM, encryption, and pentesting" },
-  { name: "Chatbot & AI Automation", price: "₹1,50,000–₹12,00,000+", category: "IT & Software", description: "LLM/RAG bots with private data and analytics" },
+// Electronics Products data
+const electronicsProducts = [
+  // Solar Energy Products
+  { name: "Solar Panels (Mono PERC, Polycrystalline, Bifacial)", category: "Solar Energy", description: "High-efficiency solar panels for all applications" },
+  { name: "Rooftop Solar Systems (Residential & Commercial)", category: "Solar Energy", description: "Complete rooftop solutions with installation support" },
+  { name: "Solar Inverters (On-Grid / Off-Grid / Hybrid)", category: "Solar Energy", description: "Convert DC to AC power efficiently" },
+  { name: "Solar Charge Controllers (PWM / MPPT)", category: "Solar Energy", description: "Optimize charging from solar panels" },
+  { name: "Solar Batteries (Lithium-Ion, Tubular)", category: "Solar Energy", description: "Store solar energy for later use" },
+  { name: "Solar Street Lights", category: "Solar Energy", description: "Autonomous outdoor lighting solutions" },
+  { name: "Solar Water Heaters", category: "Solar Energy", description: "Hot water systems powered by solar energy" },
+  { name: "Solar Pumps (Agriculture & Industrial Use)", category: "Solar Energy", description: "Water pumping solutions for farming and industry" },
   
-  // Digital Marketing
-  { name: "SEO (On/Off/Technical)", price: "₹25,000–₹90,000/mo", category: "Digital Marketing", description: "Technical fixes, content, schema, and authority building" },
-  { name: "Paid Advertising", price: "₹30,000–₹1,50,000/mo", category: "Digital Marketing", description: "Search, display, and programmatic campaign management" },
-  { name: "Social Media Management", price: "₹12,000–₹90,000/mo", category: "Digital Marketing", description: "Content calendars, scheduling, and community management" },
-  { name: "Email Marketing & Automation", price: "₹20,000–₹75,000/mo", category: "Digital Marketing", description: "ESP setup, journeys, and deliverability optimization" },
-  { name: "Content Marketing & Copywriting", price: "₹25,000–₹1,00,000/mo", category: "Digital Marketing", description: "Editorial production and distribution" },
-  { name: "Influencer Marketing", price: "₹30,000–₹1,50,000+/mo", category: "Digital Marketing", description: "Creator discovery, contracts, and measurement" },
+  // Power Backup & Battery Solutions
+  { name: "Inverter Batteries (Tubular / Flat Plate)", category: "Power Backup", description: "Long-lasting batteries for home inverters" },
+  { name: "Lithium Battery Packs", category: "Power Backup", description: "Lightweight, high-density energy storage" },
+  { name: "UPS Batteries", category: "Power Backup", description: "Reliable backup for computer systems" },
+  { name: "Industrial Batteries", category: "Power Backup", description: "Heavy-duty batteries for industrial use" },
+  { name: "SMF & VRLA Batteries", category: "Power Backup", description: "Maintenance-free sealed batteries" },
+  { name: "Battery Chargers", category: "Power Backup", description: "Smart charging solutions for all battery types" },
+  { name: "Battery Monitoring Systems", category: "Power Backup", description: "Real-time battery health monitoring" },
   
-  // Branding & Design
-  { name: "Logo & Brand Identity", price: "₹18,000–₹40,000", category: "Branding & Design", description: "Logo concepts with color and typography" },
-  { name: "Brand Identity System", price: "₹60,000–₹1,50,000", category: "Branding & Design", description: "Complete brand system with guidelines" },
-  { name: "UI/UX Design", price: "₹4,000–₹12,000/screen", category: "Branding & Design", description: "Research, wireframes, components, and prototypes" },
-  { name: "Graphic Design", price: "₹10,000–₹60,000", category: "Branding & Design", description: "Campaign creatives and social media kits" },
+  // Inverters & Power Electronics
+  { name: "Home Inverters", category: "Inverters & Power", description: "Reliable power backup for homes" },
+  { name: "Commercial & Industrial Inverters", category: "Inverters & Power", description: "High-capacity inverters for businesses" },
+  { name: "Online / Offline UPS Systems", category: "Inverters & Power", description: "Uninterruptible power supply solutions" },
+  { name: "Servo Voltage Stabilizers", category: "Inverters & Power", description: "Protect equipment from voltage fluctuations" },
+  { name: "Automatic Voltage Regulators (AVR)", category: "Inverters & Power", description: "Maintain stable voltage output" },
+  { name: "Power Distribution Units (PDU)", category: "Inverters & Power", description: "Efficient power distribution for data centers" },
   
-  // Video & Multimedia
-  { name: "Corporate Films & Brand Stories", price: "₹1,20,000–₹6,00,000+", category: "Video & Multimedia", description: "Script to edit with professional production" },
-  { name: "Explainer Videos", price: "₹60,000–₹3,00,000+", category: "Video & Multimedia", description: "2D/3D/Whiteboard/Motion animation" },
-  { name: "Video Editing & Post-Production", price: "₹20,000–₹1,50,000", category: "Video & Multimedia", description: "Editing, sound design, and color grading" },
+  // Electrical & Control Electronics
+  { name: "Energy Meters (Smart & Digital)", category: "Electrical Controls", description: "Accurate energy consumption tracking" },
+  { name: "Power Monitoring Devices", category: "Electrical Controls", description: "Real-time power quality analysis" },
+  { name: "Circuit Breakers (MCB, MCCB)", category: "Electrical Controls", description: "Electrical circuit protection" },
+  { name: "Surge Protection Devices (SPD)", category: "Electrical Controls", description: "Protect against voltage spikes" },
+  { name: "Control Panels (Solar & Power Panels)", category: "Electrical Controls", description: "Centralized system control and monitoring" },
+  
+  // Industrial Energy Electronics
+  { name: "EV Charging Stations (AC / DC)", category: "Industrial Energy", description: "Fast and slow charging for electric vehicles" },
+  { name: "Power Conditioning Units", category: "Industrial Energy", description: "Clean and stable power output" },
+  { name: "Load Management Systems", category: "Industrial Energy", description: "Optimize power consumption" },
+  { name: "Energy Storage Systems (ESS)", category: "Industrial Energy", description: "Large-scale energy storage solutions" },
 ];
 
 // Static pages for search
@@ -99,7 +108,7 @@ const staticPages = [
   { title: "Home", description: "Tech Vexor - AI-powered IT solutions and digital transformation", url: "/" },
   { title: "Services", description: "Explore our comprehensive IT, marketing, and design services", url: "/services" },
   { title: "Projects", description: "View our portfolio of successful client projects", url: "/projects" },
-  { title: "Pricing", description: "Transparent pricing for all our services", url: "/pricing" },
+  { title: "Products", description: "Electronics products - Solar, Power & Energy Systems", url: "/products" },
   { title: "Industries", description: "Industry-specific solutions for various sectors", url: "/industries" },
   { title: "Contact Us", description: "Get in touch with our team for a consultation", url: "/contact" },
   { title: "About Us", description: "Learn about Tech Vexor and our mission", url: "/about" },
@@ -155,16 +164,15 @@ export function buildSearchIndex(): SearchResult[] {
     });
   });
 
-  // Add pricing plans
-  pricingPlans.forEach((plan, index) => {
+  // Add electronics products
+  electronicsProducts.forEach((product, index) => {
     results.push({
-      id: `pricing-${index}`,
-      type: "pricing",
-      title: plan.name,
-      description: plan.description,
-      url: "/pricing",
-      category: plan.category,
-      price: plan.price,
+      id: `product-${index}`,
+      type: "product",
+      title: product.name,
+      description: product.description,
+      url: "/products",
+      category: product.category,
     });
   });
 
@@ -277,7 +285,7 @@ export function searchContent(query: string, limit = 10): SearchResult[] {
 
     // Boost certain types for relevance
     if (result.type === "service") score += 5;
-    if (result.type === "pricing") score += 3;
+    if (result.type === "product") score += 3;
 
     return { result, score };
   });

@@ -15,7 +15,7 @@ import { GlobalSearch } from "@/components/search/global-search";
 
 const navItems = [
   { label: "Projects", href: "/projects" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Products", href: "/products" },
   { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
   { label: "Login", href: "/login" },
