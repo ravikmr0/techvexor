@@ -1,5 +1,6 @@
 import { serviceGroups, ServiceEntry } from "@/data/services-catalog";
 import { industryGroups, IndustryEntry } from "@/data/industry-catalog";
+import { products, categories } from "@/data/products-catalog";
 
 export type SearchResultType = "service" | "project" | "product" | "industry" | "page";
 
@@ -164,16 +165,37 @@ export function buildSearchIndex(): SearchResult[] {
     });
   });
 
-  // Add electronics products
-  electronicsProducts.forEach((product, index) => {
+  // Add electronics products from catalog (with individual URLs)
+  products.forEach((product) => {
+    const categoryName = categories.find(c => c.id === product.category)?.name || product.category;
     results.push({
-      id: `product-${index}`,
+      id: `product-${product.id}`,
       type: "product",
       title: product.name,
       description: product.description,
-      url: "/products",
-      category: product.category,
+      url: `/products/${product.slug}`,
+      category: categoryName,
+      tags: product.keywords?.slice(0, 3),
+      price: product.price,
     });
+  });
+
+  // Also add legacy electronics products for broader search coverage
+  electronicsProducts.forEach((product, index) => {
+    // Skip if already exists in products catalog
+    const existsInCatalog = products.some(p => 
+      p.name.toLowerCase().includes(product.name.toLowerCase().split(' ')[0])
+    );
+    if (!existsInCatalog) {
+      results.push({
+        id: `electronics-${index}`,
+        type: "product",
+        title: product.name,
+        description: product.description,
+        url: "/products",
+        category: product.category,
+      });
+    }
   });
 
   // Add static pages
