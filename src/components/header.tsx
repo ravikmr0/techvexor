@@ -1,5 +1,4 @@
-import { Search, Menu, X } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { serviceGroups } from "@/data/services-catalog";
 import { industryGroups } from "@/data/industry-catalog";
+import { GlobalSearch } from "@/components/search/global-search";
 
 const navItems = [
   { label: "Projects", href: "/projects" },
@@ -60,15 +60,8 @@ export function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end">
             {/* Search Bar - Desktop Only */}
-            <div className="flex items-center max-w-xs w-full relative">
-              <div className="relative w-full">
-                <Input
-                  type="search"
-                  placeholder="Search..."
-                  className="pl-10 bg-slate-800/50 border-slate-700 text-slate-300 placeholder:text-slate-500 w-full"
-                />
-                <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-500" />
-              </div>
+            <div className="flex items-center max-w-xs w-full">
+              <GlobalSearch variant="desktop" className="w-full" />
             </div>
 
             {/* Navigation Items */}
@@ -233,14 +226,7 @@ export function Header() {
 
           {/* Mobile Search and Menu */}
           <div className="flex items-center space-x-4 lg:hidden ml-auto">
-            <div className="relative w-full max-w-[140px]">
-              <Input
-                type="search"
-                placeholder="Search..."
-                className="pl-8 py-1 h-8 text-sm bg-slate-800/50 border-slate-700 text-slate-300 placeholder:text-slate-500"
-              />
-              <Search className="w-3 h-3 absolute left-2.5 top-1/2 transform -translate-y-1/2 text-slate-500" />
-            </div>
+            <GlobalSearch variant="mobile" className="w-full max-w-[160px]" />
             <button
               className="text-white p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
