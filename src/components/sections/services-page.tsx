@@ -73,6 +73,13 @@ export function ServicesPage() {
                     <Link to={`/services/${svc.slug}`} className="flex-1">
                       <h3 className="text-lg font-semibold mb-2 hover:text-indigo-600 transition-colors">{svc.title}</h3>
                       <p className="text-slate-600 mb-4">{svc.description}</p>
+                      {svc.startingPrice && (
+                        <div className="mb-4 p-3 bg-indigo-50 rounded-lg border border-indigo-100">
+                          <p className="text-xs text-slate-500 mb-1">Starting from</p>
+                          <p className="text-xl font-bold text-indigo-600">{svc.startingPrice}</p>
+                          <p className="text-xs text-slate-400">*Market competitive rates</p>
+                        </div>
+                      )}
                       <ul className="space-y-2 mb-4">
                         {svc.features.slice(0, 3).map((f, fi) => (
                           <li key={fi} className="flex items-start space-x-2 text-slate-600">

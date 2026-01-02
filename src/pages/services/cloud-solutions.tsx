@@ -49,6 +49,7 @@ export default function CloudSolutions() {
           "Global content delivery and edge computing",
         ]}
         technologies={["AWS", "Azure", "Google Cloud", "Terraform", "Kubernetes", "Docker", "CloudFormation", "Ansible"]}
+        startingPrice="₹40,000/mo"
         faqs={[
           { question: "Which cloud provider should I choose?", answer: "It depends on your specific needs. AWS offers the broadest services, Azure integrates well with Microsoft products, and GCP excels in data and ML. We help you choose based on your requirements and existing investments." },
           { question: "How much can I save by moving to the cloud?", answer: "Most organizations see 30-50% cost reduction through right-sizing, reserved instances, and eliminating over-provisioning. We provide detailed cost analysis and optimization recommendations." },

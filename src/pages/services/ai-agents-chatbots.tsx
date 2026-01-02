@@ -49,6 +49,7 @@ export default function AIAgentsChatbots() {
           "Process automation and data entry",
         ]}
         technologies={["OpenAI GPT", "Claude", "LangChain", "Pinecone", "Dialogflow", "Rasa", "Azure Bot Service", "Vector DBs"]}
+        startingPrice="₹60,000"
         faqs={[
           { question: "Can the chatbot answer questions about our specific products?", answer: "Yes, we implement RAG (Retrieval-Augmented Generation) to ground the AI in your specific knowledge base, documentation, and product data for accurate, contextual responses." },
           { question: "How do you prevent the AI from giving wrong answers?", answer: "We implement guardrails, confidence thresholds, and human escalation paths. The bot acknowledges uncertainty and routes to humans when appropriate." },

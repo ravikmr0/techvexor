@@ -49,6 +49,7 @@ export default function ITConsulting() {
           "Compliance and security improvements",
         ]}
         technologies={["Enterprise Architecture", "TOGAF", "Agile", "DevOps", "Cloud Native", "Microservices", "API-First"]}
+        startingPrice="₹50,000"
         faqs={[
           { question: "When should I engage IT consultants?", answer: "Engage consultants for major technology decisions, digital transformation initiatives, when lacking internal expertise, or for objective third-party assessments of your current state." },
           { question: "How do you ensure recommendations are actionable?", answer: "We provide detailed implementation roadmaps with priorities, timelines, resource requirements, and success metrics - not just high-level advice. We can also support implementation." },

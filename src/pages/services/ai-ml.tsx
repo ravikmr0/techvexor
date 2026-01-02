@@ -49,6 +49,7 @@ export default function AIAndML() {
           "Quality control and defect detection",
         ]}
         technologies={["Python", "TensorFlow", "PyTorch", "Scikit-learn", "MLflow", "Kubeflow", "AWS SageMaker", "Hugging Face"]}
+        startingPrice="₹75,000"
         faqs={[
           { question: "Do we need a lot of data to start with AI/ML?", answer: "It depends on the use case. Some problems require large datasets, while others can work with smaller, high-quality data. We assess your data and recommend the best approach, including data augmentation strategies." },
           { question: "How long does it take to build an ML model?", answer: "A proof-of-concept typically takes 4-8 weeks. Production-ready systems with MLOps take 3-6 months. We provide detailed timelines after understanding your specific requirements." },

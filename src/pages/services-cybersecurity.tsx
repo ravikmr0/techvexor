@@ -49,6 +49,7 @@ export default function ServiceCybersecurity() {
           "Application security testing (SAST/DAST)",
         ]}
         technologies={["SIEM", "EDR", "IAM", "Zero Trust", "Encryption", "Firewalls", "WAF", "DLP", "SOAR"]}
+        startingPrice="₹45,000"
         faqs={[
           { question: "How often should we conduct security assessments?", answer: "We recommend annual comprehensive assessments, quarterly vulnerability scans, and continuous monitoring. High-risk industries or those handling sensitive data may need more frequent testing." },
           { question: "What compliance standards do you support?", answer: "We support SOC 2 Type I & II, HIPAA, GDPR, PCI-DSS, ISO 27001, NIST, and industry-specific regulations. We help you achieve and maintain compliance." },

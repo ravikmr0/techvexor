@@ -49,6 +49,7 @@ export default function ServiceCustomSoftware() {
           "Data analytics and reporting systems",
         ]}
         technologies={["React", "Next.js", "Node.js", "TypeScript", "Python", "PostgreSQL", "AWS", "Docker"]}
+        startingPrice="₹50,000"
         faqs={[
           { question: "How long does custom software development take?", answer: "Timeline varies based on complexity. Simple MVPs take 2-3 months, medium projects 4-6 months, and complex enterprise systems 6-12+ months. We provide detailed estimates after requirements analysis." },
           { question: "What's your development process?", answer: "We follow agile methodology with 2-week sprints, regular demos, and continuous feedback. This ensures transparency and allows for adjustments throughout the project." },

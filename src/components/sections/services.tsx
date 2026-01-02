@@ -23,6 +23,7 @@ const services = [
     description:
       "Custom software solutions, web & mobile app development, API integration",
     link: "/services/software-development",
+    startingPrice: "₹50,000",
   },
   {
     icon: Shield,
@@ -30,6 +31,7 @@ const services = [
     description:
       "Security audits, threat protection, compliance management, data security",
     link: "/services/cybersecurity",
+    startingPrice: "₹45,000",
   },
   {
     icon: Settings,
@@ -37,6 +39,7 @@ const services = [
     description:
       "24/7 system monitoring, maintenance, IT infrastructure management",
     link: "/services/managed-services",
+    startingPrice: "₹25,000/mo",
   },
   {
     icon: Brain,
@@ -44,24 +47,28 @@ const services = [
     description:
       "AI integration, process automation, digital strategy consulting",
     link: "/services/digital-transformation",
+    startingPrice: "₹75,000",
   },
   {
     icon: Cloud,
     title: "Cloud Computing & Hosting",
     description: "Cloud migration, hosting solutions, scalable infrastructure",
     link: "/services/cloud-computing",
+    startingPrice: "₹30,000/mo",
   },
   {
     icon: Network,
     title: "Networking & Infrastructure",
     description: "Network design, implementation, security & maintenance",
     link: "/services/networking",
+    startingPrice: "₹40,000",
   },
   {
     icon: HeadsetIcon,
     title: "Tech Support & IT Outsourcing",
     description: "24/7 technical support, IT consulting, resource augmentation",
     link: "/services/tech-support",
+    startingPrice: "₹15,000/mo",
   },
   {
     icon: ShoppingCart,
@@ -69,6 +76,7 @@ const services = [
     description:
       "Online store development, payment integration, digital marketing",
     link: "/services/ecommerce",
+    startingPrice: "₹35,000",
   },
 ];
 
@@ -117,7 +125,13 @@ export function Services() {
               <h3 className="text-xl font-semibold mb-2 group-hover:text-indigo-500 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-slate-600 mb-4 flex-1">{service.description}</p>
+              <p className="text-slate-600 mb-3 flex-1">{service.description}</p>
+              {service.startingPrice && (
+                <div className="mb-4 py-2 px-3 bg-indigo-50 rounded-lg border border-indigo-100 inline-block">
+                  <span className="text-xs text-slate-500">From </span>
+                  <span className="text-lg font-bold text-indigo-600">{service.startingPrice}</span>
+                </div>
+              )}
               <div className="flex items-center justify-between mt-auto">
                 <a
                   href={service.link}

@@ -48,6 +48,7 @@ interface ServiceDetailProps {
   // Legacy props for backward compatibility
   metaTitle?: string;
   metaDescription?: string;
+  startingPrice?: string; // Minimum market charges
 }
 
 const BASE_URL = "https://www.techvexor.com";
@@ -69,6 +70,7 @@ export function ServiceDetailSection({
   seo,
   metaTitle,
   metaDescription,
+  startingPrice,
 }: ServiceDetailProps) {
   const location = useLocation();
   const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
@@ -290,7 +292,16 @@ export function ServiceDetailSection({
             )}
             <p className="text-lg md:text-xl text-slate-300 mb-4">{description}</p>
             {longDescription && (
-              <p className="text-base text-slate-400 mb-8">{longDescription}</p>
+              <p className="text-base text-slate-400 mb-6">{longDescription}</p>
+            )}
+            {startingPrice && (
+              <div className="mb-8 inline-block">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
+                  <p className="text-sm text-slate-300 mb-1">Starting from</p>
+                  <p className="text-3xl font-bold text-white">{startingPrice}</p>
+                  <p className="text-xs text-slate-400 mt-1">*Market competitive rates</p>
+                </div>
+              </div>
             )}
             <div className="flex flex-wrap items-center gap-4">
               <GradientButton asChild size="lg">
