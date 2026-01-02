@@ -56,6 +56,7 @@ export default function ServiceDynamic() {
         useCases={entry.useCases}
         technologies={entry.technologies}
         faqs={entry.faqs}
+        startingPrice={entry.startingPrice}
         seo={{
           metaTitle: entry.metaTitle || `${entry.title} | Tech Vexor`,
           metaDescription: entry.metaDescription || entry.description,
