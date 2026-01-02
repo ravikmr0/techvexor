@@ -16,6 +16,7 @@ import Industries from "./pages/industries";
 import Innovations from "./pages/innovations";
 import Login from "./pages/login";
 import Products from "./pages/products";
+import ProductDetail from "./pages/products/[slug]";
 import SearchPage from "./pages/search";
 
 // Legal Pages
@@ -97,6 +98,7 @@ function App() {
           <Route path="/innovations" element={<Innovations />} />
           <Route path="/login" element={<Login />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:slug" element={<ProductDetail />} />
           <Route path="/search" element={<SearchPage />} />
 
           {/* Legal Routes */}
