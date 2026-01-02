@@ -15,7 +15,7 @@ import Contact from "./pages/contact";
 import Industries from "./pages/industries";
 import Innovations from "./pages/innovations";
 import Login from "./pages/login";
-import Pricing from "./pages/pricing";
+import Products from "./pages/products";
 import SearchPage from "./pages/search";
 
 // Legal Pages
@@ -96,7 +96,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/innovations" element={<Innovations />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/search" element={<SearchPage />} />
 
           {/* Legal Routes */}

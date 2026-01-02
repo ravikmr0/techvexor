@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, X, FileText, Briefcase, DollarSign, Building2, Globe, ArrowRight } from "lucide-react";
+import { Search, X, FileText, Briefcase, Package, Building2, Globe, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { searchContent, SearchResult, SearchResultType } from "./search-data";
 import { cn } from "@/lib/utils";
@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const typeIcons: Record<SearchResultType, React.ReactNode> = {
   service: <Briefcase className="w-4 h-4" />,
   project: <FileText className="w-4 h-4" />,
-  pricing: <DollarSign className="w-4 h-4" />,
+  product: <Package className="w-4 h-4" />,
   industry: <Building2 className="w-4 h-4" />,
   page: <Globe className="w-4 h-4" />,
 };
@@ -16,7 +16,7 @@ const typeIcons: Record<SearchResultType, React.ReactNode> = {
 const typeLabels: Record<SearchResultType, string> = {
   service: "Service",
   project: "Project",
-  pricing: "Pricing",
+  product: "Product",
   industry: "Industry",
   page: "Page",
 };
@@ -24,7 +24,7 @@ const typeLabels: Record<SearchResultType, string> = {
 const typeColors: Record<SearchResultType, string> = {
   service: "bg-blue-100 text-blue-700",
   project: "bg-purple-100 text-purple-700",
-  pricing: "bg-green-100 text-green-700",
+  product: "bg-green-100 text-green-700",
   industry: "bg-orange-100 text-orange-700",
   page: "bg-slate-100 text-slate-700",
 };
@@ -121,7 +121,7 @@ export function GlobalSearch({ variant = "desktop", className }: GlobalSearchPro
         <Input
           ref={inputRef}
           type="text"
-          placeholder="Search services, projects, pricing..."
+          placeholder="Search services, projects, products..."
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
@@ -251,7 +251,7 @@ export function GlobalSearch({ variant = "desktop", className }: GlobalSearchPro
             <Search className="w-8 h-8 text-slate-300 mx-auto mb-2" />
             <p className="text-sm text-slate-600">No results found for "{query}"</p>
             <p className="text-xs text-slate-400 mt-1">
-              Try searching for services, projects, or pricing
+              Try searching for services, projects, or products
             </p>
           </div>
         </div>
