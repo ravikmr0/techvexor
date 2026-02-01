@@ -19,7 +19,7 @@ const navItems = [
   { label: "Products", href: "/products", icon: Package },
   { label: "About Us", href: "/about", icon: Users },
   { label: "Contact Us", href: "/contact", icon: Mail },
-  { label: "Login", href: "/login", icon: LogIn },
+  { label: "Book Your Demo", href: "/book-demo", icon: Sparkles },
 ];
 
 export function Header() {
@@ -95,9 +95,12 @@ export function Header() {
           <Link to="/" className="flex items-center space-x-2.5 group">
             <div className="relative">
               <img
-                src="/vexor-w.png"
+                src="/vexor-w.svg"
                 alt="Tech Vexor Logo"
+                width="40"
+                height="40"
                 className="w-9 h-9 sm:w-10 sm:h-10 transition-transform duration-300 group-hover:scale-110"
+                loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-violet-400/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>

@@ -26,7 +26,7 @@ const organizationSchema = {
     "height": 60
   },
   "image": "https://www.techvexor.com/vexor1.svg",
-  "description": "Tech Vexor is a leading IT solutions company in Noida, Delhi NCR offering website development, digital marketing, lead generation, AI solutions, mobile app development, cloud services, and custom software development.",
+  "description": "Tech Vexor is a leading marketing technology company and IT consulting firm in Noida, Delhi NCR offering website development, digital marketing, lead generation, AI solutions, mobile app development, cloud services, and custom software development. Expert tech marketing consultants for B2B and business consulting services.",
   "foundingDate": "2020",
   "founders": [
     {
@@ -234,9 +234,18 @@ const servicesSchema = {
 // Combined Schema
 const combinedSchema = [organizationSchema, websiteSchema, localBusinessSchema, servicesSchema];
 
-// Comprehensive SEO Keywords for Google Ranking
+// Comprehensive SEO Keywords for Google Ranking - Marketing & Tech Consulting Focus
 const seoKeywords = `
 IT company Noida, IT solutions company Noida, best IT company in Noida, 
+marketing company, tech company, it consulting, marketing technology consultant,
+marketing tech company, marketing technology company, tech consulting inc,
+tech marketing companies, b-tech consulting group, b2b marketing consultant,
+business marketing consulting services, b2b tech marketing agency, marketing it company,
+technical marketing consultant, email marketing consulting, product marketing consulting,
+industrial marketing consultants, it marketing companies, sales marketing consultants,
+technology marketing group, technical marketing company, technology marketing companies,
+tech marketing consultant, top marketing tech companies, marketing it consulting services,
+tech company marketing strategy, marketing and technology consultancy,
 website development company Noida, web development services Delhi NCR,
 digital marketing agency Noida, SEO company Noida, digital marketing services India,
 lead generation company, B2B lead generation services, B2C lead generation,
@@ -260,13 +269,13 @@ EV charging stations, power backup solutions, battery solutions
 `.trim();
 
 function Home() {
-  usePageTitle("Best IT Company in Noida | Website Development, Digital Marketing, AI Solutions");
+  usePageTitle("Best Marketing Technology Company & IT Consulting | Tech Vexor Noida");
 
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Best IT Company in Noida | Website Development & Digital Marketing Agency"
-        description="Tech Vexor is the #1 IT solutions company in Noida offering professional website development, digital marketing, lead generation, AI/ML solutions, mobile app development, cloud services & custom software. Get free consultation! ☎ +91-7895849990"
+        title="Best Marketing Technology Company & IT Consulting Firm in Noida | Tech Vexor"
+        description="Tech Vexor is a leading tech marketing company and IT consulting firm offering B2B marketing consulting, technology consulting services, website development, digital marketing, AI solutions, and business marketing consulting services in Noida, Delhi NCR. Expert technical marketing consultants for your business growth."
         keywords={seoKeywords}
         schema={combinedSchema}
       />

@@ -30,4 +30,7 @@ dist-ssr
 
 core
 .env
+# Tempo canvas-only files
+**/tempobook/dynamic/
+**/tempobook/storyboards/
 **/tempobook/**
