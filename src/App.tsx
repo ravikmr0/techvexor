@@ -15,6 +15,7 @@ import Contact from "./pages/contact";
 import Industries from "./pages/industries";
 import Innovations from "./pages/innovations";
 import Login from "./pages/login";
+import BookDemo from "./pages/book-demo";
 import Products from "./pages/products";
 import ProductDetail from "./pages/products/[slug]";
 import SearchPage from "./pages/search";
@@ -34,6 +35,7 @@ import ServiceAIAndML from "./pages/services/ai-ml";
 import ServiceAIAgentsChatbots from "./pages/services/ai-agents-chatbots";
 import ServiceCybersecurity from "./pages/services/cybersecurity";
 import ServiceCustomSoftware from "./pages/services/custom-software";
+import ServiceDigitalMarketing from "./pages/services/digital-marketing";
 import ServiceDynamic from "./pages/service-dynamic";
 
 // Industry Pages (all under /industries folder)
@@ -97,6 +99,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/innovations" element={<Innovations />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/book-demo" element={<BookDemo />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:slug" element={<ProductDetail />} />
           <Route path="/search" element={<SearchPage />} />
@@ -117,6 +120,8 @@ function App() {
           <Route path="/services/ai-agents-chatbots" element={<ServiceAIAgentsChatbots />} />
           <Route path="/services/cybersecurity" element={<ServiceCybersecurity />} />
           <Route path="/services/custom-software" element={<ServiceCustomSoftware />} />
+          <Route path="/services/seo" element={<ServiceDigitalMarketing />} />
+          <Route path="/services/digital-marketing" element={<ServiceDigitalMarketing />} />
           <Route path="/services/:slug" element={<ServiceDynamic />} />
 
           {/* Industries Routes */}

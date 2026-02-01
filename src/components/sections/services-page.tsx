@@ -102,13 +102,12 @@ export function ServicesPage() {
       <section className="py-20 bg-slate-900 text-white">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-            Comprehensive Digital Solutions
+            IT Consulting Services & Tech Marketing Solutions
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl mx-auto text-center mb-8">
-            At Tech Vexor, we offer a wide range of cutting-edge digital
-            services tailored to elevate your brand and drive business growth.
-            Our expert team ensures that your digital presence stands out in a
-            competitive market.
+            Leading IT consulting agency delivering comprehensive technology consulting services, 
+            marketing technology solutions, cloud computing, AI/ML, and digital transformation. 
+            Expert tech consulting for small businesses and enterprises with proven ROI.
           </p>
           <div className="flex items-center justify-center gap-3">
             <GradientButton asChild size="lg">
@@ -136,10 +135,11 @@ export function ServicesPage() {
               Our Core Expertise
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-900 bg-clip-text text-transparent">
-              Top 3 Services That Drive Results
+              Top IT Consulting & Tech Marketing Services
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Our most requested packages designed to accelerate your business growth with proven strategies and measurable outcomes.
+              Our expert IT consulting services and technology marketing solutions designed for businesses seeking 
+              comprehensive tech consulting, cloud infrastructure, and digital transformation strategies.
             </p>
           </div>
 
@@ -291,7 +291,7 @@ export function ServicesPage() {
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Why Choose Tech Vexor?
+            Why Choose Tech Vexor IT Consulting Services?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {benefits.map((benefit, index) => (

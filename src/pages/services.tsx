@@ -10,8 +10,8 @@ const SITE_NAME = "Tech Vexor";
 
 export default function Services() {
   const location = useLocation();
-  const metaTitle = "Digital Marketing & AI Services | Tech Vexor";
-  const metaDescription = "Explore our comprehensive digital services including AI & Machine Learning, Custom Software Development, Cloud Solutions, Cybersecurity, IT Consulting, and AI Chatbots. Transform your business with expert technology solutions.";
+  const metaTitle = "IT Consulting Services & Tech Marketing Solutions | Tech Vexor - All IT Consultants";
+  const metaDescription = "Leading IT consulting agency offering comprehensive tech consulting services, marketing technology solutions, cloud computing, AI/ML, cybersecurity, and digital transformation. Expert IT consulting services near you with proven results for small and enterprise businesses.";
   const canonicalUrl = `${BASE_URL}${location.pathname}`;
   
   usePageTitle(metaTitle, { suffix: null });
@@ -46,7 +46,7 @@ export default function Services() {
 
     // Basic meta tags
     setMetaTag("description", metaDescription);
-    setMetaTag("keywords", "digital services, AI services, machine learning, custom software development, cloud solutions, cybersecurity, IT consulting, AI chatbots, technology solutions, digital transformation");
+    setMetaTag("keywords", "it consulting services, tech consulting, marketing technology consultant, it consulting agency, all it consulting, tech marketing, it consulting firms near me, it consulting services near me, business consulting services, deloitte it consulting, small it consulting firms, small tech consulting firms, it consulting services inc, it consulting llc, all tech consulting, marketing consulting services, cloud solutions, cybersecurity consulting, digital transformation, ai consulting, it services companies, tech consulting group, small business it consulting, it consulting san antonio, major it consulting firms, all tech marketing");
     setMetaTag("robots", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
 
     // Canonical URL
@@ -168,7 +168,7 @@ export default function Services() {
       "name": SITE_NAME,
       "url": BASE_URL,
       "logo": `${BASE_URL}/vexor1.svg`,
-      "description": "AI Transformation & Digital Growth Agency specializing in AI, Machine Learning, Custom Software, Cloud Solutions, and Cybersecurity",
+      "description": "AI Transformation & IT Consulting Agency specializing in technology consulting services, marketing technology, AI solutions, cloud infrastructure, cybersecurity, and digital business transformation for enterprises and small businesses",
       "sameAs": [
         "https://twitter.com/techvexor",
         "https://linkedin.com/company/techvexor",
