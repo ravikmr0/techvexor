@@ -30,9 +30,7 @@ export const serviceGroups: ServiceGroup[] = [
         metaTitle: "IT & Software Development Services | Custom Software Solutions",
         metaDescription: "Expert software development services including custom applications, web & mobile development, API integration, and enterprise solutions tailored to your business needs.",
         description: "Custom software solutions, web & mobile app development, API integration for businesses of all sizes.",
-        longDescription: "Our comprehensive software development services cover the entire development lifecycle. From initial concept and design to deployment and maintenance, we build scalable, secure, and user-friendly applications that drive business growth. Our team of experienced developers works with cutting-edge technologies to deliver solutions that meet your exact requirements.",
-        features: [
-          "Custom software application development",
+        longDescription: `,
           "Web application development (React, Angular, Vue)",
           "Mobile app development (iOS, Android, Cross-platform)",
           "API development and third-party integrations",
@@ -73,7 +71,7 @@ export const serviceGroups: ServiceGroup[] = [
         metaTitle: "Managed IT Services | 24/7 IT Support & Infrastructure Management",
         metaDescription: "Comprehensive managed IT services including 24/7 monitoring, system maintenance, IT infrastructure management, and proactive support to keep your business running smoothly.",
         description: "24/7 system monitoring, maintenance, IT infrastructure management for reliable business operations.",
-        longDescription: "Our managed IT services provide complete oversight of your technology infrastructure. We handle everything from day-to-day maintenance to complex system upgrades, allowing you to focus on your core business. Our proactive approach identifies and resolves issues before they impact your operations.",
+        longDescription: "Our managed IT services provide complete oversight of your technology infrastructure. We handle everything from day-to-day maintenance to complex system upgrades, allowing you to focus on your core business. Our proactive approach identifies and resolves issues before they impact your operations.`
         features: [
           "24/7 system monitoring and alerting",
           "Proactive maintenance and updates",
@@ -116,7 +114,7 @@ export const serviceGroups: ServiceGroup[] = [
         metaTitle: "Digital Transformation Services | AI Integration & Process Automation",
         metaDescription: "Transform your business with our digital transformation and AI services. We help organizations modernize operations, integrate AI, and automate processes for competitive advantage.",
         description: "AI integration, process automation, digital strategy consulting to modernize your business operations.",
-        longDescription: "Digital transformation is essential for businesses to remain competitive in today's market. Our services help organizations leverage technology to improve efficiency, enhance customer experiences, and create new business models. We combine strategic consulting with hands-on implementation to deliver measurable results.",
+        longDescription: "Digital transformation is essential for businesses to remain competitive in today's market. Our services help organizations leverage technology to improve efficiency, enhance customer experiences, and create new business models. We combine strategic consulting with hands-on implementation to deliver measurable results.`
         features: [
           "Digital strategy development and roadmaps",
           "AI and machine learning integration",
@@ -1016,7 +1014,190 @@ Every project at Tech Vexor comes with transparent pricing, clear timelines, ded
     name: "Lead Generation & Growth",
     items: [
       { slug: "upvc-aluminium-pan-india-leads", title: "Pan‑India Leads for uPVC & Aluminium", description: "Targeted B2B demand generation.", features: ["Audience maps", "Landing pages", "Qualification"], benefits: ["Pipeline", "Quality", "Scale"], startingPrice: "₹30,000/mo" },
-      { slug: "b2b-b2c-lead-gen", title: "B2B & B2C Lead Generation", description: "Performance funnels across channels.", features: ["Paid & organic", "Funnels", "Scoring"], benefits: ["Volume", "CPA", "Revenue"], startingPrice: "₹25,000/mo" },
+      { 
+        slug: "b2b-b2c-lead-gen",
+        title: "Lead Generation Strategy & Demand Generation",
+        description: "Global lead generation strategy and demand gen programs that attract, qualify, and convert high-intent buyers across channels.",
+        longDescription: `**SEO Overview**Build a predictable revenue engine with Tech Vexor’s lead generation strategy services. We design full‑funnel programs that combine search, paid media, content, email, and automation to capture demand, qualify leads, and accelerate pipeline. Our approach is data-driven, compliant, and optimized for US, UK, Canada, India, and global markets, helping teams increase conversions while reducing acquisition costs.
+
+**Hero Summary**Generate qualified leads with a performance-first strategy built for scale. We connect your brand to high-intent buyers, create irresistible offers, and guide prospects from first click to closed deal with measurable ROI.
+
+**Service Overview (150–200 words)**Lead generation is the strategic process of attracting potential customers, capturing their information, and guiding them through a structured conversion journey until they become sales-ready. In a competitive global market, businesses need more than ads—they need a repeatable system that aligns positioning, targeting, content, and conversion pathways. Tech Vexor delivers that system. We combine experience-led strategy with performance marketing, SEO, and automation to build lead engines for startups, SMEs, and enterprises. Our programs are grounded in analytics and attribution, ensuring every channel contributes measurable pipeline impact. Demand for scalable lead generation is growing across B2B and B2C sectors as digital buyer behavior evolves. Companies that invest in robust lead generation gain cost efficiency, predictable growth, and stronger market positioning. With Tech Vexor, you get a unified strategy that boosts visibility, engages prospects with relevance, and converts intent into revenue.
+
+**How This Service Works (Step-by-Step)**We follow a proven workflow that turns market demand into qualified leads.
+• Step 1: Discovery & Market Research – ICP definition, buyer journey mapping, competitive intelligence, and demand analysis.
+• Step 2: Offer & Funnel Architecture – lead magnets, landing page structure, conversion path mapping, and CRO planning.
+• Step 3: Channel Strategy – SEO, paid search, social ads, content distribution, email outreach, and partner channels.
+• Step 4: Creative & Content Production – high-converting ads, landing pages, nurturing content, and SEO assets.
+• Step 5: Tracking & Analytics Setup – GA4, GTM, conversion APIs, CRM integration, and attribution.
+• Step 6: Lead Capture & Qualification – form optimization, chatbot flows, lead scoring, and segmentation.
+• Step 7: Nurture & Sales Enablement – automated sequences, retargeting, and sales handoff workflows.
+• Step 8: Optimization & Scaling – A/B testing, budget reallocation, and performance growth sprints.
+
+**Tools, Technologies & Frameworks**We leverage best-in-class tools for performance and reliability.
+• Analytics & Tracking: GA4, GTM, Looker Studio, HubSpot, Salesforce, Zoho CRM.
+• Paid Media: Google Ads, Microsoft Ads, Meta, LinkedIn, YouTube, programmatic platforms.
+• SEO & Content: Ahrefs, Semrush, Screaming Frog, SurferSEO, Webflow/WordPress CMS.
+• Automation: HubSpot, Mailchimp, ActiveCampaign, Zapier, Make.
+• CRO & UX: Hotjar, VWO, A/B testing frameworks, heatmaps.
+
+**Features & Capabilities**
+• Full‑funnel strategy built for awareness, consideration, and conversion.
+• Custom landing pages optimized for speed, UX, and high conversion rates.
+• Lead scoring and qualification workflows to improve sales efficiency.
+• Multi‑channel campaigns with unified tracking and attribution.
+• SEO‑driven demand capture for long‑term organic growth.
+• Paid media optimization to reduce CAC and maximize ROAS.
+• Personalization and segmentation for higher engagement.
+• Secure data handling with privacy-first tracking and compliance best practices.
+• Scalable frameworks that support regional and global expansion.
+• Continuous testing and optimization for compounding ROI.
+
+**Business Benefits & ROI**
+• Increase revenue by capturing high-intent leads at scale.
+• Reduce acquisition costs through precision targeting and CRO.
+• Improve sales efficiency with qualified, sales-ready leads.
+• Accelerate pipeline velocity and shorten sales cycles.
+• Automate nurturing workflows to save time and resources.
+• Build long-term organic growth with SEO-driven demand capture.
+• Gain clarity with transparent reporting and attribution.
+• Strengthen brand authority with content-led engagement.
+• Scale globally while maintaining consistent lead quality.
+
+**Industries We Serve**We support growth across diverse verticals.
+• Startups and high-growth technology companies.
+• SMEs and mid-market businesses.
+• Enterprises with complex sales cycles.
+• E-commerce brands and DTC companies.
+• Real Estate and property platforms.
+• Healthcare and wellness services.
+• Education and EdTech providers.
+• Manufacturing and industrial companies.
+• Finance, fintech, and professional services.
+• Global clients across US, UK, Canada, India, and beyond.
+
+**Why Choose Tech Vexor**
+• Expertise: multi-market lead generation specialists with proven results.
+• Proven Strategy: repeatable frameworks optimized for conversions.
+• Advanced Tech Stack: best-in-class tools for tracking, automation, and CRO.
+• Transparent Pricing: clear deliverables, measurable outcomes, no hidden costs.
+• Global Delivery: campaigns optimized for regional and international markets.
+• Long‑Term Support: continuous optimization and strategic guidance.
+
+**Case Use Scenarios / Practical Examples**
+• SaaS company: before—high ad spend, low conversion. After—CRO-led landing pages and LinkedIn ads delivered 3.5x qualified leads.
+• Real estate platform: before—low organic traffic. After—SEO content hubs increased inbound inquiries by 180%.
+• Healthcare provider: before—manual lead follow-ups. After—automation and lead scoring reduced response time by 60%.
+• E-commerce brand: before—high cart abandonment. After—retargeting + email nurture improved conversion by 25%.
+
+**EEAT & Trust Signals**Experience, expertise, authority, and trust guide every campaign. Our strategists have delivered lead generation programs for global B2B and B2C businesses, combining deep channel expertise with sector-specific insight. We document playbooks, maintain testing logs, and share transparent reporting so stakeholders can validate performance. Security and compliance are built in: we use consent-first tracking, secure data storage practices, and platform-approved integrations. We also align with sales teams to ensure messaging reflects real customer conversations, reinforcing credibility and reducing friction in the handoff.
+
+**Global SEO & Localization Strategy**Ranking globally requires localization, intent mapping, and regional search behavior analysis. We build keyword clusters by market (US, UK, Canada, India), tailor landing pages to regional language nuances, and optimize for local SERP features and competitive landscapes. For global brands, we recommend a hub-and-spoke content architecture: high-authority global pages supported by regional pages that address local pain points, pricing expectations, and compliance requirements. This creates topical authority while improving relevance for target markets.
+
+**Reporting & KPI Framework**We define KPIs across the funnel: impressions, CTR, conversion rate, CPL, MQL rate, SQL rate, pipeline contribution, and CAC payback. Dashboards update in real time, while weekly insights highlight wins, risks, and next actions. This ensures continuous optimization and clear accountability. We also run attribution models to understand channel influence, enabling smarter budget allocation and sustainable growth.
+
+**Lead Magnet & Offer Strategy**High-performing lead generation depends on the right offer. We build lead magnets such as industry reports, ROI calculators, pricing benchmarks, consultation frameworks, product demos, webinars, and checklists. Each offer is tailored to the stage of the buyer journey, with messaging focused on specific outcomes and business value. This increases conversion quality and nurtures trust early.
+
+**Sales Alignment & Enablement**Marketing and sales must work as one. We define lead handoff criteria, create sales enablement assets, and implement automated follow-up sequences so no lead is lost. We also integrate CRM lifecycle stages and feedback loops, allowing sales teams to influence future campaign targeting based on real pipeline outcomes. This alignment shortens sales cycles and improves win rates.
+
+**Conversion Optimization & Performance**Lead generation success depends on removing friction at every step. We optimize landing page speed, mobile UX, form design, and messaging hierarchy to reduce drop‑off. Our CRO playbook includes hypothesis-driven testing, heatmap analysis, and structured experiments that improve conversion rates without increasing ad spend. We also refine audience segmentation and ad creative to boost relevance, which improves quality score, reduces CPC, and increases overall ROI.
+
+**Growth Roadmap & Continuous Improvement**Lead generation is not a one-time project; it is a system that compounds. We build quarterly growth roadmaps that align with revenue targets, seasonal demand, and product launches. Each roadmap includes channel priorities, content milestones, budget ranges, and performance targets. We review insights monthly, implement learning-driven updates, and expand the highest-performing segments first. This ensures momentum, sustainable pipeline growth, and clarity for executive stakeholders.
+
+**Risk Management & Compliance**Global lead generation requires careful compliance and brand safety. We set up consent-based data collection, align with GDPR and CCPA requirements, and implement platform-approved tracking methods. We also monitor ad policy updates, enforce brand-safe placements, and maintain security protocols for lead data. This protects your reputation while keeping performance strong across markets.
+
+**Lead Qualification Framework**We help teams define what “qualified” means by mapping scoring tiers to buying intent, firmographics, and engagement signals. Qualification rules are integrated into CRM and automation tools, ensuring sales teams receive leads with the highest likelihood to close. Over time, we refine the model using sales outcomes and feedback, improving conversion quality and revenue predictability.
+
+**Regional Channel Mix & Budgeting**We design channel mixes based on market maturity and buying behavior. For example, US and UK campaigns often prioritize search intent with LinkedIn and retargeting, while India and APAC programs may blend search with WhatsApp, webinars, and localized content. We structure budgets to protect profitability, allocate spend to high-intent segments first, and expand into upper-funnel awareness as conversion rates stabilize. This creates a balanced, sustainable lead engine across regions.
+
+**Trust-Building Content Strategy**To support EEAT, we develop proof assets such as client case studies, ROI snapshots, testimonials, certifications, and expert guides. These assets reduce buyer uncertainty and improve conversion rates on landing pages and sales calls. By pairing authority content with high-intent offers, we build trust at every stage of the buyer journey and increase close rates.
+
+**SEO‑Optimized FAQ**
+**How does lead generation strategy help B2B companies?**It aligns targeting, content, and nurturing to attract high-value prospects and convert them into sales-ready leads.
+
+**What is the best lead generation strategy for startups?**A mix of SEO, paid search, and targeted outbound campaigns with clear offers and fast testing cycles.
+
+**How long does lead generation take to show results?**Paid campaigns can show results in weeks; SEO-led demand often grows over 3–6 months.
+
+**Which channels are best for lead generation?**It depends on your ICP, but Google Search, LinkedIn, content marketing, and email automation are top performers.
+
+**Do you provide international lead generation?**Yes. We run global campaigns optimized for US, UK, Canada, India, and other markets with localization.
+
+**How do you measure lead quality?**Through lead scoring, CRM tracking, engagement analysis, and sales feedback loops.
+
+**Is lead generation compliant with privacy laws?**We follow GDPR, CCPA, and platform policies while using consent-driven tracking.
+
+**Can you integrate with our CRM?**Yes. We integrate with HubSpot, Salesforce, Zoho, and other platforms.
+
+**What is the cost of lead generation services?**Costs depend on channels, markets, and goals; we provide transparent packages and scalable options.
+
+**Do you offer lead nurturing and automation?**Yes. We build automated workflows that keep prospects engaged until conversion.
+
+**Internal Linking Suggestions**
+• Related services: SEO (On‑page, Off‑page, Technical), Performance Marketing Campaigns, Conversion Rate Optimization (CRO), Content Marketing & Copywriting, Analytics, Tracking & Reporting.
+• Blog posts: Lead Generation Best Practices, Paid vs Organic Lead Generation, Funnel Optimization, CRO Case Studies.
+• Contact page: https://www.techvexor.com/contact
+
+**Strong CTA**Get a free consultation to review your current lead generation performance. We’ll map a growth plan, recommend the best channels, and deliver a conversion-ready funnel tailored to your market.`
+        features: [
+          "Full‑funnel lead generation strategy tailored to your ICP",
+          "High‑converting landing pages and lead capture assets",
+          "Multi‑channel campaigns across search, social, email, and content",
+          "Advanced lead scoring and qualification workflows",
+          "SEO demand capture for sustainable organic growth",
+          "Conversion rate optimization with A/B testing",
+          "CRM, marketing automation, and analytics integration",
+          "Global targeting with localization and regional compliance",
+          "Performance dashboards with attribution modeling",
+          "Continuous optimization to scale qualified pipeline",
+        ],
+        benefits: [
+          "Increase qualified leads and pipeline velocity",
+          "Lower CAC through precise targeting and CRO",
+          "Improve sales efficiency with lead scoring",
+          "Boost revenue with predictable demand generation",
+          "Scale campaigns across US, UK, Canada, India, and global markets",
+          "Gain transparent reporting for better decisions",
+        ],
+        useCases: [
+          "B2B demand generation for SaaS and tech",
+          "B2C lead capture for services and retail",
+          "Real estate inquiries and property lead intake",
+          "Healthcare appointment and patient lead acquisition",
+          "Education admissions and enrollment leads",
+          "Manufacturing and industrial distributor leads",
+          "Finance and fintech consultation requests",
+        ],
+        technologies: [
+          "Google Ads",
+          "LinkedIn Ads",
+          "Meta Ads",
+          "HubSpot",
+          "Salesforce",
+          "GA4",
+          "GTM",
+          "Looker Studio",
+          "Ahrefs",
+          "Semrush",
+        ],
+        faqs: [
+          { question: "What is a lead generation strategy?", answer: "A lead generation strategy is a structured plan that attracts, captures, and nurtures prospects using the right channels, offers, and conversion paths." },
+          { question: "How do you improve lead quality?", answer: "We implement lead scoring, segmentation, and qualification workflows to filter prospects and focus sales on high-intent opportunities." },
+          { question: "Which markets do you support?", answer: "We support US, UK, Canada, India, and global markets with localization, compliance, and multi-region campaign optimization." },
+          { question: "How do you measure ROI from lead generation?", answer: "We track conversions, pipeline value, CAC, and attribution across channels using GA4, CRM integrations, and performance dashboards." },
+          { question: "Can you integrate with our CRM and marketing automation?", answer: "Yes. We integrate with HubSpot, Salesforce, Zoho, and other platforms to sync leads and automate nurturing." },
+          { question: "How long does it take to see results?", answer: "Paid campaigns can deliver leads within weeks, while SEO and content compound results over 3–6 months." },
+          { question: "Do you provide lead nurturing?", answer: "Yes. We build automated email sequences, retargeting, and lifecycle messaging to improve conversion rates." },
+          { question: "Is lead generation compliant with privacy regulations?", answer: "We follow GDPR, CCPA, and platform policies with consent-based tracking and secure data handling." },
+          { question: "What budget is required for lead generation?", answer: "Budgets vary by market and competition; we recommend a scalable plan based on your revenue goals." },
+          { question: "Do you optimize for conversions after lead capture?", answer: "Yes. We improve conversion rates through CRO, funnel optimization, and sales enablement." },
+        ],
+        metaTitle: "Lead Generation Strategy & Demand Gen Services | Tech Vexor",
+        metaDescription: "Global lead generation strategy and demand gen services to attract, qualify, and convert buyers. SEO, paid, and automation for US, UK, Canada, India.",
+        metaKeywords: "lead generation strategy, demand generation services, b2b lead generation, b2c lead generation, lead generation agency, performance marketing, conversion rate optimization, global lead generation, seo lead generation, paid media leads, marketing automation, sales pipeline growth",
+        ogImage: "https://www.techvexor.com/og-services.jpg",
+        startingPrice: "₹25,000/mo",
+      },
       { slug: "international-lead-gen", title: "International Lead Generation", description: "Cross‑border demand with compliance.", features: ["Geo routing", "Privacy", "Localization"], benefits: ["New markets", "Scale", "Trust"], startingPrice: "₹40,000/mo" },
       { slug: "landing-pages-funnels", title: "Landing Page & Funnel Building", description: "High‑converting experiences.", features: ["Design", "Copy", "Testing"], benefits: ["CVR", "AOV", "Insights"], startingPrice: "₹15,000" },
       { slug: "performance-marketing", title: "Performance Marketing Campaigns", description: "Always‑on paid growth.", features: ["Budgets", "Optimization", "Attribution"], benefits: ["ROAS", "Scale", "Clarity"], startingPrice: "₹20,000/mo" },
@@ -1053,6 +1234,11 @@ Every project at Tech Vexor comes with transparent pricing, clear timelines, ded
   },
 ];
 
-export const serviceIndex: Record<string, ServiceEntry> = Object.fromEntries(
+const baseServiceIndex: Record<string, ServiceEntry> = Object.fromEntries(
   serviceGroups.flatMap((g) => g.items.map((i) => [i.slug, i]))
 );
+
+export const serviceIndex: Record<string, ServiceEntry> = {
+  ...baseServiceIndex,
+  "lead-generation": baseServiceIndex["b2b-b2c-lead-gen"],
+};
