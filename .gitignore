@@ -25,12 +25,8 @@ dist-ssr
 
 !node_modules/.vite
 
-**/tempobook/dynamic/
-**/tempobook/storyboards/
+# Tempo canvas-only files (canvas metadata + generated storyboards)
+**/tempobook/**
 
 core
 .env
-# Tempo canvas-only files
-**/tempobook/dynamic/
-**/tempobook/storyboards/
-**/tempobook/**
