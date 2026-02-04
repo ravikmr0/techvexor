@@ -332,19 +332,36 @@ export const serviceGroups: ServiceGroup[] = [
     items: [
       {
         slug: "website-development",
-        title: "Website Development Services",
-        metaTitle: "Website Development Services | Custom Web Design Company | Tech Vexor",
-        metaDescription: "Professional website development services by Tech Vexor. Custom web design, responsive websites, e-commerce, CMS solutions. Get a free consultation today!",
-        metaKeywords: "website development services, custom web design, responsive website development, e-commerce website development, CMS development, WordPress development, Shopify development, React website development, website design company, web development agency, professional website development, SEO-optimized websites, mobile-first web design, website development near me, best website development company",
+        title: "Professional Website Development Services",
+        metaTitle: "Website Development Services | Custom Web Design Company India | Tech Vexor",
+        metaDescription: "Expert website development services by Tech Vexor. Custom web design, responsive websites, e-commerce solutions. 500+ projects delivered. Get free consultation!",
+        metaKeywords: "website development services, custom web design, responsive website development, e-commerce website development, CMS development, WordPress development, Shopify development, React website development, website design company India, web development agency, professional website development, SEO-optimized websites, mobile-first web design, website development near me, best website development company, business website design, corporate website development, landing page design, website redesign services, web development cost",
+        ogImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
         description:
-          "Transform your digital presence with Tech Vexor's expert website development services. We build high-performance, SEO-optimized, and conversion-focused websites that drive business growth and deliver exceptional user experiences.",
-        longDescription: `At Tech Vexor, we understand that your website is often the first impression customers have of your business. Our comprehensive website development services combine cutting-edge technology with strategic design thinking to create digital experiences that captivate visitors and convert them into loyal customers.
+          "Build a powerful online presence with Tech Vexor's expert website development services. We create high-performance, SEO-optimized, mobile-responsive websites that convert visitors into customers and accelerate your business growth.",
+        longDescription: `Your website is your most powerful business asset in the digital age. At Tech Vexor, we don't just build websites – we craft digital experiences that captivate your audience, establish credibility, and drive measurable business results.
 
-With over 500+ successful projects delivered globally, our team of expert developers and designers specializes in building custom websites that are not just visually stunning but also technically superior. Every website we create is built with a mobile-first approach, ensuring seamless performance across all devices and screen sizes.
+**Why Your Business Needs a Professional Website in 2024:**
 
-We leverage the latest frameworks and technologies including React, Next.js, WordPress, and Shopify to deliver websites that load lightning-fast, rank higher on search engines, and provide intuitive user experiences. Our development process follows Google's Core Web Vitals guidelines and EEAT principles (Experience, Expertise, Authoritativeness, Trustworthiness) to ensure your website meets the highest standards of quality and performance.
+In today's digital-first world, 75% of consumers judge a company's credibility based on their website design. A professionally developed website is no longer optional – it's essential for survival and growth. Whether you're a startup looking to make your mark, an SME ready to scale, or an enterprise seeking digital transformation, your website is the foundation of your online success.
 
-Whether you need a simple landing page, a complex e-commerce platform, or a custom web application, Tech Vexor has the expertise to bring your vision to life. We don't just build websites; we create digital assets that drive measurable business results.`,
+**The Tech Vexor Difference:**
+
+With 500+ successful projects delivered across 20+ countries, our team combines creativity with technical excellence. We follow a proven methodology that ensures every website we build is:
+
+• **Lightning Fast** – Sub-2 second load times for optimal user experience and SEO
+• **Mobile-First** – 68% of website visits come from mobile devices – we optimize accordingly
+• **SEO-Optimized** – Built following Google's Core Web Vitals and EEAT guidelines
+• **Conversion-Focused** – Strategic design elements that turn visitors into customers
+• **Scalable** – Architecture that grows with your business
+
+**Industries We've Transformed:**
+
+From healthcare providers reducing patient acquisition costs by 40% to e-commerce stores increasing sales by 300%, our websites deliver real ROI. We understand that every industry has unique requirements, and we tailor our approach accordingly.
+
+**Our Commitment:**
+
+Every project at Tech Vexor comes with transparent pricing, clear timelines, dedicated project management, and ongoing support. We're not just vendors – we're your digital growth partners.`,
         features: [
           "Custom Responsive Web Design with Mobile-First Architecture",
           "E-commerce Development (Shopify, WooCommerce, Magento, Custom Solutions)",
@@ -389,44 +406,52 @@ Whether you need a simple landing page, a complex e-commerce platform, or a cust
         technologies: ["React", "Next.js", "WordPress", "Shopify", "Magento", "Node.js", "Tailwind CSS", "TypeScript", "Vue.js", "Angular", "PHP", "Laravel", "MongoDB", "PostgreSQL", "AWS", "Vercel"],
         faqs: [
           { 
-            question: "How much does professional website development cost?", 
+            question: "How much does professional website development cost in India?", 
             answer: "Website development costs vary based on complexity and features. Simple landing pages start from ₹25,000 ($300), business websites range from ₹50,000-₹2,00,000 ($600-$2,500), and complex e-commerce platforms can range from ₹2,00,000-₹10,00,000 ($2,500-$12,000). We provide detailed quotes after understanding your specific requirements during our free consultation." 
           },
           { 
-            question: "How long does it take to develop a website?", 
+            question: "How long does it take to build a professional website?", 
             answer: "Development timelines depend on project scope. Simple websites take 2-4 weeks, medium complexity business sites require 4-8 weeks, and complex e-commerce or custom web applications may take 8-16 weeks. We follow Agile methodology with regular milestones to ensure timely delivery without compromising quality." 
           },
           { 
-            question: "Will my website be mobile-friendly and responsive?", 
-            answer: "Absolutely! Every website we develop uses a mobile-first approach, ensuring perfect display and functionality across all devices - smartphones, tablets, laptops, and desktops. With over 60% of web traffic coming from mobile devices, responsive design is non-negotiable in our development process." 
+            question: "Will my website work on mobile phones and tablets?", 
+            answer: "Absolutely! Every website we develop uses a mobile-first approach, ensuring perfect display and functionality across all devices - smartphones, tablets, laptops, and desktops. With over 68% of web traffic coming from mobile devices, responsive design is non-negotiable in our development process." 
           },
           { 
-            question: "Do you provide website maintenance and support services?", 
+            question: "Do you provide website maintenance and support after launch?", 
             answer: "Yes, we offer comprehensive maintenance packages including security updates, plugin/theme updates, performance monitoring, content updates, backup management, uptime monitoring, and dedicated technical support. Our maintenance plans start from ₹5,000/month ($60/month) to ensure your website remains secure, fast, and up-to-date." 
           },
           { 
-            question: "How do you ensure my website ranks well on Google?", 
+            question: "How do you ensure my website ranks on Google's first page?", 
             answer: "We build websites with SEO at the core. This includes technical SEO optimization (fast loading speeds, mobile responsiveness, clean URL structures, schema markup), on-page SEO (optimized meta tags, heading hierarchy, image optimization), and adherence to Google's Core Web Vitals. We also provide ongoing SEO services to continuously improve your rankings." 
           },
           { 
-            question: "Can you redesign my existing website?", 
+            question: "Can you redesign my old or outdated website?", 
             answer: "Yes! Website redesign is one of our core services. We analyze your current site's performance, identify areas for improvement, and create a modern, high-converting website while preserving your SEO equity and brand identity. We ensure smooth migration with proper 301 redirects to maintain your search rankings." 
           },
           { 
-            question: "Do you develop e-commerce websites?", 
+            question: "Do you build online stores and e-commerce websites?", 
             answer: "Yes, we specialize in e-commerce development using platforms like Shopify, WooCommerce, Magento, and custom solutions. Our e-commerce websites include secure payment integration, inventory management, order tracking, customer accounts, and conversion-optimized checkout processes. We've helped businesses increase online sales by 200-500%." 
           },
           { 
-            question: "What technologies do you use for website development?", 
+            question: "What technologies and platforms do you use?", 
             answer: "We use the latest and most reliable technologies including React, Next.js, Vue.js, Angular for frontend; Node.js, PHP, Python, Laravel for backend; WordPress, Shopify, Magento for CMS/e-commerce; and AWS, Vercel, Cloudflare for hosting and CDN. Technology choice depends on your specific requirements and business goals." 
           },
           { 
-            question: "Will I be able to update my website content myself?", 
+            question: "Can I update my website content without technical knowledge?", 
             answer: "Absolutely! We build websites with user-friendly content management systems that allow you to easily update text, images, blog posts, and products without any technical knowledge. We also provide training sessions and documentation to ensure you're comfortable managing your website independently." 
           },
           { 
-            question: "Do you offer website hosting services?", 
-            answer: "Yes, we offer managed hosting solutions optimized for performance, security, and reliability. Our hosting includes SSL certificates, daily backups, CDN integration, 99.9% uptime guarantee, and proactive monitoring. We also work with clients' preferred hosting providers if they have existing infrastructure." 
+            question: "Do you offer domain registration and web hosting?", 
+            answer: "Yes, we offer managed hosting solutions optimized for performance, security, and reliability. Our hosting includes SSL certificates, daily backups, CDN integration, 99.9% uptime guarantee, and proactive monitoring. We also help with domain registration and work with clients' preferred hosting providers if they have existing infrastructure." 
+          },
+          { 
+            question: "What is the website development process at Tech Vexor?", 
+            answer: "Our process includes: 1) Discovery & Strategy (understanding your goals), 2) Planning & Architecture (wireframes, sitemap), 3) UI/UX Design (mockups, prototypes), 4) Development & Coding (responsive build), 5) Content Integration & SEO, 6) Testing & QA (cross-browser, performance), 7) Launch & Deployment, 8) Training & Handover. Each phase has clear deliverables and approval checkpoints." 
+          },
+          { 
+            question: "Do you work with international clients?", 
+            answer: "Yes! We serve clients across US, UK, Canada, Australia, UAE, and 20+ countries. Our team works across time zones with seamless communication via Slack, Zoom, and project management tools. We've successfully delivered hundreds of projects for global businesses." 
           },
         ],
         startingPrice: "₹25,000",

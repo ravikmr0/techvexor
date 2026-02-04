@@ -979,9 +979,9 @@ export default function DigitalMarketing() {
           </div>
           
           <div className="flex flex-wrap justify-center items-center gap-6 text-white/90">
-            <a href="tel:+919560968078" className="inline-flex items-center gap-2 hover:text-white transition-colors">
+            <a href="tel:+917895849990" className="inline-flex items-center gap-2 hover:text-white transition-colors">
               <Phone className="w-5 h-5" />
-              +91 95609 68078
+              +91 7895849990
             </a>
             <a href="mailto:info@techvexor.com" className="inline-flex items-center gap-2 hover:text-white transition-colors">
               <Mail className="w-5 h-5" />

@@ -36,7 +36,7 @@ import ServiceAIAgentsChatbots from "./pages/services/ai-agents-chatbots";
 import ServiceCybersecurity from "./pages/services/cybersecurity";
 import ServiceCustomSoftware from "./pages/services/custom-software";
 import ServiceDigitalMarketing from "./pages/services/digital-marketing";
-import ServiceDynamic from "./pages/service-dynamic";
+import ServiceDynamic from "./pages/services/[slug]";
 
 // Industry Pages (all under /industries folder)
 import IndustryFinance from "./pages/industries/finance";
