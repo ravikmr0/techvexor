@@ -47,7 +47,8 @@ import {
   Newspaper,
   Building,
   Utensils,
-  Heart
+  Heart,
+  Calendar
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { QuoteDialog } from "@/components/quote-dialog";

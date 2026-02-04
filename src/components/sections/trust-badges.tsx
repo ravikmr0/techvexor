@@ -99,39 +99,40 @@ export function TrustBadges() {
       {/* Background Decoration */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-indigo-50/50 to-transparent pointer-events-none" />
 
+      <div className="container mx-auto px-4">
         <div
-  className="mb-16"
-  onMouseEnter={() => setPaused(true)}
-  onMouseLeave={() => setPaused(false)}
->
-  <Carousel
-    setApi={setApi}
-    opts={{ align: "start", loop: true, dragFree: true }}
-    className="px-8"
-  >
-    <CarouselContent>
-      {clients.map((client, index) => (
-        <CarouselItem
-          key={index}
-          className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6"
+          className="mb-16"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
         >
-          <div
-            className="flex items-center justify-center bg-white rounded-2xl p-6 h-full 
-                       shadow-sm hover:shadow-lg transition-all duration-300 
-                       hover:scale-105 border border-gray-100"
+          <Carousel
+            setApi={setApi}
+            opts={{ align: "start", loop: true, dragFree: true }}
+            className="px-8"
           >
-            <img
-              src={client.logo}
-              alt={client.name}
-              className="h-12 w-auto max-w-[150px] object-contain 
-                         transition-all duration-300 ease-in-out transform hover:scale-110"
-            />
-          </div>
-        </CarouselItem>
-      ))}
-    </CarouselContent>
-  </Carousel>
-</div>
+            <CarouselContent>
+              {clients.map((client, index) => (
+                <CarouselItem
+                  key={index}
+                  className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6"
+                >
+                  <div
+                    className="flex items-center justify-center bg-white rounded-2xl p-6 h-full 
+                               shadow-sm hover:shadow-lg transition-all duration-300 
+                               hover:scale-105 border border-gray-100"
+                  >
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="h-12 w-auto max-w-[150px] object-contain 
+                                 transition-all duration-300 ease-in-out transform hover:scale-110"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {badges.map((badge, index) => (
