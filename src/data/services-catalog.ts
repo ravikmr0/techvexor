@@ -332,45 +332,102 @@ export const serviceGroups: ServiceGroup[] = [
     items: [
       {
         slug: "website-development",
-        title: "Professional Website Development Services",
-        metaTitle: "Website Development Services | Custom Web Design & Development Company",
-        metaDescription: "Expert website development services including responsive design, e-commerce, CMS, and custom web solutions. Get a high-performance website that drives conversions.",
+        title: "Website Development Services",
+        metaTitle: "Website Development Services | Custom Web Design Company | Tech Vexor",
+        metaDescription: "Professional website development services by Tech Vexor. Custom web design, responsive websites, e-commerce, CMS solutions. Get a free consultation today!",
+        metaKeywords: "website development services, custom web design, responsive website development, e-commerce website development, CMS development, WordPress development, Shopify development, React website development, website design company, web development agency, professional website development, SEO-optimized websites, mobile-first web design, website development near me, best website development company",
         description:
-          "Transform your online presence with our comprehensive website development services. We build fast, secure, and SEO-optimized websites that convert visitors into customers.",
-        longDescription: "Our website development team creates stunning, high-performance websites tailored to your business goals. From simple landing pages to complex e-commerce platforms, we deliver solutions that combine beautiful design with powerful functionality. Every website we build is mobile-responsive, SEO-ready, and optimized for speed and conversions.",
+          "Transform your digital presence with Tech Vexor's expert website development services. We build high-performance, SEO-optimized, and conversion-focused websites that drive business growth and deliver exceptional user experiences.",
+        longDescription: `At Tech Vexor, we understand that your website is often the first impression customers have of your business. Our comprehensive website development services combine cutting-edge technology with strategic design thinking to create digital experiences that captivate visitors and convert them into loyal customers.
+
+With over 500+ successful projects delivered globally, our team of expert developers and designers specializes in building custom websites that are not just visually stunning but also technically superior. Every website we create is built with a mobile-first approach, ensuring seamless performance across all devices and screen sizes.
+
+We leverage the latest frameworks and technologies including React, Next.js, WordPress, and Shopify to deliver websites that load lightning-fast, rank higher on search engines, and provide intuitive user experiences. Our development process follows Google's Core Web Vitals guidelines and EEAT principles (Experience, Expertise, Authoritativeness, Trustworthiness) to ensure your website meets the highest standards of quality and performance.
+
+Whether you need a simple landing page, a complex e-commerce platform, or a custom web application, Tech Vexor has the expertise to bring your vision to life. We don't just build websites; we create digital assets that drive measurable business results.`,
         features: [
-          "Custom responsive web design with mobile-first approach",
-          "E-commerce development (Shopify, WooCommerce, Magento, custom)",
-          "Content Management Systems (WordPress, Drupal, headless CMS)",
-          "Progressive Web Apps (PWA) for app-like experiences",
-          "SEO optimization with schema markup and Core Web Vitals",
-          "Payment gateway and third-party integrations",
-          "Website speed optimization and performance tuning",
-          "Accessibility compliance (WCAG 2.1 AA standards)",
-          "Multi-language and localization support",
-          "Analytics setup with conversion tracking",
+          "Custom Responsive Web Design with Mobile-First Architecture",
+          "E-commerce Development (Shopify, WooCommerce, Magento, Custom Solutions)",
+          "Content Management Systems (WordPress, Drupal, Headless CMS, Strapi)",
+          "Progressive Web Apps (PWA) for App-Like Mobile Experiences",
+          "Advanced SEO Optimization with Schema Markup & Core Web Vitals",
+          "Secure Payment Gateway Integration (Stripe, PayPal, Razorpay)",
+          "Website Speed Optimization & Performance Tuning (Sub-2s Load Times)",
+          "ADA/WCAG 2.1 AA Accessibility Compliance",
+          "Multi-Language & Localization Support for Global Reach",
+          "Advanced Analytics Setup with Conversion Tracking & Heatmaps",
+          "SSL Security Implementation & Regular Security Audits",
+          "API Integration & Third-Party Service Connections",
+          "Custom UI/UX Design with Brand Consistency",
+          "Database Design & Content Architecture Planning",
+          "CDN Integration for Global Content Delivery",
         ],
         benefits: [
-          "Increase organic traffic with SEO-optimized architecture",
-          "Boost conversion rates with user-centric design",
-          "Reduce bounce rates with fast-loading pages",
-          "Build trust with professional, modern aesthetics",
-          "Scale easily with flexible, maintainable codebase",
-          "Lower maintenance costs with clean code practices",
+          "Increase Organic Traffic by 200-400% with SEO-Optimized Architecture",
+          "Boost Conversion Rates by 50-150% with User-Centric Design",
+          "Reduce Bounce Rates by 40% with Fast-Loading, Engaging Pages",
+          "Build Brand Trust with Professional, Modern Aesthetics",
+          "Scale Seamlessly with Flexible, Future-Proof Codebase",
+          "Lower Long-Term Maintenance Costs with Clean Code Practices",
+          "Gain Competitive Advantage with Latest Web Technologies",
+          "Improve Customer Satisfaction with Intuitive Navigation",
+          "Maximize ROI with Data-Driven Design Decisions",
+          "Enhance Security with Enterprise-Grade Protection",
         ],
         useCases: [
-          "Corporate websites and brand portals",
-          "E-commerce stores and marketplaces",
-          "SaaS product landing pages",
-          "Portfolio and agency websites",
-          "News and media publishing platforms",
-          "Educational and membership sites",
+          "Corporate Websites & Enterprise Brand Portals",
+          "E-commerce Stores & Online Marketplaces",
+          "SaaS Product Landing Pages & Marketing Websites",
+          "Portfolio & Creative Agency Websites",
+          "News, Media & Publishing Platforms",
+          "Educational Institutions & E-Learning Platforms",
+          "Healthcare & Medical Practice Websites",
+          "Real Estate Listing & Property Websites",
+          "Restaurant & Hospitality Booking Sites",
+          "Non-Profit & NGO Fundraising Websites",
         ],
-        technologies: ["React", "Next.js", "WordPress", "Shopify", "Magento", "Node.js", "Tailwind CSS", "TypeScript"],
+        technologies: ["React", "Next.js", "WordPress", "Shopify", "Magento", "Node.js", "Tailwind CSS", "TypeScript", "Vue.js", "Angular", "PHP", "Laravel", "MongoDB", "PostgreSQL", "AWS", "Vercel"],
         faqs: [
-          { question: "How long does it take to build a website?", answer: "Typical projects range from 4-12 weeks depending on complexity. Simple landing pages can be delivered in 2-3 weeks, while complex e-commerce sites may take 8-16 weeks." },
-          { question: "Do you provide website maintenance?", answer: "Yes, we offer comprehensive maintenance packages including security updates, content updates, performance monitoring, and technical support." },
-          { question: "Will my website be mobile-friendly?", answer: "Absolutely. All our websites are built with a mobile-first approach, ensuring perfect display and functionality across all devices." },
+          { 
+            question: "How much does professional website development cost?", 
+            answer: "Website development costs vary based on complexity and features. Simple landing pages start from ₹25,000 ($300), business websites range from ₹50,000-₹2,00,000 ($600-$2,500), and complex e-commerce platforms can range from ₹2,00,000-₹10,00,000 ($2,500-$12,000). We provide detailed quotes after understanding your specific requirements during our free consultation." 
+          },
+          { 
+            question: "How long does it take to develop a website?", 
+            answer: "Development timelines depend on project scope. Simple websites take 2-4 weeks, medium complexity business sites require 4-8 weeks, and complex e-commerce or custom web applications may take 8-16 weeks. We follow Agile methodology with regular milestones to ensure timely delivery without compromising quality." 
+          },
+          { 
+            question: "Will my website be mobile-friendly and responsive?", 
+            answer: "Absolutely! Every website we develop uses a mobile-first approach, ensuring perfect display and functionality across all devices - smartphones, tablets, laptops, and desktops. With over 60% of web traffic coming from mobile devices, responsive design is non-negotiable in our development process." 
+          },
+          { 
+            question: "Do you provide website maintenance and support services?", 
+            answer: "Yes, we offer comprehensive maintenance packages including security updates, plugin/theme updates, performance monitoring, content updates, backup management, uptime monitoring, and dedicated technical support. Our maintenance plans start from ₹5,000/month ($60/month) to ensure your website remains secure, fast, and up-to-date." 
+          },
+          { 
+            question: "How do you ensure my website ranks well on Google?", 
+            answer: "We build websites with SEO at the core. This includes technical SEO optimization (fast loading speeds, mobile responsiveness, clean URL structures, schema markup), on-page SEO (optimized meta tags, heading hierarchy, image optimization), and adherence to Google's Core Web Vitals. We also provide ongoing SEO services to continuously improve your rankings." 
+          },
+          { 
+            question: "Can you redesign my existing website?", 
+            answer: "Yes! Website redesign is one of our core services. We analyze your current site's performance, identify areas for improvement, and create a modern, high-converting website while preserving your SEO equity and brand identity. We ensure smooth migration with proper 301 redirects to maintain your search rankings." 
+          },
+          { 
+            question: "Do you develop e-commerce websites?", 
+            answer: "Yes, we specialize in e-commerce development using platforms like Shopify, WooCommerce, Magento, and custom solutions. Our e-commerce websites include secure payment integration, inventory management, order tracking, customer accounts, and conversion-optimized checkout processes. We've helped businesses increase online sales by 200-500%." 
+          },
+          { 
+            question: "What technologies do you use for website development?", 
+            answer: "We use the latest and most reliable technologies including React, Next.js, Vue.js, Angular for frontend; Node.js, PHP, Python, Laravel for backend; WordPress, Shopify, Magento for CMS/e-commerce; and AWS, Vercel, Cloudflare for hosting and CDN. Technology choice depends on your specific requirements and business goals." 
+          },
+          { 
+            question: "Will I be able to update my website content myself?", 
+            answer: "Absolutely! We build websites with user-friendly content management systems that allow you to easily update text, images, blog posts, and products without any technical knowledge. We also provide training sessions and documentation to ensure you're comfortable managing your website independently." 
+          },
+          { 
+            question: "Do you offer website hosting services?", 
+            answer: "Yes, we offer managed hosting solutions optimized for performance, security, and reliability. Our hosting includes SSL certificates, daily backups, CDN integration, 99.9% uptime guarantee, and proactive monitoring. We also work with clients' preferred hosting providers if they have existing infrastructure." 
+          },
         ],
         startingPrice: "₹25,000",
       },

@@ -1,19 +1,80 @@
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { CheckCircle, ArrowRight, Building2, Factory, Briefcase, ShoppingCart, Building, Layers } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { 
+  CheckCircle, 
+  ArrowRight, 
+  Building2, 
+  Factory, 
+  Briefcase, 
+  ShoppingCart, 
+  Building, 
+  Layers,
+  Sparkles,
+  Star,
+  Zap,
+  TrendingUp,
+  Shield,
+  Users,
+  Target,
+  Clock,
+  Award,
+  Rocket,
+  BarChart3,
+  Globe,
+  Cpu,
+  Package,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { industryGroups } from "@/data/industry-catalog";
 
-const groupIcons: Record<string, React.ReactNode> = {
-  "Agriculture-Based": <Building2 className="w-6 h-6" />,
-  "Manufacturing": <Factory className="w-6 h-6" />,
-  "Services": <Briefcase className="w-6 h-6" />,
-  "Retail & Wholesale": <ShoppingCart className="w-6 h-6" />,
-  "Infrastructure & Public Sector": <Building className="w-6 h-6" />,
-  "Additional Sectors": <Layers className="w-6 h-6" />,
+// SEO Keywords: industry-specific solutions, industry software, industry automation, digital transformation, industry 4.0, business solutions, enterprise software, vertical solutions, sector-specific technology, industry innovation
+
+const groupIcons: Record<string, any> = {
+  "Agriculture-Based": Building2,
+  "Manufacturing": Factory,
+  "Services": Briefcase,
+  "Retail & Wholesale": ShoppingCart,
+  "Infrastructure & Public Sector": Building,
+  "Additional Sectors": Layers,
+};
+
+const groupGradients: Record<string, { from: string; to: string; color: string }> = {
+  "Agriculture-Based": { from: "from-green-600", to: "to-emerald-500", color: "green" },
+  "Manufacturing": { from: "from-orange-600", to: "to-red-500", color: "orange" },
+  "Services": { from: "from-blue-600", to: "to-cyan-500", color: "blue" },
+  "Retail & Wholesale": { from: "from-purple-600", to: "to-pink-500", color: "purple" },
+  "Infrastructure & Public Sector": { from: "from-slate-600", to: "to-zinc-500", color: "slate" },
+  "Additional Sectors": { from: "from-indigo-600", to: "to-violet-500", color: "indigo" },
+};
+
+const groupImages: Record<string, string> = {
+  "Agriculture-Based": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80",
+  "Manufacturing": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+  "Services": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80",
+  "Retail & Wholesale": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80",
+  "Infrastructure & Public Sector": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
+  "Additional Sectors": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
+};
+
+const groupPricing: Record<string, { startingPrice: string; originalPrice: string }> = {
+  "Agriculture-Based": { startingPrice: "₹34,999", originalPrice: "₹69,999" },
+  "Manufacturing": { startingPrice: "₹44,999", originalPrice: "₹89,999" },
+  "Services": { startingPrice: "₹29,999", originalPrice: "₹59,999" },
+  "Retail & Wholesale": { startingPrice: "₹39,999", originalPrice: "₹79,999" },
+  "Infrastructure & Public Sector": { startingPrice: "₹54,999", originalPrice: "₹109,999" },
+  "Additional Sectors": { startingPrice: "₹32,999", originalPrice: "₹64,999" },
 };
 
 export function IndustrySolutionsPage() {
+  const [hoveredGroup, setHoveredGroup] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   // Structured data for SEO
   const structuredData = {
     "@context": "https://schema.org",
@@ -36,7 +97,7 @@ export function IndustrySolutionsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-950">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -44,97 +105,309 @@ export function IndustrySolutionsPage() {
       />
 
       {/* Hero */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 bg-indigo-500/20 border border-indigo-400/30 rounded-full px-4 py-2 mb-6">
-            <span className="text-indigo-300 text-sm font-medium">100+ Industries Served</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Industries Solutions & <span className="text-indigo-400">Technology Services</span>
-          </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-4">
-            Comprehensive industries technology solutions for reliance industries, alok industries, solar industries, 
-            aarti industries, praj industries, and 100+ industries sectors. Expert industries services including 
-            industries automation, industries growing, and industries digital transformation.
-          </p>
-          <p className="text-base text-slate-400 max-w-2xl mx-auto mb-8">
-            From industries by revenue and industries by profit margin to industries hiring and industries booming right now, 
-            Tech Vexor delivers cutting-edge industries technology, industries services, and industries solutions for 
-            all industries types including manufacturing industries, creative industries, and industries near me.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <GradientButton asChild size="lg">
-              <Link to="#use-cases">Explore All Industries</Link>
-            </GradientButton>
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center px-6 py-3 border-2 border-white/30 rounded-lg hover:bg-white/10 transition-colors"
-            >
-              Get a Free Consultation
-            </Link>
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950">
+          {/* 3D Grid */}
+          <div 
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(99, 102, 241, 0.4) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.4) 1px, transparent 1px)
+              `,
+              backgroundSize: '60px 60px',
+              transform: 'perspective(500px) rotateX(60deg)',
+              transformOrigin: 'center top',
+            }}
+          />
+          
+          {/* Floating Orbs */}
+          <div className="absolute top-20 left-10 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }} />
+          
+          {/* Particles */}
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-white/40 rounded-full animate-float"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${3 + Math.random() * 4}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="container relative z-10 mx-auto px-4 text-center">
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
+              <Sparkles className="w-4 h-4 text-yellow-400 animate-pulse" />
+              <span className="text-sm font-semibold text-white">100+ Industry-Specific Solutions</span>
+              <Sparkles className="w-4 h-4 text-yellow-400 animate-pulse" />
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 leading-tight text-white">
+              Transform Your Industry with
+              <span className="block mt-3 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                AI-Powered Solutions
+              </span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto mb-6 leading-relaxed">
+              Cutting-edge <span className="text-white font-semibold">industry-specific software</span>, 
+              <span className="text-white font-semibold"> automation</span>, and 
+              <span className="text-white font-semibold"> digital transformation</span> solutions for agriculture, 
+              manufacturing, services, retail, infrastructure, and more.
+            </p>
+            
+            <p className="text-base text-slate-400 max-w-3xl mx-auto mb-10">
+              From <strong>Industry 4.0</strong> and <strong>Industry 5.0 technologies</strong> to 
+              <strong> vertical solutions</strong> and <strong>enterprise automation</strong> - 
+              empower your business with sector-specific innovation, AI integration, and smart workflows.
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-4">
+              <GradientButton asChild size="lg" className="group">
+                <Link to="#use-cases">
+                  <Rocket className="w-5 h-5 mr-2" />
+                  Explore All Industries
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </GradientButton>
+              <Button 
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
+              >
+                <Link to="/contact">
+                  <Target className="w-5 h-5 mr-2" />
+                  Get Free Consultation
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-slate-50 border-b">
+      <section className="relative py-16 bg-slate-900 border-y border-white/10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-indigo-600">100+</div>
-              <div className="text-sm text-slate-600">Industries Solutions</div>
+            <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="relative inline-block mb-3">
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  100+
+                </div>
+                <Sparkles className="absolute -top-2 -right-6 w-5 h-5 text-yellow-400 animate-pulse" />
+              </div>
+              <div className="text-sm text-slate-400 font-medium">Industry Solutions</div>
             </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-indigo-600">500+</div>
-              <div className="text-sm text-slate-600">Industries Projects</div>
+            <div className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="relative inline-block mb-3">
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  500+
+                </div>
+                <Award className="absolute -top-2 -right-6 w-5 h-5 text-yellow-400" />
+              </div>
+              <div className="text-sm text-slate-400 font-medium">Projects Delivered</div>
             </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-indigo-600">50+</div>
-              <div className="text-sm text-slate-600">Industries Worldwide</div>
+            <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="relative inline-block mb-3">
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                  50+
+                </div>
+                <Globe className="absolute -top-2 -right-6 w-5 h-5 text-blue-400" />
+              </div>
+              <div className="text-sm text-slate-400 font-medium">Countries Served</div>
             </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-indigo-600">98%</div>
-              <div className="text-sm text-slate-600">Industries Satisfaction</div>
+            <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="relative inline-block mb-3">
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                  98%
+                </div>
+                <Star className="absolute -top-2 -right-6 w-5 h-5 text-yellow-400 fill-yellow-400" />
+              </div>
+              <div className="text-sm text-slate-400 font-medium">Client Satisfaction</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Industry Groups */}
-      <section id="use-cases" className="py-20">
-        <div className="container mx-auto px-4 space-y-20">
-          {industryGroups.map((group, gi) => (
-            <div key={gi} className="scroll-mt-20" id={group.name.toLowerCase().replace(/\s+/g, '-')}>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="p-3 bg-indigo-100 rounded-xl text-indigo-600">
-                  {groupIcons[group.name] || <Layers className="w-6 h-6" />}
-                </div>
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900">{group.name}</h2>
-                  <p className="text-slate-600">{group.items.length} industry solutions</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {group.items.map((i, idx) => (
-                  <Link key={idx} to={`/industries/${i.slug}`} className="group">
-                    <Card className="p-6 hover:shadow-xl transition-all duration-300 h-full border-l-4 border-l-transparent hover:border-l-indigo-500 group-hover:translate-y-[-2px]">
-                      <h3 className="text-lg font-semibold mb-2 text-slate-900 group-hover:text-indigo-600 transition-colors">
-                        {i.title}
-                      </h3>
-                      <p className="text-slate-600 mb-4 text-sm leading-relaxed">{i.description}</p>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center text-sm text-indigo-600 font-medium">
-                          <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
-                          {i.useCases.length} use cases
+      {/* Industry Groups with 3D Cards */}
+      <section id="use-cases" className="relative py-24 bg-slate-950">
+        <div className="container mx-auto px-4 space-y-24">
+          {industryGroups.map((group, gi) => {
+            const isHovered = hoveredGroup === group.name;
+            const IconComponent = groupIcons[group.name] || Layers;
+            const gradient = groupGradients[group.name] || { from: "from-indigo-600", to: "to-violet-500", color: "indigo" };
+            const pricing = groupPricing[group.name] || { startingPrice: "₹29,999", originalPrice: "₹59,999" };
+            const imageUrl = groupImages[group.name] || "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80";
+            
+            return (
+              <article 
+                key={gi} 
+                className={`scroll-mt-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                style={{ transitionDelay: `${gi * 150}ms` }}
+                id={group.name.toLowerCase().replace(/\s+/g, '-')}
+                itemScope
+                itemType="https://schema.org/Service"
+              >
+                {/* Group Header Card with 3D Effect */}
+                <div 
+                  className="relative group mb-12"
+                  onMouseEnter={() => setHoveredGroup(group.name)}
+                  onMouseLeave={() => setHoveredGroup(null)}
+                >
+                  <div 
+                    className="relative overflow-hidden rounded-3xl transition-all duration-500"
+                    style={{
+                      background: 'linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+                      backdropFilter: 'blur(20px)',
+                      boxShadow: isHovered 
+                        ? `0 30px 60px -15px rgba(0,0,0,0.5), 0 0 40px -5px ${gradient.color === 'blue' ? 'rgba(59,130,246,0.5)' : gradient.color === 'purple' ? 'rgba(168,85,247,0.5)' : gradient.color === 'green' ? 'rgba(16,185,129,0.5)' : gradient.color === 'orange' ? 'rgba(249,115,22,0.5)' : 'rgba(99,102,241,0.5)'}`
+                        : '0 15px 30px -10px rgba(0,0,0,0.3)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      transform: isHovered ? 'translateY(-8px) scale(1.01)' : 'translateY(0) scale(1)',
+                    }}
+                  >
+                    {/* Background Image with Overlay */}
+                    <div className="absolute inset-0 opacity-20">
+                      <img 
+                        src={imageUrl} 
+                        alt={`${group.name} industry solutions`}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-r ${gradient.from} ${gradient.to} mix-blend-multiply`} />
+                    </div>
+
+                    {/* Animated Glow */}
+                    <div 
+                      className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      style={{
+                        background: `linear-gradient(135deg, ${gradient.color === 'blue' ? 'rgba(59,130,246,0.3)' : gradient.color === 'purple' ? 'rgba(168,85,247,0.3)' : gradient.color === 'green' ? 'rgba(16,185,129,0.3)' : gradient.color === 'orange' ? 'rgba(249,115,22,0.3)' : 'rgba(99,102,241,0.3)'} 0%, transparent 50%)`,
+                      }}
+                    />
+
+                    <div className="relative p-8 md:p-10">
+                      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                        {/* Icon & Title */}
+                        <div className="flex items-start gap-6 flex-1">
+                          <div 
+                            className={`relative w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br ${gradient.from} ${gradient.to} flex items-center justify-center shadow-2xl transition-all duration-500 group-hover:scale-110`}
+                            style={{
+                              boxShadow: `0 15px 30px -5px ${gradient.color === 'blue' ? 'rgba(59,130,246,0.5)' : gradient.color === 'purple' ? 'rgba(168,85,247,0.5)' : gradient.color === 'green' ? 'rgba(16,185,129,0.5)' : gradient.color === 'orange' ? 'rgba(249,115,22,0.5)' : 'rgba(99,102,241,0.5)'}`,
+                            }}
+                          >
+                            <IconComponent className="w-10 h-10 md:w-12 md:h-12 text-white" />
+                            <div className="absolute -inset-2 rounded-2xl border-2 border-white/20 animate-pulse" />
+                          </div>
+                          
+                          <div className="flex-1">
+                            <h2 className={`text-2xl md:text-4xl font-bold mb-2 bg-gradient-to-r ${gradient.from} ${gradient.to} bg-clip-text text-transparent`} itemProp="name">
+                              {group.name}
+                            </h2>
+                            <p className="text-slate-300 text-sm md:text-base mb-3">
+                              {group.items.length} specialized industry solutions with AI automation
+                            </p>
+                            <div className="flex flex-wrap items-center gap-3">
+                              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20">
+                                <Cpu className="w-3 h-3 text-blue-400" />
+                                <span className="text-xs text-slate-300">AI-Powered</span>
+                              </div>
+                              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20">
+                                <Shield className="w-3 h-3 text-green-400" />
+                                <span className="text-xs text-slate-300">Enterprise-Grade</span>
+                              </div>
+                              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20">
+                                <Clock className="w-3 h-3 text-yellow-400" />
+                                <span className="text-xs text-slate-300">24/7 Support</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all" />
+
+                        {/* Pricing Box */}
+                        <div className="relative p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 min-w-[200px]">
+                          <div className="text-center">
+                            <div className="text-xs text-slate-400 mb-1">Starting from</div>
+                            <div className="flex items-baseline justify-center gap-2 mb-2">
+                              <span className="text-sm text-slate-500 line-through">{pricing.originalPrice}</span>
+                            </div>
+                            <div className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${gradient.from} ${gradient.to} bg-clip-text text-transparent`}>
+                              {pricing.startingPrice}
+                            </div>
+                            <div className="text-xs text-emerald-400 font-semibold mt-1">Save 50% Today</div>
+                          </div>
+                          <div className="absolute -top-3 -right-3 w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center shadow-lg animate-bounce" style={{ animationDuration: '2s' }}>
+                            <span className="text-white text-xs font-bold">-50%</span>
+                          </div>
+                        </div>
                       </div>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Industry Items Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {group.items.map((item, idx) => (
+                    <Link 
+                      key={idx} 
+                      to={`/industries/${item.slug}`} 
+                      className="group/item"
+                      itemProp="url"
+                    >
+                      <Card 
+                        className="relative p-6 h-full border border-slate-800 bg-slate-900/50 backdrop-blur-sm hover:bg-slate-800/50 transition-all duration-300 group-hover/item:translate-y-[-4px] overflow-hidden"
+                        style={{
+                          boxShadow: '0 10px 25px -10px rgba(0,0,0,0.3)',
+                        }}
+                      >
+                        {/* Hover Effect Border */}
+                        <div 
+                          className={`absolute inset-0 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 pointer-events-none`}
+                          style={{
+                            background: `linear-gradient(to right, ${gradient.color === 'blue' ? 'rgba(59,130,246,0.2)' : gradient.color === 'purple' ? 'rgba(168,85,247,0.2)' : gradient.color === 'green' ? 'rgba(16,185,129,0.2)' : gradient.color === 'orange' ? 'rgba(249,115,22,0.2)' : 'rgba(99,102,241,0.2)'} 0%, transparent 100%)`,
+                            borderLeft: `3px solid ${gradient.color === 'blue' ? '#3b82f6' : gradient.color === 'purple' ? '#a855f7' : gradient.color === 'green' ? '#10b981' : gradient.color === 'orange' ? '#f97316' : '#6366f1'}`,
+                          }}
+                        />
+
+                        <div className="relative z-10">
+                          <div className="flex items-start justify-between mb-3">
+                            <h3 className={`text-lg font-semibold text-white group-hover/item:bg-gradient-to-r group-hover/item:${gradient.from} group-hover/item:${gradient.to} group-hover/item:bg-clip-text group-hover/item:text-transparent transition-all`} itemProp="name">
+                              {item.title}
+                            </h3>
+                            <Package className={`w-5 h-5 text-slate-600 group-hover/item:text-${gradient.color}-400 transition-colors flex-shrink-0`} />
+                          </div>
+                          
+                          <p className="text-slate-400 text-sm leading-relaxed mb-4" itemProp="description">
+                            {item.description}
+                          </p>
+                          
+                          <div className="flex items-center justify-between pt-3 border-t border-slate-800">
+                            <div className="flex items-center gap-2">
+                              <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                                <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                                <span>{item.useCases.length} use cases</span>
+                              </div>
+                            </div>
+                            <div className={`flex items-center gap-1 text-sm font-medium text-slate-400 group-hover/item:text-${gradient.color}-400 transition-colors`}>
+                              <span>Learn more</span>
+                              <ArrowRight className="w-4 h-4 group-hover/item:translate-x-1 transition-transform" />
+                            </div>
+                          </div>
+                        </div>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
@@ -295,30 +568,97 @@ export function IndustrySolutionsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Need Industries Solutions for Your Business?
-          </h2>
-          <p className="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
-            Whether you're in manufacturing industries, creative industries, or any industries sector, 
-            Tech Vexor delivers comprehensive industries technology and industries services. 
-            From industries automation to industries digital transformation, we serve all industries types 
-            including industries near me and industries globally.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <GradientButton asChild size="lg" className="bg-white text-indigo-600 hover:bg-slate-100">
-              <Link to="/contact">Get Industries Solutions</Link>
-            </GradientButton>
-            <Link 
-              to="/services" 
-              className="inline-flex items-center px-6 py-3 border-2 border-white rounded-lg hover:bg-white/10 transition-colors"
-            >
-              Explore Industries Services
-            </Link>
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+          <div className="absolute inset-0 opacity-20" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }} />
+        </div>
+        
+        <div className="container relative z-10 mx-auto px-4 text-center">
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-6">
+              <Zap className="w-4 h-4 text-yellow-300 animate-pulse" />
+              <span className="text-sm font-semibold text-white">Limited Time Offer</span>
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
+              Ready to Transform Your Industry?
+            </h2>
+            
+            <p className="text-lg md:text-xl text-white/90 mb-4 max-w-3xl mx-auto leading-relaxed">
+              Whether you need <strong>manufacturing automation</strong>, <strong>retail solutions</strong>, 
+              <strong> service industry software</strong>, or <strong>infrastructure management</strong> - 
+              we deliver cutting-edge technology tailored to your sector.
+            </p>
+            
+            <p className="text-base text-white/80 mb-10 max-w-2xl mx-auto">
+              Join 500+ businesses across 50+ countries leveraging our <strong>Industry 4.0</strong> and 
+              <strong> AI-powered solutions</strong>. Get <strong>50% off</strong> on all packages today!
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              <GradientButton 
+                asChild 
+                size="lg" 
+                className="bg-white text-indigo-600 hover:bg-slate-100 shadow-2xl"
+              >
+                <Link to="/contact">
+                  <Target className="w-5 h-5 mr-2" />
+                  Get Industry Solutions
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </GradientButton>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm"
+              >
+                <Link to="/services">
+                  <Briefcase className="w-5 h-5 mr-2" />
+                  View All Services
+                </Link>
+              </Button>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap items-center justify-center gap-8 text-white/90">
+              <div className="flex items-center gap-2">
+                <div className="flex -space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-300 fill-yellow-300" />
+                  ))}
+                </div>
+                <span className="text-sm font-medium">4.9/5 Rating</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Users className="w-5 h-5" />
+                <span className="text-sm font-medium">500+ Happy Clients</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <TrendingUp className="w-5 h-5" />
+                <span className="text-sm font-medium">300% Avg ROI</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield className="w-5 h-5" />
+                <span className="text-sm font-medium">ISO Certified</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* CSS Animations */}
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+          50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+        }
+        .animate-float {
+          animation: float 4s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 }

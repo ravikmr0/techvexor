@@ -7,7 +7,7 @@ import { Header } from "./header";
 import { Hero } from "./sections/hero";
 import { AIDemo } from "./sections/ai-demo";
 import { UseCases } from "./sections/use-cases";
-import { TrustBadges } from "./sections/trust-badges";
+import { TrustBadges } from "./sections/trust-badges-new";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { SEO } from "./seo/canonical-url";
 
