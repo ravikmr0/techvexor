@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { Phone, Mail, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Rocket, Code, Brain, Shield, Cloud, CheckCircle } from "lucide-react";
 
@@ -207,27 +208,101 @@ export function ProjectsPage() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
-            Partner with Tech Vexor to leverage cutting-edge technology
-            solutions tailored to your business needs.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <GradientButton
-              variant="secondary"
-              size="lg"
-              onClick={() => window.open("tel:+917895849990", "_self")}
-            >
-              Get a Free Consultation
-            </GradientButton>
-            <GradientButton variant="outline" size="lg">
-              Learn More
-            </GradientButton>
+      {/* Call to Action - Premium Enhanced Design */}
+      <section className="relative py-24 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(249,115,22,0.15),transparent_50%)] animate-pulse"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(139,92,246,0.15),transparent_50%)] animate-pulse delay-1000"></div>
+        
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500/20 to-purple-500/20 border border-orange-400/30 rounded-full mb-8 backdrop-blur-sm">
+              <Sparkles className="w-4 h-4 text-orange-400 animate-pulse" />
+              <span className="text-sm font-semibold text-orange-300">TRANSFORM YOUR FUTURE</span>
+            </div>
+            
+            {/* Main Heading */}
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Ready to <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent">Transform</span> Your Business?
+            </h2>
+            
+            {/* Subheading */}
+            <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Partner with Tech Vexor to leverage cutting-edge technology solutions tailored to your business needs.
+            </p>
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+              <GradientButton
+                variant="secondary"
+                size="lg"
+                onClick={() => window.open("tel:+917895849990", "_self")}
+                className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-2xl shadow-orange-500/25 px-8 py-6 text-lg font-semibold group"
+              >
+                <Phone className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                Get a Free Consultation
+              </GradientButton>
+              <GradientButton 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white hover:text-slate-900 px-8 py-6 text-lg font-semibold shadow-xl"
+              >
+                Learn More
+              </GradientButton>
+            </div>
+            
+            {/* Contact Info Cards */}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-2xl mx-auto">
+              <a 
+                href="tel:+917895849990" 
+                className="group flex items-center gap-3 px-6 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl hover:bg-white hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+              >
+                <div className="p-2 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg group-hover:rotate-12 transition-transform">
+                  <Phone className="w-5 h-5 text-white" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs text-slate-400 group-hover:text-slate-600">Call Us Now</div>
+                  <div className="font-semibold text-white group-hover:text-slate-900">+91 7895849990</div>
+                </div>
+              </a>
+              
+              <a 
+                href="mailto:info@techvexor.com" 
+                className="group flex items-center gap-3 px-6 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl hover:bg-white hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+              >
+                <div className="p-2 bg-gradient-to-br from-orange-400 to-pink-500 rounded-lg group-hover:rotate-12 transition-transform">
+                  <Mail className="w-5 h-5 text-white" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs text-slate-400 group-hover:text-slate-600">Email Us</div>
+                  <div className="font-semibold text-white group-hover:text-slate-900">info@techvexor.com</div>
+                </div>
+              </a>
+            </div>
+            
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-12 border-t border-white/10">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-1">500+</div>
+                <div className="text-sm text-slate-400">Happy Clients</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-1">25+</div>
+                <div className="text-sm text-slate-400">Industries Served</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-1">98%</div>
+                <div className="text-sm text-slate-400">Satisfaction Rate</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-1">24/7</div>
+                <div className="text-sm text-slate-400">Support Available</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

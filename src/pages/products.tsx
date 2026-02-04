@@ -146,7 +146,7 @@ export default function Products() {
       "url": BASE_URL,
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+91-9876543210",
+        "telephone": "+91-7895849990",
         "contactType": "sales",
         "availableLanguage": "English"
       },
