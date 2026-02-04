@@ -1053,6 +1053,11 @@ Every project at Tech Vexor comes with transparent pricing, clear timelines, ded
   },
 ];
 
-export const serviceIndex: Record<string, ServiceEntry> = Object.fromEntries(
+const baseServiceIndex: Record<string, ServiceEntry> = Object.fromEntries(
   serviceGroups.flatMap((g) => g.items.map((i) => [i.slug, i]))
 );
+
+export const serviceIndex: Record<string, ServiceEntry> = {
+  ...baseServiceIndex,
+  "lead-generation": baseServiceIndex["b2b-b2c-lead-gen"],
+};
