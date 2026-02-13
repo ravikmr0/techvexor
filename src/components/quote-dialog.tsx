@@ -27,7 +27,7 @@ export function QuoteDialog({ open, onOpenChange, serviceTitle }: QuoteDialogPro
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'validation'>('idle');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -35,13 +35,17 @@ export function QuoteDialog({ open, onOpenChange, serviceTitle }: QuoteDialogPro
       ...prev,
       [name]: value
     }));
+    // Clear error when user starts typing
+    if (submitStatus === 'validation' || submitStatus === 'error') {
+      setSubmitStatus('idle');
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.phone) {
-      setSubmitStatus('error');
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
+      setSubmitStatus('validation');
       return;
     }
 
@@ -116,12 +120,22 @@ export function QuoteDialog({ open, onOpenChange, serviceTitle }: QuoteDialogPro
           </div>
         )}
 
+        {submitStatus === 'validation' && (
+          <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg flex items-center space-x-3">
+            <AlertCircle className="w-5 h-5 text-yellow-600" />
+            <div>
+              <p className="text-yellow-800 font-medium">Please fill all required fields</p>
+              <p className="text-yellow-700 text-sm">Name, email, and phone are required.</p>
+            </div>
+          </div>
+        )}
+
         {submitStatus === 'error' && (
           <div className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-3">
             <AlertCircle className="w-5 h-5 text-red-600" />
             <div>
               <p className="text-red-800 font-medium">Failed to send request</p>
-              <p className="text-red-700 text-sm">Please fill all required fields and try again.</p>
+              <p className="text-red-700 text-sm">Please try again or contact us directly at hello@techvexor.com</p>
             </div>
           </div>
         )}

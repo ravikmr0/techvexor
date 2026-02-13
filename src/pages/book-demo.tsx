@@ -60,7 +60,7 @@ export default function BookDemo() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error" | "validation">("idle");
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -70,13 +70,17 @@ export default function BookDemo() {
       ...prev,
       [name]: value,
     }));
+    // Clear error when user starts typing
+    if (submitStatus === 'validation' || submitStatus === 'error') {
+      setSubmitStatus('idle');
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.fullName || !formData.phone || !formData.email || !formData.preferredDate || !formData.preferredTime) {
-      setSubmitStatus("error");
+    if (!formData.fullName.trim() || !formData.phone.trim() || !formData.email.trim() || !formData.preferredDate || !formData.preferredTime) {
+      setSubmitStatus("validation");
       return;
     }
 
@@ -311,6 +315,22 @@ Additional Notes: ${formData.message || "None"}`,
                       </motion.div>
                     )}
 
+                    {submitStatus === "validation" && (
+                      <motion.div
+                        className="mb-6 p-4 bg-amber-500/20 border border-amber-500/30 rounded-xl flex items-start space-x-3"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
+                        <AlertCircle className="w-5 h-5 text-amber-400 mt-0.5" />
+                        <div>
+                          <p className="text-amber-300 font-medium">Please fill all required fields</p>
+                          <p className="text-amber-400/80 text-sm">
+                            Name, phone, email, date, and time are required.
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+
                     {submitStatus === "error" && (
                       <motion.div
                         className="mb-6 p-4 bg-red-500/20 border border-red-500/30 rounded-xl flex items-start space-x-3"
@@ -321,7 +341,7 @@ Additional Notes: ${formData.message || "None"}`,
                         <div>
                           <p className="text-red-300 font-medium">Submission Failed</p>
                           <p className="text-red-400/80 text-sm">
-                            Please fill all required fields and try again.
+                            Please try again or contact us directly at hello@techvexor.com
                           </p>
                         </div>
                       </motion.div>

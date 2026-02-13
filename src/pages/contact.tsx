@@ -128,7 +128,7 @@ export default function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'validation'>('idle');
   const [consultationDialogOpen, setConsultationDialogOpen] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -137,13 +137,17 @@ export default function Contact() {
       ...prev,
       [name]: value
     }));
+    // Clear error when user starts typing
+    if (submitStatus === 'validation' || submitStatus === 'error') {
+      setSubmitStatus('idle');
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.message) {
-      setSubmitStatus('error');
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setSubmitStatus('validation');
       return;
     }
 
@@ -249,12 +253,22 @@ export default function Contact() {
                     </div>
                   )}
                   
+                  {submitStatus === 'validation' && (
+                    <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg flex items-center space-x-3">
+                      <AlertCircle className="w-5 h-5 text-yellow-600" />
+                      <div>
+                        <p className="text-yellow-800 font-medium">Please fill all required fields</p>
+                        <p className="text-yellow-700 text-sm">Name, email, and message are required.</p>
+                      </div>
+                    </div>
+                  )}
+                  
                   {submitStatus === 'error' && (
                     <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-3">
                       <AlertCircle className="w-5 h-5 text-red-600" />
                       <div>
                         <p className="text-red-800 font-medium">Failed to send message</p>
-                        <p className="text-red-700 text-sm">Please check required fields and try again.</p>
+                        <p className="text-red-700 text-sm">Please try again or contact us directly at hello@techvexor.com</p>
                       </div>
                     </div>
                   )}
