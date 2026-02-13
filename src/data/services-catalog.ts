@@ -30,7 +30,8 @@ export const serviceGroups: ServiceGroup[] = [
         metaTitle: "IT & Software Development Services | Custom Software Solutions",
         metaDescription: "Expert software development services including custom applications, web & mobile development, API integration, and enterprise solutions tailored to your business needs.",
         description: "Custom software solutions, web & mobile app development, API integration for businesses of all sizes.",
-        longDescription: `,
+        longDescription: "Expert custom software development services including web applications, mobile apps, API integration, and enterprise solutions. Our experienced team delivers scalable, maintainable code tailored to your business needs.",
+        features: [
           "Web application development (React, Angular, Vue)",
           "Mobile app development (iOS, Android, Cross-platform)",
           "API development and third-party integrations",
@@ -71,7 +72,7 @@ export const serviceGroups: ServiceGroup[] = [
         metaTitle: "Managed IT Services | 24/7 IT Support & Infrastructure Management",
         metaDescription: "Comprehensive managed IT services including 24/7 monitoring, system maintenance, IT infrastructure management, and proactive support to keep your business running smoothly.",
         description: "24/7 system monitoring, maintenance, IT infrastructure management for reliable business operations.",
-        longDescription: "Our managed IT services provide complete oversight of your technology infrastructure. We handle everything from day-to-day maintenance to complex system upgrades, allowing you to focus on your core business. Our proactive approach identifies and resolves issues before they impact your operations.`
+        longDescription: "Our managed IT services provide complete oversight of your technology infrastructure. We handle everything from day-to-day maintenance to complex system upgrades, allowing you to focus on your core business. Our proactive approach identifies and resolves issues before they impact your operations.",
         features: [
           "24/7 system monitoring and alerting",
           "Proactive maintenance and updates",
@@ -114,7 +115,7 @@ export const serviceGroups: ServiceGroup[] = [
         metaTitle: "Digital Transformation Services | AI Integration & Process Automation",
         metaDescription: "Transform your business with our digital transformation and AI services. We help organizations modernize operations, integrate AI, and automate processes for competitive advantage.",
         description: "AI integration, process automation, digital strategy consulting to modernize your business operations.",
-        longDescription: "Digital transformation is essential for businesses to remain competitive in today's market. Our services help organizations leverage technology to improve efficiency, enhance customer experiences, and create new business models. We combine strategic consulting with hands-on implementation to deliver measurable results.`
+        longDescription: "Digital transformation is essential for businesses to remain competitive in today's market. Our services help organizations leverage technology to improve efficiency, enhance customer experiences, and create new business models. We combine strategic consulting with hands-on implementation to deliver measurable results.",
         features: [
           "Digital strategy development and roadmaps",
           "AI and machine learning integration",
