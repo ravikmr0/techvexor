@@ -19,14 +19,15 @@ import BookDemo from "./pages/book-demo";
 import Products from "./pages/products";
 import ProductDetail from "./pages/products/[slug]";
 import SearchPage from "./pages/search";
+import LegalIndex from "./pages/legal";
 
 // Legal Pages
-import PrivacyPolicy from "./pages/privacy-policy";
-import Terms from "./pages/terms";
-import DataSecurity from "./pages/data-security";
-import AIEthics from "./pages/ai-ethics";
-import CancellationRefunds from "./pages/cancellation-refunds";
-import Shipping from "./pages/shipping";
+import PrivacyPolicy from "./pages/legal/privacy-policy";
+import Terms from "./pages/legal/terms";
+import DataSecurity from "./pages/legal/data-security";
+import AIEthics from "./pages/legal/ai-ethics";
+import CancellationRefunds from "./pages/legal/cancellation-refunds";
+import Shipping from "./pages/legal/shipping";
 
 // Service Pages (all under /services folder)
 import ServiceITConsulting from "./pages/services/it-consulting";
@@ -64,7 +65,7 @@ import IndustryConstruction from "./pages/industries/construction";
 import IndustryWeddingPlanners from "./pages/industries/wedding-planners";
 import IndustryArtsCrafts from "./pages/industries/arts-crafts";
 import IndustryGreenEnergy from "./pages/industries/green-energy";
-import IndustryDynamic from "./pages/industry-dynamic";
+import IndustryDynamic from "./pages/industries/[slug]";
 
 // Blog & Case Study Detail Pages
 import BlogPost from "./pages/blog/[slug]";
@@ -105,12 +106,13 @@ function App() {
           <Route path="/search" element={<SearchPage />} />
 
           {/* Legal Routes */}
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/data-security" element={<DataSecurity />} />
-          <Route path="/ai-ethics" element={<AIEthics />} />
-          <Route path="/cancellation-refunds" element={<CancellationRefunds />} />
-          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/legal" element={<LegalIndex />} />
+          <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/legal/terms" element={<Terms />} />
+          <Route path="/legal/data-security" element={<DataSecurity />} />
+          <Route path="/legal/ai-ethics" element={<AIEthics />} />
+          <Route path="/legal/cancellation-refunds" element={<CancellationRefunds />} />
+          <Route path="/legal/shipping" element={<Shipping />} />
 
           {/* Services Routes */}
           <Route path="/services" element={<Services />} />

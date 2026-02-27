@@ -129,7 +129,7 @@ export default function Login() {
                       <Mail className="w-4 h-4 mr-2" /> Continue with email (disabled)
                     </Button>
                     <p className="text-xs text-slate-500 text-center">
-                      By continuing, you agree to our <a className="underline" href="/terms">Terms</a> and <a className="underline" href="/privacy-policy">Privacy Policy</a>.
+                      By continuing, you agree to our <a className="underline" href="/legal/terms">Terms</a> and <a className="underline" href="/legal/privacy-policy">Privacy Policy</a>.
                     </p>
                   </form>
 

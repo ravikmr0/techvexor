@@ -491,11 +491,11 @@ Additional Notes: ${formData.message || "None"}`,
 
                       <p className="text-xs text-slate-500 text-center">
                         By submitting, you agree to our{" "}
-                        <a href="/terms" className="text-cyan-400 hover:underline">
+                        <a href="/legal/terms" className="text-cyan-400 hover:underline">
                           Terms
                         </a>{" "}
                         and{" "}
-                        <a href="/privacy-policy" className="text-cyan-400 hover:underline">
+                        <a href="/legal/privacy-policy" className="text-cyan-400 hover:underline">
                           Privacy Policy
                         </a>
                         .
