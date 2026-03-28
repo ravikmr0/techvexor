@@ -220,6 +220,7 @@ export default function Contact() {
               <Button 
                 size="lg" 
                 variant="outline"
+                className="border-white/30 text-white hover:bg-white/10 hover:text-white"
                 onClick={() => {
                   const phoneNumber = "917895849990";
                   const message = encodeURIComponent("Hello TechVexor! I'm interested in learning more about your AI & technology services. Please assist me.");

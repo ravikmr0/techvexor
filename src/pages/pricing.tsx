@@ -222,7 +222,7 @@ export default function Pricing() {
               <GradientButton asChild>
                 <a href="/services#complete-services-list">Complete Services List</a>
               </GradientButton>
-              <Button asChild variant="outline">
+              <Button asChild variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
                 <a href="/contact">Contact Sales</a>
               </Button>
             </div>

@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Card } from "@/components/ui/card";
-import { Shield, Award, Star, CheckCircle, TrendingUp, Users, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 const clients = [
@@ -26,32 +25,6 @@ const clients = [
   { name: "DigitalOcean", logo: "https://www.vectorlogo.zone/logos/digitalocean/digitalocean-ar21.svg", tier: "Growth" }
 ];
 
-const badges = [
-  {
-    icon: Shield,
-    name: "ISO 27001",
-    description: "Certified Security Management",
-    gradient: "from-blue-500 to-blue-600",
-  },
-  {
-    icon: Award,
-    name: "GDPR Compliant",
-    description: "Data Protection Excellence",
-    gradient: "from-purple-500 to-purple-600",
-  },
-  {
-    icon: Star,
-    name: "AI Excellence",
-    description: "Top-Rated Solutions Provider",
-    gradient: "from-indigo-500 to-indigo-600",
-  },
-  {
-    icon: CheckCircle,
-    name: "Cloud Verified",
-    description: "Enterprise-Grade Security",
-    gradient: "from-emerald-500 to-emerald-600",
-  },
-];
 
 export function TrustBadges() {
   const [api, setApi] = useState<any>(null);
@@ -152,7 +125,7 @@ export function TrustBadges() {
                           src={client.logo}
                           alt={`${client.name} logo`}
                           className="h-8 sm:h-10 w-auto max-w-[120px] object-contain 
-                                     transition-all duration-300 ease-in-out group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                                     transition-all duration-300 ease-in-out group-hover:scale-110"
                           loading="lazy"
                           decoding="async"
                         />
@@ -172,63 +145,6 @@ export function TrustBadges() {
                 <div key={i} className={`h-1 rounded-full ${i === 0 ? 'w-6 bg-indigo-500' : 'w-1 bg-slate-300'}`} />
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="text-center p-4 sm:p-6 rounded-lg bg-slate-50/50 border border-slate-200">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <Users className="w-5 h-5 text-indigo-600" />
-              <span className="text-2xl sm:text-3xl font-bold text-slate-900">500+</span>
-            </div>
-            <p className="text-sm text-slate-600">Global Clients</p>
-          </div>
-          
-          <div className="text-center p-4 sm:p-6 rounded-lg bg-slate-50/50 border border-slate-200">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <TrendingUp className="w-5 h-5 text-emerald-600" />
-              <span className="text-2xl sm:text-3xl font-bold text-slate-900">98%</span>
-            </div>
-            <p className="text-sm text-slate-600">Satisfaction Rate</p>
-          </div>
-          
-          <div className="text-center p-4 sm:p-6 rounded-lg bg-slate-50/50 border border-slate-200">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <Star className="w-5 h-5 text-yellow-500" />
-              <span className="text-2xl sm:text-3xl font-bold text-slate-900">4.9/5</span>
-            </div>
-            <p className="text-sm text-slate-600">Average Rating</p>
-          </div>
-        </div>
-
-        {/* Certification Badges */}
-        <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h3 className="text-center text-lg sm:text-xl font-bold text-slate-900 mb-8">
-            Industry Certifications & Recognition
-          </h3>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {badges.map((badge, index) => {
-              const IconComponent = badge.icon;
-              return (
-                <Card
-                  key={index}
-                  className={`p-4 sm:p-6 bg-gradient-to-br ${badge.gradient} hover:scale-105 transition-all duration-300 hover:shadow-lg cursor-pointer group`}
-                  itemProp="certifications"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/20 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
-                      <IconComponent className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-                    </div>
-                    <h3 className="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">
-                      {badge.name}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-white/80 leading-relaxed">{badge.description}</p>
-                  </div>
-                </Card>
-              );
-            })}
           </div>
         </div>
 

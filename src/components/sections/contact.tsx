@@ -64,9 +64,6 @@ export function Contact() {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <Card className="p-8">
-            <h2 className="text-3xl font-bold text-center mb-8">
-              Get a Free AI Strategy Session
-            </h2>
             
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-3">

@@ -377,7 +377,7 @@ export function Services() {
                       </Link>
                       <Button
                         variant="outline"
-                        className="w-full py-4 border-white/20 text-white hover:bg-white/10 hover:border-white/40 transition-all"
+                        className="w-full py-4 border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/40 hover:text-white transition-all"
                         onClick={(e) => handleQuoteClick(e, service.title)}
                       >
                         <MessageSquareQuote className="w-4 h-4 mr-2" />
