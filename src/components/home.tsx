@@ -278,8 +278,6 @@ function Home() {
       />
       <Header />
       <Hero />
-      <Services />
-      <UseCases />
       <WhyChooseUs />
       <TrustBadges />
       <Footer />
