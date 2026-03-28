@@ -51,6 +51,7 @@ const servicePackages = [
     gradientFrom: "from-blue-600",
     gradientTo: "to-cyan-500",
     glowColor: "blue",
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
     features: [
       { text: "Custom Responsive Design", icon: Palette },
       { text: "SEO Optimized Structure", icon: Search },
@@ -84,6 +85,7 @@ const servicePackages = [
     gradientFrom: "from-purple-600",
     gradientTo: "to-pink-500",
     glowColor: "purple",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     features: [
       { text: "SEO & Keyword Research", icon: Search },
       { text: "Social Media Marketing", icon: Share2 },
@@ -117,6 +119,7 @@ const servicePackages = [
     gradientFrom: "from-emerald-600",
     gradientTo: "to-teal-500",
     glowColor: "emerald",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     features: [
       { text: "Qualified Lead Capture", icon: Target },
       { text: "Sales Funnel Design", icon: TrendingUp },
@@ -273,9 +276,20 @@ export function Services() {
                   </div>
 
                   {/* Card Content */}
-                  <div className="relative p-8 flex flex-col h-full min-h-[700px]">
+                  <div className="relative flex flex-col h-full min-h-[700px]">
+                    {/* Service Image */}
+                    <div className="relative h-44 overflow-hidden">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70`} />
+                    </div>
+
+                    <div className="p-8 flex flex-col flex-1">
                     {/* Icon with 3D Effect */}
-                    <div className="mb-6">
+                    <div className="mb-6 -mt-10 relative z-10">
                       <div 
                         className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${service.gradientFrom} ${service.gradientTo} flex items-center justify-center shadow-2xl transition-all duration-500 group-hover:scale-110`}
                         style={{
@@ -388,6 +402,7 @@ export function Services() {
                     {/* Hidden SEO Keywords */}
                     <div className="sr-only" itemProp="keywords">
                       {service.keywords.join(", ")}
+                    </div>
                     </div>
                   </div>
                 </div>
