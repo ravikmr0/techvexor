@@ -271,14 +271,14 @@ Additional Notes: ${formData.message || "None"}`,
                       className="flex items-center gap-3 text-slate-300 hover:text-cyan-400 transition-colors"
                     >
                       <Phone className="w-5 h-5" />
-                      <span>+91 81433 79818</span>
+                      <span>+91 7895849990</span>
                     </a>
                     <a
                       href="mailto:hello@techvexor.com"
                       className="flex items-center gap-3 text-slate-300 hover:text-cyan-400 transition-colors"
                     >
                       <Mail className="w-5 h-5" />
-                      <span>hello@techvexor.com</span>
+                      <span>info@techvexor.com</span>
                     </a>
                   </div>
                 </div>
