@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/seo/canonical-url";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { Button } from "@/components/ui/button";
@@ -173,43 +174,13 @@ export default function ProductDetail() {
 
   return (
     <>
-      <Helmet>
-        {/* Primary Meta Tags */}
-        <title>{product.metaTitle}</title>
-        <meta name="title" content={product.metaTitle} />
-        <meta name="description" content={product.metaDescription} />
-        <meta name="keywords" content={product.keywords.join(", ")} />
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        
-        {/* Canonical URL */}
-        <link rel="canonical" href={canonicalUrl} />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="product" />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:title" content={product.metaTitle} />
-        <meta property="og:description" content={product.metaDescription} />
-        <meta property="og:image" content={product.images[0]} />
-        <meta property="og:site_name" content={SITE_NAME} />
-        <meta property="og:locale" content="en_IN" />
-        <meta property="product:price:amount" content={product.priceValue.toString()} />
-        <meta property="product:price:currency" content="INR" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content={canonicalUrl} />
-        <meta name="twitter:title" content={product.metaTitle} />
-        <meta name="twitter:description" content={product.metaDescription} />
-        <meta name="twitter:image" content={product.images[0]} />
-        
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(productSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
+      <SEO
+        title={product.metaTitle}
+        description={product.metaDescription}
+        keywords={product.keywords.join(", ")}
+        type="product"
+        schema={[productSchema, breadcrumbSchema]}
+      />
 
       <QuoteDialog 
         open={quoteDialogOpen} 

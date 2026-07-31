@@ -1,34 +1,61 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
+import { getCanonicalUrl, getRobotsContent } from "@/seo/canonical";
+import { getPageMetadata, siteMetadata } from "@/seo/metadata";
+import { generateBreadcrumbSchema, generateOrganizationSchema, generateWebsiteSchema } from "@/seo/schema";
 
-const BASE_URL = "https://www.techvexor.com";
-const DEFAULT_IMAGE = "https://www.techvexor.com/vexor1.svg";
-const SITE_NAME = "Tech Vexor";
+const DEFAULT_IMAGE = siteMetadata.defaultImage;
+const SITE_NAME = siteMetadata.siteName;
 
 /**
- * CanonicalUrl component that sets the canonical URL for the current page.
- * This removes query parameters to prevent duplicate content issues in search engines.
+ * CanonicalUrl component that sets the canonical URL and consistent metadata for the current page.
  */
 export function CanonicalUrl() {
   const location = useLocation();
-  
-  // Build canonical URL without query parameters
-  const canonicalUrl = `${BASE_URL}${location.pathname}`;
-  
-  // Remove trailing slash except for homepage
-  const normalizedUrl = location.pathname === "/" 
-    ? `${BASE_URL}/` 
-    : canonicalUrl.replace(/\/$/, "");
+  const metadata = getPageMetadata(location.pathname);
+  const canonicalUrl = metadata.canonical;
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.techvexor.com/" },
+    { name: metadata.title, url: canonicalUrl },
+  ]);
 
   return (
     <Helmet>
-      <link rel="canonical" href={normalizedUrl} />
+      <title>{metadata.title}</title>
+      <meta name="title" content={metadata.title} />
+      <meta name="description" content={metadata.description} />
+      <meta name="keywords" content={metadata.keywords} />
+      <link rel="canonical" href={canonicalUrl} />
+      <meta name="robots" content={getRobotsContent(true)} />
+      <meta property="og:title" content={metadata.openGraph.title} />
+      <meta property="og:description" content={metadata.openGraph.description} />
+      <meta property="og:type" content={metadata.openGraph.type} />
+      <meta property="og:url" content={metadata.openGraph.url} />
+      <meta property="og:site_name" content={metadata.openGraph.siteName} />
+      <meta property="og:image" content={metadata.openGraph.images[0].url} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={SITE_NAME} />
+      <meta name="twitter:card" content={metadata.twitter.card} />
+      <meta name="twitter:title" content={metadata.twitter.title} />
+      <meta name="twitter:description" content={metadata.twitter.description} />
+      <meta name="twitter:image" content={metadata.twitter.images[0]} />
+      <script type="application/ld+json">
+        {JSON.stringify(generateOrganizationSchema())}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(generateWebsiteSchema())}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(breadcrumbSchema)}
+      </script>
     </Helmet>
   );
 }
 
 /**
- * Custom SEO component for pages that need specific meta tags
+ * Custom SEO component for pages that need specific meta tags.
  */
 interface SEOProps {
   title?: string;
@@ -43,9 +70,9 @@ interface SEOProps {
   schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-export function SEO({ 
-  title, 
-  description, 
+export function SEO({
+  title,
+  description,
   image = DEFAULT_IMAGE,
   noindex,
   keywords,
@@ -53,116 +80,96 @@ export function SEO({
   publishedTime,
   modifiedTime,
   author,
-  schema
+  schema,
 }: SEOProps) {
   const location = useLocation();
-  
-  const canonicalUrl = `${BASE_URL}${location.pathname}`;
-  const normalizedUrl = location.pathname === "/" 
-    ? `${BASE_URL}/` 
-    : canonicalUrl.replace(/\/$/, "");
-
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | #1 IT Solutions Company in Noida`;
-  const metaDescription = description || "Tech Vexor is a leading IT solutions company offering custom software development, AI/ML solutions, cloud services, and digital marketing.";
+  const metadata = getPageMetadata(location.pathname);
+  const canonicalUrl = metadata.canonical;
+  const fullTitle = title ? `${title} | ${SITE_NAME}` : metadata.title;
+  const metaDescription = description || metadata.description;
+  const metaKeywords = keywords || metadata.keywords;
 
   return (
     <Helmet>
-      {/* Primary Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={metaDescription} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      
-      {/* Canonical URL */}
-      <link rel="canonical" href={normalizedUrl} />
-      
-      {/* Robots */}
+      {metaKeywords && <meta name="keywords" content={metaKeywords} />}
+      <link rel="canonical" href={canonicalUrl} />
       {noindex ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : (
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="robots" content={getRobotsContent(true)} />
       )}
-      
-      {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={normalizedUrl} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={image} />
       <meta property="og:image:alt" content={title || SITE_NAME} />
       <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:locale" content="en_IN" />
-      
-      {/* Twitter */}
+      <meta property="og:locale" content="en_US" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={normalizedUrl} />
+      <meta name="twitter:url" content={canonicalUrl} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={image} />
-      
-      {/* Article specific */}
-      {type === "article" && publishedTime && (
-        <meta property="article:published_time" content={publishedTime} />
-      )}
-      {type === "article" && modifiedTime && (
-        <meta property="article:modified_time" content={modifiedTime} />
-      )}
-      {type === "article" && author && (
-        <meta property="article:author" content={author} />
-      )}
-      
-      {/* JSON-LD Schema */}
-      {schema && Array.isArray(schema) ? (
-        schema.map((s, i) => (
-          <script key={i} type="application/ld+json">
-            {JSON.stringify(s)}
-          </script>
-        ))
-      ) : schema ? (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
-      ) : null}
+      {type === "article" && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+      {type === "article" && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+      {type === "article" && author && <meta property="article:author" content={author} />}
+      {schema && Array.isArray(schema)
+        ? schema.map((s, i) => (
+            <script key={i} type="application/ld+json">
+              {JSON.stringify(s)}
+            </script>
+          ))
+        : schema
+          ? (
+              <script type="application/ld+json">
+                {JSON.stringify(schema)}
+              </script>
+            )
+          : null}
     </Helmet>
   );
 }
 
 /**
- * Generate breadcrumb schema
+ * Generate breadcrumb schema.
  */
 export function generateBreadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": items.map((item, index) => ({
+    itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
-      "position": index + 1,
-      "name": item.name,
-      "item": item.url
-    }))
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   };
 }
 
 /**
- * Generate FAQ schema
+ * Generate FAQ schema.
  */
 export function generateFAQSchema(faqs: { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
+      name: faq.question,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
+        text: faq.answer,
+      },
+    })),
   };
 }
 
 /**
- * Generate service schema
+ * Generate service schema.
  */
 export function generateServiceSchema(service: {
   name: string;
@@ -173,18 +180,18 @@ export function generateServiceSchema(service: {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": service.name,
-    "description": service.description,
-    "provider": {
+    name: service.name,
+    description: service.description,
+    provider: {
       "@type": "Organization",
-      "name": service.provider || SITE_NAME
+      name: service.provider || SITE_NAME,
     },
-    "areaServed": service.areaServed || "Worldwide"
+    areaServed: service.areaServed || "Worldwide",
   };
 }
 
 /**
- * Generate article schema for blog posts
+ * Generate article schema for blog posts.
  */
 export function generateArticleSchema(article: {
   title: string;
@@ -198,26 +205,26 @@ export function generateArticleSchema(article: {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": article.title,
-    "description": article.description,
-    "image": article.image,
-    "datePublished": article.datePublished,
-    "dateModified": article.dateModified || article.datePublished,
-    "author": {
+    headline: article.title,
+    description: article.description,
+    image: article.image,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified || article.datePublished,
+    author: {
       "@type": "Person",
-      "name": article.author
+      name: article.author,
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": SITE_NAME,
-      "logo": {
+      name: SITE_NAME,
+      logo: {
         "@type": "ImageObject",
-        "url": DEFAULT_IMAGE
-      }
+        url: DEFAULT_IMAGE,
+      },
     },
-    "mainEntityOfPage": {
+    mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": article.url
-    }
+      "@id": article.url,
+    },
   };
 }
