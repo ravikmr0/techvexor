@@ -19,7 +19,6 @@ const navItems = [
   { label: "Products", href: "/products", icon: Package },
   { label: "About Us", href: "/about", icon: Users },
   { label: "Contact Us", href: "/contact", icon: Mail },
-  { label: "Book Your Demo", href: "/book-demo", icon: Sparkles },
 ];
 
 export function Header() {

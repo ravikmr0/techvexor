@@ -92,6 +92,35 @@ const socialLinks = [
   },
 ];
 
+const countryCodes = [
+  { code: "+1", country: "United States", flag: "🇺🇸" },
+  { code: "+44", country: "United Kingdom", flag: "🇬🇧" },
+  { code: "+91", country: "India", flag: "🇮🇳" },
+  { code: "+61", country: "Australia", flag: "🇦🇺" },
+  { code: "+1", country: "Canada", flag: "🇨🇦" },
+  { code: "+33", country: "France", flag: "🇫🇷" },
+  { code: "+49", country: "Germany", flag: "🇩🇪" },
+  { code: "+39", country: "Italy", flag: "🇮🇹" },
+  { code: "+34", country: "Spain", flag: "🇪🇸" },
+  { code: "+31", country: "Netherlands", flag: "🇳🇱" },
+  { code: "+41", country: "Switzerland", flag: "🇨🇭" },
+  { code: "+46", country: "Sweden", flag: "🇸🇪" },
+  { code: "+47", country: "Norway", flag: "🇳🇴" },
+  { code: "+45", country: "Denmark", flag: "🇩🇰" },
+  { code: "+358", country: "Finland", flag: "🇫🇮" },
+  { code: "+81", country: "Japan", flag: "🇯🇵" },
+  { code: "+86", country: "China", flag: "🇨🇳" },
+  { code: "+65", country: "Singapore", flag: "🇸🇬" },
+  { code: "+60", country: "Malaysia", flag: "🇲🇾" },
+  { code: "+66", country: "Thailand", flag: "🇹🇭" },
+  { code: "+62", country: "Indonesia", flag: "🇮🇩" },
+  { code: "+63", country: "Philippines", flag: "🇵🇭" },
+  { code: "+64", country: "New Zealand", flag: "🇳🇿" },
+  { code: "+27", country: "South Africa", flag: "🇿🇦" },
+  { code: "+55", country: "Brazil", flag: "🇧🇷" },
+  { code: "+52", country: "Mexico", flag: "🇲🇽" },
+];
+
 const faqs = [
   {
     question: "How long does a typical AI project take?",
@@ -121,6 +150,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    countryCode: "+91",
     phone: "",
     company: "",
     projectType: "",
@@ -155,8 +185,16 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
+      // Combine country code with phone number
+      const fullPhone = formData.phone 
+        ? `${formData.countryCode} ${formData.phone}` 
+        : "";
+
       // Send email to Tech Vexor
-      const emailSent = await sendContactEmail(formData);
+      const emailSent = await sendContactEmail({
+        ...formData,
+        phone: fullPhone
+      });
       
       if (emailSent) {
         // Send auto-reply to user
@@ -166,6 +204,7 @@ export default function Contact() {
         setFormData({
           name: "",
           email: "",
+          countryCode: "+91",
           phone: "",
           company: "",
           projectType: "",
@@ -297,16 +336,34 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium mb-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-3">
                         Phone Number
                       </label>
-                      <Input 
-                        type="tel" 
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="+1 (555) 123-4567" 
-                      />
+                      <div className="flex gap-3">
+                        <select 
+                          name="countryCode"
+                          value={formData.countryCode}
+                          onChange={handleInputChange}
+                          className="px-4 py-2.5 border border-gray-300 rounded-lg bg-white text-sm font-medium hover:border-gray-400 focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 focus:border-transparent transition-all duration-200 cursor-pointer"
+                        >
+                          {countryCodes.map((country) => (
+                            <option key={`${country.code}-${country.country}`} value={country.code}>
+                              {country.flag} {country.code} - {country.country}
+                            </option>
+                          ))}
+                        </select>
+                        <Input 
+                          type="tel" 
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          placeholder="Your phone number" 
+                          className="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 focus:border-transparent transition-all duration-200"
+                        />
+                      </div>
+                      <p className="mt-2 text-xs text-gray-500">
+                        Complete number: {formData.countryCode} {formData.phone || '(enter your number)'}
+                      </p>
                     </div>
 
                     <div>
