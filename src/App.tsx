@@ -19,7 +19,7 @@ import Products from "./pages/products";
 import ProductDetail from "./pages/products/[slug]";
 import SearchPage from "./pages/search";
 import LegalIndex from "./pages/legal";
-import NoidaSectorPlotOwnersData from "./pages/noida-sector-plot-owners-data/names_phone_number_address";
+import NoidaPlotOwnersData from "./pages/noida-plot-owners-data";
 
 // Legal Pages
 import PrivacyPolicy from "./pages/legal/privacy-policy";
@@ -103,7 +103,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:slug" element={<ProductDetail />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/noida-sector-plot-owners-data/names_phone_number_address" element={<NoidaSectorPlotOwnersData />} />
+          <Route path="/noida-plot-owners-data" element={<NoidaPlotOwnersData />} />
 
           {/* Legal Routes */}
           <Route path="/legal" element={<LegalIndex />} />
