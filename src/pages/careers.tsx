@@ -14,7 +14,8 @@ import {
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
-import { SEO, generateBreadcrumbSchema } from "@/components/seo/canonical-url";
+import { SEO } from "@/components/seo/canonical-url";
+import { generateBreadcrumbSchema } from "@/seo/schema";
 
 const jobOpenings = [
   {

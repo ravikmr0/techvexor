@@ -6,7 +6,8 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { Button } from "@/components/ui/button";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { Check } from "lucide-react";
-import { SEO, generateBreadcrumbSchema } from "@/components/seo/canonical-url";
+import { SEO } from "@/components/seo/canonical-url";
+import { generateBreadcrumbSchema } from "@/seo/schema";
 
 type Plan = { name: string; price: string; tagline: string; features: string[]; popular?: boolean };
 

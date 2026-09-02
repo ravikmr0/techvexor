@@ -5,7 +5,8 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { ArrowRight, ExternalLink } from "lucide-react";
-import { SEO, generateBreadcrumbSchema } from "@/components/seo/canonical-url";
+import { SEO } from "@/components/seo/canonical-url";
+import { generateBreadcrumbSchema } from "@/seo/schema";
 
 const projects = [
   {
