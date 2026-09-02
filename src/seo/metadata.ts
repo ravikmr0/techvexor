@@ -1,4 +1,7 @@
 import { getCanonicalUrl, SITE_URL } from "./canonical";
+import { serviceIndex } from "@/data/services-catalog";
+import { industryIndex } from "@/data/industry-catalog";
+import { products } from "@/data/products-catalog";
 
 export const siteMetadata = {
   siteName: "Tech Vexor",
@@ -122,48 +125,87 @@ function getPageDefinition(pathname: string) {
     return pageDefinitions[normalizedPath];
   }
 
+  // Handle dynamic service pages
   if (normalizedPath.startsWith("/services/")) {
+    const slug = normalizedPath.replace("/services/", "");
+    const service = serviceIndex[slug];
+    
+    if (service) {
+      return {
+        title: service.metaTitle || `${service.title} | Tech Vexor`,
+        description: service.metaDescription || service.description || `Professional ${service.title} services from Tech Vexor`,
+        keywords: service.metaKeywords || `${service.title.toLowerCase()}, tech vexor services, digital solutions`,
+      };
+    }
+    
     return {
-      title: "Service Page | Tech Vexor",
+      title: "Professional Services | Tech Vexor",
       description:
-        "Discover how Tech Vexor delivers specialized digital services tailored to modern business growth goals.",
-      keywords: "technology services, custom solutions, growth services",
+        "Explore Tech Vexor's comprehensive range of digital services tailored to your business needs.",
+      keywords: "digital services, technology solutions, professional services, tech vexor",
     };
   }
 
+  // Handle dynamic industry pages
   if (normalizedPath.startsWith("/industries/")) {
+    const slug = normalizedPath.replace("/industries/", "");
+    const industry = industryIndex[slug];
+    
+    if (industry) {
+      const keywords = industry.keywords?.join(", ") || industry.title.toLowerCase();
+      return {
+        title: `${industry.title} Solutions | Tech Vexor`,
+        description: industry.longDescription || industry.description || `Digital solutions tailored for ${industry.title}`,
+        keywords: `${industry.title.toLowerCase()}, ${keywords}, industry solutions, digital transformation`,
+      };
+    }
+    
     return {
       title: "Industry Solutions | Tech Vexor",
       description:
         "Explore tailored digital solutions for industries seeking better operations, visibility, and growth.",
-      keywords: "industry solutions, sector growth, digital transformation",
+      keywords: "industry solutions, sector growth, digital transformation, tech solutions",
     };
   }
 
+  // Handle dynamic product pages
+  if (normalizedPath.startsWith("/products/")) {
+    const slug = normalizedPath.replace("/products/", "");
+    const product = products.find(p => p.slug === slug);
+    
+    if (product) {
+      return {
+        title: product.metaTitle || `${product.name} | Buy Online | Tech Vexor`,
+        description: product.metaDescription || product.description || `Shop ${product.name} - high-quality products at competitive prices`,
+        keywords: product.keywords?.join(", ") || `${product.name.toLowerCase()}, online shopping, best price`,
+      };
+    }
+    
+    return {
+      title: "Products | Tech Vexor",
+      description:
+        "Browse our range of high-quality products designed for modern businesses and homes.",
+      keywords: "products, online shopping, quality products, tech vexor store",
+    };
+  }
+
+  // Handle blog pages with better defaults
   if (normalizedPath.startsWith("/blog/")) {
     return {
-      title: "Blog Article | Tech Vexor",
+      title: "Blog Article | Tech Vexor Insights",
       description:
-        "Read Tech Vexor's insights on AI, software, growth, and digital transformation.",
-      keywords: "blog article, technology insights, digital transformation strategies",
+        "Read expert insights on AI, digital transformation, software development, and growth strategies.",
+      keywords: "blog, technology insights, digital transformation, AI, software development, business growth",
     };
   }
 
-  if (normalizedPath.startsWith("/products/")) {
-    return {
-      title: "Product Details | Tech Vexor",
-      description:
-        "Explore Tech Vexor's product offerings built to support growth, automation, and modern operations.",
-      keywords: "product details, technology products, business software",
-    };
-  }
-
+  // Handle case study pages with better defaults
   if (normalizedPath.startsWith("/case-studies/")) {
     return {
-      title: "Case Study | Tech Vexor",
+      title: "Case Study | Tech Vexor Success Stories",
       description:
-        "See how Tech Vexor delivers measurable outcomes for clients through smart digital initiatives.",
-      keywords: "case studies, client success, digital transformation results",
+        "Discover how Tech Vexor helped clients achieve measurable results through digital innovation and technology.",
+      keywords: "case study, client success, digital transformation, business results, technology implementation",
     };
   }
 

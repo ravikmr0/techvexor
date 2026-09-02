@@ -456,6 +456,39 @@
   <url><loc>https://www.techvexor.com/industries/defense</loc><lastmod>2025-01-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.techvexor.com/industries/emergency-management</loc><lastmod>2025-01-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
+  <!-- Products -->
+  <url><loc>https://www.techvexor.com/products/solar-panels-mono-perc</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/solar-panels-polycrystalline</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/bifacial-solar-panels</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/rooftop-solar-system-5kw</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/commercial-solar-system-50kw</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/on-grid-solar-inverter</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/off-grid-solar-inverter</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/hybrid-solar-inverter</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/pwm-solar-charge-controller</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/mppt-solar-charge-controller</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/inverter-battery-150ah-tubular</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/inverter-battery-200ah-tubular</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/lithium-battery-pack-200ah</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/home-inverter-850va</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/home-inverter-1500va</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/commercial-inverter-5kva</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/smart-energy-meter</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/surge-protection-device</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/ac-ev-charging-station-7kw</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/dc-fast-charger-50kw</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/products/energy-storage-system-10kwh</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Blog Posts - Sample URLs (ensure these exist with unique content) -->
+  <url><loc>https://www.techvexor.com/blog/ai-transformation-2025</loc><lastmod>2025-01-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/blog/cloud-migration-guide</loc><lastmod>2025-01-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/blog/cybersecurity-best-practices</loc><lastmod>2025-01-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Case Studies - Sample URLs (ensure these exist with unique content) -->
+  <url><loc>https://www.techvexor.com/case-studies/ai-powered-ecommerce-platform</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/case-studies/smart-healthcare-platform</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.techvexor.com/case-studies/financial-analytics-dashboard</loc><lastmod>2025-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
   <!-- Legal Pages -->
   <url><loc>https://www.techvexor.com/legal</loc><lastmod>2025-01-17</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://www.techvexor.com/legal/privacy-policy</loc><lastmod>2025-01-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>

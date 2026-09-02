@@ -122,7 +122,6 @@ function App() {
           <Route path="/services/ai-agents-chatbots" element={<ServiceAIAgentsChatbots />} />
           <Route path="/services/cybersecurity" element={<ServiceCybersecurity />} />
           <Route path="/services/custom-software" element={<ServiceCustomSoftware />} />
-          <Route path="/services/seo" element={<ServiceDigitalMarketing />} />
           <Route path="/services/digital-marketing" element={<ServiceDigitalMarketing />} />
           <Route path="/services/:slug" element={<ServiceDynamic />} />
 
